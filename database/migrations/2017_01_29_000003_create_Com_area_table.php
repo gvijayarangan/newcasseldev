@@ -13,14 +13,14 @@ class CreateComAreaTable extends Migration
      */
     public function up()
     {
-        Schema::create('com_area', function (Blueprint $table) {
+        Schema::create('comarea', function (Blueprint $table) {
             $table->increments('ca_id');
             $table->string('ca_name');
             $table->String('ca_comments');
             $table->integer('cntr_id')->unsigned();
         });
 
-        Schema::table('com_area', function (Blueprint $table) {
+        Schema::table('comarea', function (Blueprint $table) {
             $table->foreign('cntr_id')->references('cntr_id')->on('center')->onDelete('cascade');
         });
 
@@ -33,6 +33,6 @@ class CreateComAreaTable extends Migration
      */
     public function down()
     {
-        Schema::drop('com_area');
+        Schema::drop('comarea');
     }
 }

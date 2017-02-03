@@ -25,7 +25,7 @@ class CreateOrderTable extends Migration
 
             $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('apt_id')->references('order_id')->on('apartment')
+            $table->foreign('apt_id')->references('apt_id')->on('apartment')
                 ->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('ca_id')->references('ca_id')->on('comarea')
                 ->onUpdate('cascade')->onDelete('cascade');
