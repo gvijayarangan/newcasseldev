@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateResidentTable extends Migration
+class CreateResidentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateResidentTable extends Migration
      */
     public function up()
     {
-        Schema::create('resident', function (Blueprint $table) {
-            $table->increments('res_id');
+        Schema::create('residents', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('res_pccid');
             $table->string('res_fname');
             $table->string('res_mname');
@@ -28,8 +28,8 @@ class CreateResidentTable extends Migration
             $table->integer('apt_id')->unsigned();
         });
 
-        Schema::table('resident', function (Blueprint $table) {
-            $table->foreign('apt_id')->references('apt_id')->on('apartment')->onDelete('cascade');
+        Schema::table('residents', function (Blueprint $table) {
+            $table->foreign('apt_id')->references('id')->on('apartments')->onDelete('cascade');
         });
     }
 
@@ -40,7 +40,7 @@ class CreateResidentTable extends Migration
      */
     public function down()
     {
-        Schema::drop('resident');
+        Schema::drop('residents');
     }
 }
 

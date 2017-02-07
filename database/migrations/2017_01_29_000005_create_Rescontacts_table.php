@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateResContactTable extends Migration
+class CreateResContactsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateResContactTable extends Migration
      */
     public function up()
     {
-        Schema::create('res_contact', function (Blueprint $table) {
-            $table->increments('con_id');
+        Schema::create('rescontacts', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('con_fname');
             $table->string('con_mname');
             $table->string('con_lname');
@@ -26,7 +26,7 @@ class CreateResContactTable extends Migration
             $table->integer('user_id')->unsigned();
         });
 
-        Schema::table('res_contact', function (Blueprint $table) {
+        Schema::table('rescontacts', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
@@ -38,6 +38,6 @@ class CreateResContactTable extends Migration
      */
     public function down()
     {
-        Schema::drop('res_contact');
+        Schema::drop('rescontacts');
     }
 }

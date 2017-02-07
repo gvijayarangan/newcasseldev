@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAssignorderTable extends Migration
+class CreateOrcommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,20 @@ class CreateAssignorderTable extends Migration
      */
     public function up()
     {
-        Schema::create('assign_order', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned();
+        Schema::create('orcomments', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('order_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+            $table->timestamps();
+            $table->string('orcom_comments');
             $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('order_id')->references('order_id')->on('order')
+            $table->foreign('order_id')->references('id')->on('orders')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-            /*$table->primary(['user_id', 'order_id']);*/
+          /*  $table->primary(['orcom_id']); */
         });
     }
 
@@ -33,6 +36,6 @@ class CreateAssignorderTable extends Migration
      */
     public function down()
     {
-        Schema::drop('assign_order');
+        Schema::drop('orcomments');
     }
 }

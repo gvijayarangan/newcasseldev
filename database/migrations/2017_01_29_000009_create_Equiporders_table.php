@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEquipOrderTable extends Migration
+class CreateEquipOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateEquipOrderTable extends Migration
      */
     public function up()
     {
-        Schema::create('equip_order', function (Blueprint $table) {
+        Schema::create('equiporders', function (Blueprint $table) {
 
             $table->integer('equ_id')->unsigned();
             $table->integer('order_id')->unsigned();
         });
 
-        Schema::table('equip_order', function (Blueprint $table) {
-            $table->foreign('equ_id')->references('equ_id')->on('equipment')->onDelete('cascade');
-            $table->foreign('order_id')->references('order_id')->on('order')->onDelete('cascade');
+        Schema::table('equiporders', function (Blueprint $table) {
+            $table->foreign('equ_id')->references('id')->on('equipments')->onDelete('cascade');
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
         });
     }
 
@@ -32,6 +32,6 @@ class CreateEquipOrderTable extends Migration
      */
     public function down()
     {
-        Schema::drop('equip_order');
+        Schema::drop('equiporders');
     }
 }

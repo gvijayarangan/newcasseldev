@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatelogTable extends Migration
+class CreateAssignordersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,22 +12,17 @@ class CreatelogTable extends Migration
      */
     public function up()
     {
-        Schema::create('log', function (Blueprint $table) {
-            $table->increments('log_id');
-            $table->string('log_date');
-            $table->string('log_field');
-            $table->string('log_oldvalue');
-            $table->string('log_newvalue');
+        Schema::create('assignorders', function (Blueprint $table) {
             $table->integer('user_id')->unsigned();
             $table->integer('order_id')->unsigned();
             $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('order_id')->references('order_id')->on('order')
+            $table->foreign('order_id')->references('id')->on('orders')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-            /*$table->primary(['log_id']); */
+            /*$table->primary(['user_id', 'order_id']);*/
         });
     }
 
@@ -38,6 +33,6 @@ class CreatelogTable extends Migration
      */
     public function down()
     {
-        Schema::drop('log');
+        Schema::drop('assignorders');
     }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrcommentTable extends Migration
+class CreatelogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,20 +12,22 @@ class CreateOrcommentTable extends Migration
      */
     public function up()
     {
-        Schema::create('orcomment', function (Blueprint $table) {
-            $table->increments('orcom_id');
-            $table->integer('order_id')->unsigned();
+        Schema::create('logs', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('log_date');
+            $table->string('log_field');
+            $table->string('log_oldvalue');
+            $table->string('log_newvalue');
             $table->integer('user_id')->unsigned();
-            $table->timestamps();
-            $table->string('orcom_comments');
+            $table->integer('order_id')->unsigned();
             $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('order_id')->references('order_id')->on('order')
+            $table->foreign('order_id')->references('id')->on('orders')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-          /*  $table->primary(['orcom_id']); */
+            /*$table->primary(['log_id']); */
         });
     }
 
@@ -36,6 +38,6 @@ class CreateOrcommentTable extends Migration
      */
     public function down()
     {
-        Schema::drop('orcomment');
+        Schema::drop('logs');
     }
 }

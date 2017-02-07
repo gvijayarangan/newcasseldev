@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateApartmentTable extends Migration
+class CreateApartmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,16 +14,16 @@ class CreateApartmentTable extends Migration
 
     public function up()
     {
-        Schema::create('apartment', function (Blueprint $table) {
-            $table->increments('apt_id');
+        Schema::create('apartments', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('apt_floornumber');
             $table->string('apt_number');
             $table->string('apt_comments');
             $table->integer('cntr_id')->unsigned();
         });
 
-        Schema::table('apartment', function (Blueprint $table) {
-            $table->foreign('cntr_id')->references('cntr_id')->on('center')->onDelete('cascade');
+        Schema::table('apartments', function (Blueprint $table) {
+            $table->foreign('cntr_id')->references('id')->on('centers')->onDelete('cascade');
         });
 
     }
@@ -36,6 +36,6 @@ class CreateApartmentTable extends Migration
      */
     public function down()
     {
-        Schema::drop('apartment');
+        Schema::drop('apartments');
     }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNotificationTable extends Migration
+class CreateNotificationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,12 @@ class CreateNotificationTable extends Migration
      */
     public function up()
     {
-        Schema::create('notification', function (Blueprint $table) {
-            $table->increments('noti_id');
+        Schema::create('notifications', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('noti_type');
-            $table->string('noti_alertcontent');
+            $table->string('noti_alert_content');
             $table->string('noti_status'); /*res_status*/
-            $table->string('noti_emailtitle');
+            $table->string('noti_email_title');
             $table->softDeletes();
 
             /*$table->primary(['noti_id']); */
@@ -31,6 +31,6 @@ class CreateNotificationTable extends Migration
      */
     public function down()
     {
-        Schema::drop('notification');
+        Schema::drop('notifications');
     }
 }

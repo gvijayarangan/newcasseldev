@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrderTable extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,9 @@ class CreateOrderTable extends Migration
      */
     public function up()
     {
-        Schema::create('order', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->integer('user_id')->unsigned();
-            $table->increments('order_id');
+            $table->increments('id');
             $table->integer('apt_id')->unsigned();
             $table->integer('ca_id')->unsigned();
             $table->string('order_description');
@@ -25,9 +25,9 @@ class CreateOrderTable extends Migration
 
             $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('apt_id')->references('apt_id')->on('apartment')
+            $table->foreign('apt_id')->references('id')->on('apartments')
                 ->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('ca_id')->references('ca_id')->on('comarea')
+            $table->foreign('ca_id')->references('id')->on('comareas')
                 ->onUpdate('cascade')->onDelete('cascade');
 
             /*$table->primary(['order_id']);*/
@@ -41,6 +41,6 @@ class CreateOrderTable extends Migration
      */
     public function down()
     {
-        Schema::drop('order');
+        Schema::drop('orders');
     }
 }

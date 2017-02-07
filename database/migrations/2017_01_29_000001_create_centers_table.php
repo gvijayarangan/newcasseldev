@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCenterTable extends Migration
+class CreateCentersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateCenterTable extends Migration
      */
     public function up()
     {
-        Schema::create('center', function (Blueprint $table) {
-            $table->increments('cntr_id');
+        Schema::create('centers', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('cntr_name');
             $table->string('cntr_add1');
             $table->string('cntr_add2');
@@ -34,6 +34,6 @@ class CreateCenterTable extends Migration
      */
     public function down()
     {
-        Schema::drop('center');
+        Schema::drop('centers');
     }
 }

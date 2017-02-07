@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateComAreaTable extends Migration
+class CreateComAreasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateComAreaTable extends Migration
      */
     public function up()
     {
-        Schema::create('comarea', function (Blueprint $table) {
-            $table->increments('ca_id');
+        Schema::create('comareas', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('ca_name');
             $table->String('ca_comments');
             $table->integer('cntr_id')->unsigned();
         });
 
-        Schema::table('comarea', function (Blueprint $table) {
-            $table->foreign('cntr_id')->references('cntr_id')->on('center')->onDelete('cascade');
+        Schema::table('comareas', function (Blueprint $table) {
+            $table->foreign('cntr_id')->references('id')->on('centers')->onDelete('cascade');
         });
 
     }
@@ -33,6 +33,6 @@ class CreateComAreaTable extends Migration
      */
     public function down()
     {
-        Schema::drop('comarea');
+        Schema::drop('comareas');
     }
 }
