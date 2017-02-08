@@ -25,11 +25,6 @@ class CreateResidentsTable extends Migration
             $table->string('res_email');
             $table->string('res_comment');
             $table->string('res_status');
-            $table->integer('apt_id')->unsigned();
-        });
-
-        Schema::table('residents', function (Blueprint $table) {
-            $table->foreign('apt_id')->references('id')->on('apartments')->onDelete('cascade');
         });
     }
 
