@@ -51,6 +51,9 @@ Route::get('laravel-version', function()
 
     Route::get('/home', 'HomeController@index');
 
+Route::get('apartment/update/{id}', 'ApartmentsController@edit');
+Route::get('apartment/update information/{id}', 'ApartmentsController@update');
+Route::resource('apartment', 'ApartmentsController');
 
 
 
