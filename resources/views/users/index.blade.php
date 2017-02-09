@@ -24,7 +24,7 @@
                                 <tbody> <!-- Table Body -->
                                 @foreach ($users as $user)
                                     <tr>
-                                        <td class="table-text"><div><a href="{{ url('/users/'.$user->id.'/edit') }}">{{ $user->name }}</a></div></td>
+                                        <td class="table-text"><div><a href="{{ url('/users/'.$user->id.'/edit') }}">{{ $user->f_name }} {{  $user->m_name }} {{  $user->l_name }}</a></div></td>
                                         <td class="table-text"><div>{{ $user->email }}</div></td>
                                         @if ($user->active)<td class="table-text"><div>Active</div></td>@else<td class="table-text"><div>InActive</div></td>@endif
                                         {{--<td>--}}
@@ -49,21 +49,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('footer')
-    <style>
-        .table td { border: 0px !important; }
-        .tooltip-inner { white-space:pre-wrap; max-width: 400px; }
-    </style>
-
-    <script>
-        $(document).ready(function() {
-            $('table.cds-datatable').on( 'draw.dt', function () {
-                $('tr').tooltip({html: true, placement: 'auto' });
-            } );
-
-            $('tr').tooltip({html: true, placement: 'auto' });
-        } );
-    </script>
 @endsection

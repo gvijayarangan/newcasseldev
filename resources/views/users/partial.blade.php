@@ -1,30 +1,35 @@
-<div class="form-group{{ $errors->has('fname') ? ' has-error' : '' }}">
-    {!! Form::label('fname', 'First Name:', ['class' => 'col-xs-2 control-label']) !!}
-    <div class="col-xs-2">
-        {!! Form::text('fname', null, ['class' => 'col-xs-2 form-control', 'required' => 'required']) !!}
-        @if ($errors->has('fname'))
+es (182 sloc)  7.61 KB
+<div class="form-group{{ $errors->has('f_name') ? ' has-error' : '' }}">
+    {!! Form::label('f_name', 'First Name:', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        {!! Form::text('f_name', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        @if ($errors->has('f_name'))
             <span class="help-block">
-                <strong>{{ $errors->first('fname') }}</strong>
+                <strong>{{ $errors->first('f_name') }}</strong>
             </span>
         @endif
     </div>
+</div>
 
-    {!! Form::label('lname', 'Last Name:', ['class' => 'col-xs-2 control-label']) !!}
-    <div class="col-xs-2">
-        {!! Form::text('lname', null, ['class' => 'col-xs-2 form-control', 'required' => 'required']) !!}
-        @if ($errors->has('lname'))
+<div class="form-group{{ $errors->has('m_name') ? ' has-error' : '' }}">
+    {!! Form::label('m_name', 'Middle Name:', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        {!! Form::text('m_name', null, ['class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('m_name'))
             <span class="help-block">
-                <strong>{{ $errors->last('lname') }}</strong>
+                <strong>{{ $errors->middle('m_name') }}</strong>
             </span>
         @endif
     </div>
+</div>
 
-    {!! Form::label('mname', 'Middle Name:', ['class' => 'col-xs-2 control-label']) !!}
-    <div class="col-xs-2">
-        {!! Form::text('mname', null, ['class' => 'col-xs-2 form-control', 'required' => 'required']) !!}
-        @if ($errors->has('mname'))
+<div class="form-group{{ $errors->has('l_name') ? ' has-error' : '' }}">
+    {!! Form::label('l_name', 'Last Name:', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        {!! Form::text('l_name', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        @if ($errors->has('l_name'))
             <span class="help-block">
-                <strong>{{ $errors->middle('mname') }}</strong>
+                <strong>{{ $errors->last('l_name') }}</strong>
             </span>
         @endif
     </div>
@@ -45,13 +50,13 @@
 <div class="form-group">
     <label class="col-md-4 control-label">Roles</label>
     <div class="col-md-6">{!! Form::select('rolelist[]', $list_role, null,
-   ['class' => 'form-control roles cds-select', 'multiple', 'style' => 'width: 50%; margin-top: 10px;']) !!}</div>
+    ['class' => 'form-control roles cds-select', 'multiple', 'style' => 'width: 50%; margin-top: 10px;', 'required' => 'required']) !!}</div>
 </div>
 
 <div class="form-group{{ $errors->has('residentid') ? ' has-error' : '' }}">
     {!! Form::label('residentid', 'Resident ID:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-2">
-        {!! Form::text('residentid', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        {!! Form::text('residentid', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('residentid'))
             <span class="help-block">
                 <strong>{{ $errors->first('residentid') }}</strong>
@@ -63,7 +68,7 @@
 <div class="form-group{{ $errors->has('residentrelationship') ? ' has-error' : '' }}">
     {!! Form::label('residentrelationship', 'Resident Relationship:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-4">
-        {!! Form::text('residentrelationship', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        {!! Form::text('residentrelationship', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('residentrelationship'))
             <span class="help-block">
                 <strong>{{ $errors->first('residentrelationship') }}</strong>
@@ -72,61 +77,13 @@
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('addressline1') ? ' has-error' : '' }}">
-    {!! Form::label('addressline1', 'Address Line 1:', ['class' => 'col-md-4 control-label']) !!}
-    <div class="col-md-6">
-        {!! Form::text('addressline1', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
-        @if ($errors->has('addressline1'))
+<div class="form-group{{ $errors->has('comment') ? ' has-error' : '' }}">
+    {!! Form::label('comment', 'Comment:', ['class' => 'col-md-4 control-label']) !!}
+        <div class="col-md-6">
+        {!! Form::textarea('comment', null, ['class' => 'col-md-6 form-control' ]) !!}
+        @if ($errors->has('comment'))
             <span class="help-block">
-                <strong>{{ $errors->first('addressline1') }}</strong>
-            </span>
-        @endif
-    </div>
-</div>
-
-<div class="form-group{{ $errors->has('addressline2') ? ' has-error' : '' }}">
-    {!! Form::label('addressline2', 'Address Line 2:', ['class' => 'col-md-4 control-label']) !!}
-    <div class="col-md-6">
-        {!! Form::text('addressline2', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
-        @if ($errors->has('addressline2'))
-            <span class="help-block">
-                <strong>{{ $errors->first('addressline2') }}</strong>
-            </span>
-        @endif
-    </div>
-</div>
-
-<div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
-    {!! Form::label('city', 'City:', ['class' => 'col-md-4 control-label']) !!}
-    <div class="col-md-4">
-        {!! Form::text('city', null, ['class' => 'col-md-4 form-control', 'required' => 'required']) !!}
-        @if ($errors->has('city'))
-            <span class="help-block">
-                <strong>{{ $errors->first('city') }}</strong>
-            </span>
-        @endif
-    </div>
-</div>
-
-<div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
-    {!! Form::label('state', 'State:', ['class' => 'col-md-4 control-label']) !!}
-    <div class="col-md-4">
-        {!! Form::text('state', null, ['class' => 'col-md-4 form-control', 'required' => 'required']) !!}
-        @if ($errors->has('state'))
-            <span class="help-block">
-                <strong>{{ $errors->first('state') }}</strong>
-            </span>
-        @endif
-    </div>
-</div>
-
-<div class="form-group{{ $errors->has('zipcode') ? ' has-error' : '' }}">
-    {!! Form::label('zipcode', 'Zipcode:', ['class' => 'col-md-4 control-label']) !!}
-    <div class="col-md-4">
-        {!! Form::text('zipcode', null, ['class' => 'col-md-4 form-control', 'required' => 'required']) !!}
-        @if ($errors->has('zipcode'))
-            <span class="help-block">
-                <strong>{{ $errors->first('zipcode') }}</strong>
+                <strong>{{ $errors->first('comment') }}</strong>
             </span>
         @endif
     </div>
@@ -144,7 +101,15 @@
     </div>
 </div>
 
-
+<div class="form-group">
+    <div class="col-md-6 col-md-offset-4">
+        <div class="checkbox">
+            <label>
+                {{ Form::hidden('active', false) }}{{ Form::checkbox('active', true, old('active')) }} Active
+            </label>
+        </div>
+    </div>
+</div>
 
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
@@ -156,8 +121,78 @@
     </div>
 </div>
 
-<div class="form-group" style="text-align: center">
-         {!! Form::button('<i class="fa fa-btn fa-save"></i>Create User', ['type' => 'submit', 'class' => 'btn btn-primary']) !!}
+@if($CRUD_Action == 'Create')
+    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+        <label class="col-md-4 control-label">Password</label>
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="password" id='p' readonly><br/><input type='button' value ='generate password' onclick='document.getElementById("p").value = Password.generate(16)'>
+            @if ($errors->has('password'))
+                <span class="help-block"><strong>{{ $errors->first('password') }}</strong></span>
+            @endif
+        </div>
+    </div>
+    <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+        <label class="col-md-4 control-label">Confirm Password</label>
+        <div class="col-md-6">
+            <input type="password" class="form-control" name="password_confirmation">
+            @if ($errors->has('password_confirmation'))
+                <span class="help-block"><strong>{{ $errors->first('password_confirmation') }}</strong></span>
+            @endif
+        </div>
+    </div>
+@endif
 
-         {!! Form::button('<i class="fa fa-btn fa-save"></i>Reset Fields', ['type' => 'reset', 'class' => 'btn btn-primary']) !!}
+<div class="form-group" style="text-align: center">
+    @if($CRUD_Action == 'Create')
+        {!! Form::button('<i class="fa fa-btn fa-save"></i>Mail Password Reset Link', ['type' => 'submit', 'class' => 'btn btn-success']) !!}
+
+        {!! Form::button('Cancel', ['type' => 'reset', 'class' => 'btn btn-default']) !!}
+    @else
+         {!! Form::button('<i class="fa fa-btn fa-save"></i>Save', ['type' => 'submit', 'class' => 'btn btn-primary']) !!}
+
+         {!! Form::button('Cancel', ['type' => 'reset', 'class' => 'btn btn-default']) !!}
+    @endif
  </div>
+
+<script>
+    var Password = {
+        _pattern : /[a-zA-Z0-9_\-\+\.]/,
+        _getRandomByte : function()
+        {
+// http://caniuse.com/#feat=getrandomvalues
+            if(window.crypto && window.crypto.getRandomValues)
+            {
+                var result = new Uint8Array(1);
+                window.crypto.getRandomValues(result);
+                return result[0];
+            }
+            else if(window.msCrypto && window.msCrypto.getRandomValues)
+            {
+                var result = new Uint8Array(1);
+                window.msCrypto.getRandomValues(result);
+                return result[0];
+            }
+            else
+            {
+                return Math.floor(Math.random() * 256);
+            }
+        },
+        generate : function(length)
+        {
+            return Array.apply(null, {'length': length})
+                .map(function()
+                {
+                    var result;
+                    while(true)
+                    {
+                        result = String.fromCharCode(this._getRandomByte());
+                        if(this._pattern.test(result))
+                        {
+                            return result;
+                        }
+                    }
+                }, this)
+                .join('');
+        }
+    };
+</script>

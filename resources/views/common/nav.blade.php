@@ -24,6 +24,8 @@
                     <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/home') }}">Home</a></li>
+                  <li><a href="{{ url(‘/residents’) }}">Residents</a></li>
+                  <li><a href="{{ url(‘/Apartment’) }}">Apartment</a></li>
                 {{-- Menu for Users with Administration Role Only --}}
                 @role('admin')
                 <li class="dropdown">

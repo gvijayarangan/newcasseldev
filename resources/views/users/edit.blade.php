@@ -33,7 +33,6 @@
         $(document).ready(function($) {
             $('select').select2();
         });
-
         function validateOnSave() {
             var rc = true;
             if ($("select#sb_id").val() === "") {
@@ -45,7 +44,5 @@
             }
             return rc;
         }
-
     </script>
 @endsection
-
