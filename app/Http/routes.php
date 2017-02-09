@@ -53,7 +53,8 @@ Route::get('laravel-version', function()
 
 Route::get('apartment/update/{id}', 'ApartmentsController@edit');
 Route::get('apartment/update information/{id}', 'ApartmentsController@update');
-Route::resource('apartment', 'ApartmentsController');
+Route::resource('/apartment', 'ApartmentsController');
+Route::get('/residents','ResidentController@index');
 
 
 

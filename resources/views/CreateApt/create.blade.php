@@ -3,10 +3,6 @@
     <h1>Create Apartment Information</h1>
     {!! Form::open(['url' => 'apartment']) !!}
     <div class="form-group">
-        {!! Form::label('id','Apt Id:') !!}
-        {!! Form::text('id',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
         {!! Form::label('apt_floornumber', 'Apartment Floor Number:') !!}
         {!! Form::text('apt_floornumber',null,['class'=>'form-control']) !!}
     </div>
