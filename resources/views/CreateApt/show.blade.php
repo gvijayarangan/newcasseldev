@@ -7,23 +7,23 @@
             <tbody>
             <tr class="bg-info">
             <tr>
-                <td>apt_id:</td>
+                <td>Apartment ID:</td>
                 <td><?php echo ($post['id']); ?></td>
             </tr>
             <tr>
-                <td>apt_floornumber:</td>
+                <td>Apartment Floor Number:</td>
                 <td><?php echo ($post['apt_floornumber']); ?></td>
             </tr>
             <tr>
-                <td>apt_number:</td>
+                <td>Apartment Number:</td>
                 <td><?php echo ($post['apt_number']); ?></td>
             </tr>
             <tr>
-                <td>apt_comments:</td>
+                <td>Apartment Comments:</td>
                 <td><?php echo ($post['apt_comments']); ?></td>
             </tr>
             <tr>
-                <td>cntr_id:</td>
+                <td>Center ID:</td>
                 <td><?php echo ($post['cntr_id']); ?></td>
             </tr>
             </tbody>

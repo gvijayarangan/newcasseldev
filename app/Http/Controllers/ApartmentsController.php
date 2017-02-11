@@ -13,7 +13,7 @@ class ApartmentsController extends Controller
 {
     public function index()
     {
-        //dd();
+        
         $createapts = Apartment::all();
         return view('CreateApt.index',compact('createapts'));
     }
@@ -63,7 +63,7 @@ class ApartmentsController extends Controller
         $CreateApt->apt_floornumber = $CreateAptUpdate['apt_floornumber'];
         $CreateApt->apt_number = $CreateAptUpdate['apt_number'];
         $CreateApt->apt_comments = $CreateAptUpdate['apt_comments'];
-        $CreateApt->cntr_id = $CreateAptUpdate['cntr_id'];
+        #$CreateApt->cntr_id = $CreateAptUpdate['cntr_id']; #commented to avoid FK from Center table
         $CreateApt->update($CreateAptUpdate);
         return redirect('apartment');
     }

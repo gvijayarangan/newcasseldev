@@ -19,12 +19,12 @@ class CreateApartmentsTable extends Migration
             $table->integer('apt_floornumber');
             $table->string('apt_number');
             $table->string('apt_comments');
-            $table->integer('cntr_id')->unsigned();
+           $table->integer('cntr_id')->unsigned();
         });
 
-        Schema::table('apartments', function (Blueprint $table) {
+      /*  Schema::table('apartments', function (Blueprint $table) {
             $table->foreign('cntr_id')->references('id')->on('centers')->onDelete('cascade');
-        });
+        });*/
 
     }
 
