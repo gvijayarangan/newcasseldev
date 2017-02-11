@@ -40,10 +40,17 @@ class HomeController extends Controller
         if (Auth::check())
         {
             $user = Auth::user();
+            $loginUser = Auth::user()->getUserEmail();
+            setcookie('login', $loginUser, time() + (86400 * 30), "/");
             if ($user->hasRole('admin'))
-                return view('carousel', compact('user'));
+             return view('carousel', compact('user'));
             else
                 return view('home', compact('user'));
+
+           
+
+
+
         }
     }
 }

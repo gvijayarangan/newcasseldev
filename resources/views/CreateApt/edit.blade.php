@@ -20,10 +20,6 @@
         {!! Form::text('apt_comments',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-        {!!Form::label('cntr_id', 'Center ID:') !!}
-        {{ Form::select('cntr_id', ['Omaha', 'Other']) }}
-    </div>
-    <div class="form-group">
         {!! Form::submit('Update Information', ['class' => 'btn btn-primary']) !!}
     </div>
     {!! Form::close() !!}

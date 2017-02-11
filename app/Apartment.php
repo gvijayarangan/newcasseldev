@@ -12,7 +12,6 @@ class Apartment extends Model
     protected $fillable=[
         'apt_floornumber',
         'apt_number',
-        'apt_comments',
-        'cntr_id'
+        'apt_comments'
     ];
 }

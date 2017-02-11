@@ -30,9 +30,6 @@ class UsersController extends Controller
 {
     public function __construct()
     {
-//        $this->middleware('administrator', ['only' => ['create', 'edit', 'destroy', 'update']]);
-//        $this->middleware('administrator');
-//        $this->middleware('role:admin|root');
         $this->middleware('role:admin');
 
         $this->user = Auth::user();
@@ -75,8 +72,8 @@ class UsersController extends Controller
         Log::info('UsersController.store - Start: ');
         $input = $request->all();
         $this->populateCreateFields($input);
-        $input['password'] = bcrypt($request['password']);
-        $input['active'] = $request['active'] == '' ? false : true;
+        $input['password'] = "";
+        $input['active'] = $request['active'] == '' ? true : false;
 
         $object = User::create($input);
         $this->syncRoles($object, $request->input('rolelist'));
@@ -101,7 +98,7 @@ class UsersController extends Controller
         Log::info('UsersController.update - Start: '.$object->id.'|'.$object->name);
 //        $this->authorize($object);
         $this->populateUpdateFields($request);
-        $request['active'] = $request['active'] == '' ? false : true;
+        $request['active'] = $request['active'] == '' ? true : false;
 
         $object->update($request->all());
         $this->syncRoles($object, $request->input('rolelist'));

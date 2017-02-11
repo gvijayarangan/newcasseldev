@@ -13,7 +13,7 @@
             <!-- Branding Image -->
             {{--<a class="navbar-brand" href="{{ url('/') }}">Laravel</a>--}}
             <div class="pull-left"> <img src="images/New_Cassel.png" style="height: 48px;"></div>
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a class="navbar-brand"">
                 &nbsp New Cassel Work Order System
             </a>
 
@@ -26,6 +26,19 @@
                 <li><a href="{{ url('/home') }}">Home</a></li>
                 <li><a href="{{ url('/apartment') }}">Apartment</a></li>
                 <li><a href="{{ url('/residents') }}">Residents</a></li>
+
+                @role('admin')
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <i class="fa fa-btn fa-fw "></i>Work Order<span class="caret"></span></a>
+                    <ul class="dropdown-menu multi level" role="menu">
+                        <li><a href="{{ url('/users') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Work Order Form</a></li>
+                        <li><a href="{{ url('/roles') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>View Work Order's</a></li>
+                        {{--<li class="divider"></li>--}}
+                        {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn fa-fw fa-file"></i>Files</a></li>--}}
+                    </ul>
+                </li>
+                @endrole
 
                 {{-- Menu for Users with Administration Role Only --}}
                 @role('admin')
@@ -52,7 +65,7 @@
                     <li><a href="{{ url('/register') }}">Register</a></li> --}}
                 @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->getFullName() }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-fw fa-sign-out"></i>Logout</a></li>
                             <li><a href="{{ url('/change-password') }}"><i class="fa fa-btn fa-fw fa-lock"></i>Change Password</a></li>

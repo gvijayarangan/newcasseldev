@@ -14,10 +14,16 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('f_name');
+            $table->string('m_name')->nullable();
+            $table->string('l_name');
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('comment')->nullable();
+            $table->bigInteger('cell');
             $table->boolean('active')->default(true);
+            $table->boolean('rec_email')->default(true);
             $table->string('created_by')->default('System');
             $table->string('updated_by')->default('System');
             $table->rememberToken();
@@ -25,7 +31,6 @@ class CreateUsersTable extends Migration
             $table->softDeletes();
         });
     }
-
     /**
      * Reverse the migrations.
      *

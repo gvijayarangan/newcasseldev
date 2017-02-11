@@ -32,11 +32,13 @@ class UserRequest extends Request
      * Get the validation rules that apply to the request.
      *
      * @return array
+     *
      */
     public function rules()
     {
         $rules = [
-            'name' => 'required|max:255',
+            'f_name' => 'required|max:255',
+            'l_name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
 //            'role_id' => 'required',
         ];
@@ -44,7 +46,8 @@ class UserRequest extends Request
         if ($this['_method'] == 'PATCH') {
             $rules['email'] = 'required|email|max:255';
         } else {
-            $rules['password'] = 'required|confirmed|min:6';
+            // Hide this in order to recieve empty password in create
+            //$rules['password'] = 'required|confirmed|min:6';
         }
 
         return $rules;

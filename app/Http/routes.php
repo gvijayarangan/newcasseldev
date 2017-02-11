@@ -19,6 +19,7 @@
  * @since      File available since Release 1.0.0
  */
 
+
 Route::get('/', function () {
     return view('auth/login');
 });
@@ -67,23 +68,36 @@ Route::get('/residents','ResidentController@index');
 
 Route::get('/reset', 'Auth\AuthController@showPasswordEmailPage');
 
-Route::get('/createPassword', 'Auth\PasswordController@showUserPasswordChange');
+Route::get('/createPassword/{id}', 'Auth\PasswordController@showUserPasswordChange');
 
 Route::post('/createNewPassword', 'Auth\PasswordController@createNewPassword');
 
 
 Route::post('/sendemail', function () {
 
-    $data = array(
-        'name' => $_POST['email'],
-    );
+    session_start();
+    $user_id = DB::table('users')->where('email', $_POST['email'])->value('id');
 
-    Mail::send('emails.welcome', $data, function ($message) {
+    if ($user_id != null)
+    {
+        $data = array(
+            'name' => $_POST['email'],
+        );
+        $_SESSION['user_id'] =  $user_id;
 
-        $message->from('newcassel@domain.com', 'New Cassel Work Order System');
-        $message->to($_POST['email'])->subject('Password Setup');
+        error_log('Value of User ID for email password reset - ' .$user_id);
 
-    });
+        Mail::send('emails.welcome', $data, function ($message) {
 
-    return view('auth.passwords.emailconfirmation');
+
+            $message->from('newcassel@domain.com', 'New Cassel Work Order System');
+            $message->to($_POST['email'])->subject('Password Setup');
+
+        });
+
+        return view('auth.passwords.emailconfirmation');
+    } else {
+        return view('auth.passwords.usernotfound');
+    }
+
 });

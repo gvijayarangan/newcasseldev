@@ -42,7 +42,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'active', 'created_by', 'updated_by'
+        'f_name', 'm_name', 'l_name', 'email', 'password', 'active', 'created_by', 'updated_by', 'comment', 'cell', 'rec_email'
     ];
 
     /**
@@ -50,9 +50,9 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
+   /* protected $hidden = [
         'password', 'remember_token',
-    ];
+    ];*/
 
     /**
      * Get a List of roles ids associated with the current user.
@@ -72,5 +72,15 @@ class User extends Authenticatable
     public function isActive()
     {
         return $this->active;
+    }
+
+    public function getFullName()
+    {
+        return $this->f_name . " " . $this->l_name;
+    }
+
+    public function getUserEmail()
+    {
+        return $this->email;
     }
 }

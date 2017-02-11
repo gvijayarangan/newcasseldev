@@ -8,7 +8,8 @@
                     <div class="panel-heading">Change Password</div>
                     <div class="panel-body">
                         {{--@include('common.errors')--}}
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/createNewPassword') }}">{!! csrf_field() !!}
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/createNewPassword/') }}">{!! csrf_field() !!}
+                            <input type="hidden" name="user_id_from_email" value="<?php echo $user_id_from_email ?>">
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <label class="col-md-4 control-label">New Password</label>
                                 <div class="col-md-6">
