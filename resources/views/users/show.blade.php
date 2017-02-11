@@ -1,5 +1,5 @@
-@extends('layouts.app')
 
+@include('common.nav')
 @section('content')
     {!! Form::model($user) !!}
     <div class="panel panel-default">

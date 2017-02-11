@@ -97,15 +97,13 @@ class AuthController extends Controller
             $rules = array(
                 'old_password' => 'required',
                 'password' => 'required|confirmed|min:6',
-//                'password' => 'required|alphaNum|between:6,16|confirmed'
-            );
+             );
 
             $validator = Validator::make(Input::all(), $rules);
             //dd($validator);
             if ($validator->fails()) {
                 return view('auth.passwords.change')->withErrors($validator);
-//                return view('auth.passwords.change');
-            } else {
+             } else {
                 if (!Hash::check(Input::get('old_password'), $user->password)) {
                     return view('auth.passwords.change')->withErrors('Your old password does not match');
                 } else {

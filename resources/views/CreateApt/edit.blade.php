@@ -1,3 +1,4 @@
+@include('common.nav')
 @extends('CreateApt')
 @section('content')
     <h1>Update Apartment Information</h1>

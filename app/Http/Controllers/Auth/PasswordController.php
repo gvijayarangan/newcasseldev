@@ -43,10 +43,9 @@ class PasswordController extends Controller
 
     public function showUserPasswordChange($user_id_from_email)
     {
-        error_log('showUserPasswordChange - Value of User ID from email password url - ' .$user_id_from_email);
-        //$_SESSION[$user_id_from_email];
+        error_log('showUserPasswordChange - Value of User ID from email password url - ' . $user_id_from_email);
         $this->viewData['user_id_from_email'] = $user_id_from_email;
-        return view('auth.passwords.createpassword',  $this->viewData);
+        return view('auth.passwords.createpassword', $this->viewData);
     }
 
     /**
@@ -65,13 +64,11 @@ class PasswordController extends Controller
         );
 
         $user_id = $_POST["user_id_from_email"];
-        error_log('createNewPassword - Value of User ID receieved from email password url - ' .$user_id);
+        error_log('createNewPassword - Value of User ID receieved from email password url - ' . $user_id);
 
         $validator = Validator::make(Input::all(), $rules);
-
-        $user = Auth::user();
-
-        $user_id = DB::table('users')->where('email', $_POST['email'])->value('id');
+        $user = User::find($user_id);
+        Auth::login($user);
 
 
         if ($validator->fails()) {
@@ -79,7 +76,14 @@ class PasswordController extends Controller
         } else {
             $user->password = bcrypt(Input::get('password'));
             $user->save();
-            return view('auth.passwords.createpassword')->with('Password has been changed');
+
+            $this->viewData['user_id_from_email'] = $user_id;
+
+            if ($user->hasRole('admin'))
+                return view('carousel', compact('user'));
+            else
+                return view('home', compact('user'));
+            //return view('auth.passwords.createpassword')->with('Password has been changed',  $this->viewData);
         }
     }
 }

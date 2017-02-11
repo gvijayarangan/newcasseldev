@@ -12,22 +12,23 @@
 
             <!-- Branding Image -->
             {{--<a class="navbar-brand" href="{{ url('/') }}">Laravel</a>--}}
-            <div class="pull-left"> <img src="images/New_Cassel.png" style="height: 48px;"></div>
-            <a class="navbar-brand"">
+      <div class="pull-left"> <img src="/images/New_Cassel.png" style="height: 48px;"></div>
+            <a class="navbar-brand">
                 &nbsp New Cassel Work Order System
             </a>
 
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
-            @if (Auth::check())
+          @if (Auth::check())
+              @role('admin')
                     <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/home') }}">Home</a></li>
-                <li><a href="{{ url('/apartment') }}">Apartment</a></li>
-                <li><a href="{{ url('/residents') }}">Residents</a></li>
 
-                @role('admin')
+                <li><a href="{{ url('/apartment') }}">Apartment</a></li>
+                <li><a href="{{ url('/resident') }}">Residents</a></li>
+
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         <i class="fa fa-btn fa-fw "></i>Work Order<span class="caret"></span></a>
@@ -38,10 +39,10 @@
                         {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn fa-fw fa-file"></i>Files</a></li>--}}
                     </ul>
                 </li>
-                @endrole
+                {{--@endrole--}}
 
                 {{-- Menu for Users with Administration Role Only --}}
-                @role('admin')
+                {{--@role('admin')--}}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         <i class="fa fa-btn fa-fw fa-cogs"></i>Administration<span class="caret"></span></a>
@@ -61,8 +62,8 @@
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     {{--<li><a href="{{ url('/login') }}"><i class="fa fa-btn fa-lg fa-fw fa-sign-in"></i>Login</a></li>
-               <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li> --}}
+               <li><a href="{{ url('/login') }}">Login</a></li>--}}
+                    <li><a href="{{ url('/home') }}">Home</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->getFullName() }} <span class="caret"></span></a>

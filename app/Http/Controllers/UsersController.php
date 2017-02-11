@@ -25,6 +25,8 @@ use Session;
 use Input;
 use DB;
 use Log;
+use Mail;
+
 
 class UsersController extends Controller
 {
@@ -79,7 +81,24 @@ class UsersController extends Controller
         $this->syncRoles($object, $request->input('rolelist'));
         Session::flash('flash_message', 'User successfully added!');
         Log::info('UsersController.store - End: '.$object->id.'|'.$object->name);
-        return redirect()->back();
+
+        session_start();
+        $_SESSION['user_id'] = $object->id;
+        $_SESSION['user_email'] = $request['email'];
+
+        error_log('store - Value of User ID for creating password for the first time - ' .$object->id);
+
+        $data = array(
+            'name' => $request['email'],
+        );
+
+
+        Mail::send('emails.emailpassword', $data, function ($message) {
+            $message->from('newcassel@domain.com', 'New Cassel Work Order System');
+            $message->to($_SESSION['user_email'])->subject('New Account Setup');
+
+        });
+       return redirect()->back();
     }
 
     public function edit(User $users)

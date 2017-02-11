@@ -1,6 +1,7 @@
+@include('common.nav')
 @extends('CreateApt')
 @section('content')
-    <h1>New Cassel Retirement Center Apartment Information </h1>
+    <h3>New Cassel Retirement Center Apartment Information </h3>
 
     <div class="container">
         <table class="table table-striped table-bordered table-hover">

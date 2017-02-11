@@ -24,15 +24,13 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('php-version', function()
-{
+Route::get('php-version', function () {
     return phpinfo();
 });
 
-Route::get('laravel-version', function()
-{
+Route::get('laravel-version', function () {
     $laravel = app();
-    return 'Your Laravel Version is '.$laravel::VERSION;
+    return 'Your Laravel Version is ' . $laravel::VERSION;
 });
 
 /*
@@ -46,21 +44,23 @@ Route::get('laravel-version', function()
 |
 */
 
-     Route::auth();
-    Route::post('change-password', 'Auth\AuthController@updatePassword');
-    Route::get( 'change-password', 'Auth\AuthController@updatePassword');
+Route::auth();
+Route::post('change-password', 'Auth\AuthController@updatePassword');
+Route::get('change-password', 'Auth\AuthController@updatePassword');
 
-    Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 
 Route::get('apartment/update/{id}', 'ApartmentsController@edit');
 Route::get('apartment/update information/{id}', 'ApartmentsController@update');
 Route::resource('/apartment', 'ApartmentsController');
-Route::get('/residents','ResidentController@index');
+
+Route::get('/resident/update/{id}', 'ResidentsController@edit');
+Route::get('/resident/update information/{id}', 'ResidentsController@update');
+Route::resource('/resident','ResidentsController');
 
 
-
-    Route::resource('users', 'UsersController');
-    Route::resource('roles', 'RolesController');
+Route::resource('users', 'UsersController');
+Route::resource('roles', 'RolesController');
 
 /*    Route::get('/redirect', 'SocialAuthController@redirect');
     Route::get('/callback', 'SocialAuthController@callback');*/
@@ -78,18 +78,16 @@ Route::post('/sendemail', function () {
     session_start();
     $user_id = DB::table('users')->where('email', $_POST['email'])->value('id');
 
-    if ($user_id != null)
-    {
+    if ($user_id != null) {
         $data = array(
             'name' => $_POST['email'],
         );
-        $_SESSION['user_id'] =  $user_id;
 
-        error_log('Value of User ID for email password reset - ' .$user_id);
+        $_SESSION['user_id'] = $user_id;
+
+        error_log('Value of User ID for email password reset - ' . $user_id);
 
         Mail::send('emails.welcome', $data, function ($message) {
-
-
             $message->from('newcassel@domain.com', 'New Cassel Work Order System');
             $message->to($_POST['email'])->subject('Password Setup');
 

@@ -9,7 +9,7 @@
 
 
 
-                    <div ><img src="images/New_Cassel_Homepage.png" height="100%" width="100%" style="heigh"></div>
+                    <div ><img src="images/New_Cassel_Homepage.png" height="100%" width="100%" ></div>
 
             </div>
         </div>

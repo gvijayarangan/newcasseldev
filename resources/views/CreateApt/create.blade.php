@@ -1,3 +1,6 @@
+
+@include('common.nav')
+
 @extends('CreateApt')
 @section('content')
     <h1>Create Apartment Information</h1>
