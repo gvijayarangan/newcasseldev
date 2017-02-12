@@ -26,15 +26,15 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/home') }}">Home</a></li>
 
-                <li><a href="{{ url('/apartment') }}">Apartment</a></li>
+                <li><a href="{{ url('/apartment') }}">Apartments</a></li>
                 <li><a href="{{ url('/resident') }}">Residents</a></li>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         <i class="fa fa-btn fa-fw "></i>Work Order<span class="caret"></span></a>
                     <ul class="dropdown-menu multi level" role="menu">
-                        <li><a href="{{ url('/users') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Work Order Form</a></li>
-                        <li><a href="{{ url('/roles') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>View Work Order's</a></li>
+                        <li><a href="{{ url('/workorder') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Work Order Form</a></li>
+                        <li><a href="{{ url('/workorderview') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>View Work Order's</a></li>
                         {{--<li class="divider"></li>--}}
                         {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn fa-fw fa-file"></i>Files</a></li>--}}
                     </ul>
@@ -63,15 +63,15 @@
                 @if (Auth::guest())
                     {{--<li><a href="{{ url('/login') }}"><i class="fa fa-btn fa-lg fa-fw fa-sign-in"></i>Login</a></li>
                <li><a href="{{ url('/login') }}">Login</a></li>--}}
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    {{--<li><a href="{{ url('/home') }}">Home</a></li>--}}
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->getFullName() }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-fw fa-sign-out"></i>Logout</a></li>
-                            <li><a href="{{ url('/change-password') }}"><i class="fa fa-btn fa-fw fa-lock"></i>Change Password</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ url('/help') }}"><i class="fa fa-btn fa-fw fa-question-circle"></i>Help</a></li>
+                            <li><a href="{{ url('/changepasswordpage') }}"><i class="fa fa-btn fa-fw fa-lock"></i>Change Password</a></li>
+                            {{--<li class="divider"></li>--}}
+                            {{--<li><a href="{{ url('/help') }}"><i class="fa fa-btn fa-fw fa-question-circle"></i>Help</a></li>--}}
                         </ul>
                     </li>
                 @endif

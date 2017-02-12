@@ -1,5 +1,5 @@
 <div class="form-group{{ $errors->has('f_name') ? ' has-error' : '' }}">
-    {!! Form::label('f_name', 'First Name:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('f_name', '*First Name:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text('f_name', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('f_name'))
@@ -23,7 +23,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('l_name') ? ' has-error' : '' }}">
-    {!! Form::label('l_name', 'Last Name:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('l_name', '*Last Name:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text('l_name', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('l_name'))
@@ -35,7 +35,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-    {!! Form::label('email', 'E-Mail Address:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('email', '*E-Mail Address:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text('email', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('email'))
@@ -47,7 +47,7 @@
 </div>
 
 <div class="form-group">
-    <label class="col-md-4 control-label">Roles</label>
+    <label class="col-md-4 control-label">*Roles</label>
     <div class="col-md-6">{!! Form::select('rolelist[]', $list_role, null,
     ['id' => 'roles-select-id', 'class' => 'form-control roles cds-select', 'multiple', 'style' => 'width: 50%; margin-top: 10px;', 'required' => 'required']) !!}</div>
 </div>
@@ -65,7 +65,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('residentrelationship') ? ' has-error' : '' }}">
-    {!! Form::label('residentrelationship', 'Resident Relationship:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('residentrelationship', '*Resident Relationship:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-4">
         {!! Form::text('residentrelationship', null, ['id' => 'resident-relationship', 'class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('residentrelationship'))
@@ -89,7 +89,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('cell') ? ' has-error' : '' }}">
-    {!! Form::label('cell', 'Cell Phone:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('cell', '*Cell Phone:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-4">
         {!! Form::text('cell', null, ['class' => 'col-md-4 form-control', 'required' => 'required']) !!}
         @if ($errors->has('cell'))
@@ -101,12 +101,20 @@
 </div>
 
 <div class="form-group">
-    <div class="col-md-6 col-md-offset-4">
-        <div class="checkbox">
-            <label>
-                {{ Form::hidden('active', false) }}{{ Form::checkbox('active', true, old('active')) }} Active
-            </label>
-        </div>
+    {!! Form::Label('active', '*Status:', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-2">
+        {!! Form::select('active', [
+                        '0' => 'In Active',
+                        '1' => 'Active'], old('active'), ['class' => 'form-control']) !!}
+    </div>
+</div>
+
+<div class="form-group">
+    {!! Form::Label('rec_email', '*Receive Emails:', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-2">
+        {{ Form::select('rec_email', [
+            '0' => 'No',
+            '1' => 'Yes'], old('rec_email'), ['class' => 'form-control']) }}
     </div>
 </div>
 

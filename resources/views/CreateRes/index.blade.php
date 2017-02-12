@@ -1,7 +1,7 @@
 @include('common.nav')
 @extends('CreateRes')
 @section('content')
-    <h1>New Cassel Resident Information</h1>
+    <h1>Resident</h1>
     <a href="{{url('/resident/create')}}" class="btn btn-success">Create Resident</a>
     <hr>
     <table class="table table-striped table-bordered table-hover">

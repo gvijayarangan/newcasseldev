@@ -1,6 +1,8 @@
 /*
  * ConfirmDelete: Asks the user for confirmation when a record is being deleted
  */
+
+
 function ConfirmDelete() {
     var x = confirm("Are you sure you want to delete?");
 
@@ -16,6 +18,8 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
+
+
 
 //$(function () {
 //    $('a[data-toggle="collapse"]').on('click',function(){

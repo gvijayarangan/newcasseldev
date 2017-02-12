@@ -75,8 +75,8 @@ class UsersController extends Controller
         $input = $request->all();
         $this->populateCreateFields($input);
         $input['password'] = "";
-        $input['active'] = $request['active'] == '' ? true : false;
-
+        $input['active'] = $request['active'] == '' ? false : true;
+        $input['rec_email'] = $request['rec_email'] == '' ? false : true;
         $object = User::create($input);
         $this->syncRoles($object, $request->input('rolelist'));
         Session::flash('flash_message', 'User successfully added!');
@@ -117,7 +117,7 @@ class UsersController extends Controller
         Log::info('UsersController.update - Start: '.$object->id.'|'.$object->name);
 //        $this->authorize($object);
         $this->populateUpdateFields($request);
-        $request['active'] = $request['active'] == '' ? true : false;
+        //$request['active'] = $request['active'] == '' ? true : false;
 
         $object->update($request->all());
         $this->syncRoles($object, $request->input('rolelist'));

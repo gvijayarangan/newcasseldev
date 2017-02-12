@@ -1,14 +1,11 @@
 <?php
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Request;
 use App\Resident;
-use App\Apartment;
+//use App\AppServiceProvider;
+//use App\Illuminate\Support\Facades\Validator;
 
-//use Illuminate\Http\Request;
 
-use Request;
-
-use App\Http\Requests;
 
 class ResidentsController extends Controller
 {
@@ -35,12 +32,35 @@ class ResidentsController extends Controller
      */
     public function store(Request $request)
     {
-
-        $resident = Request::all();
-        Resident::create($resident);
+        $this -> validate($request, [
+            'res_pccid' => 'required|integer',
+            'res_fname' => 'required|string',
+            'res_mname' => 'required|string',
+            'res_lname' => 'required|string',
+            'res_gender' => 'required|string',
+            'res_phone' => 'required|numeric|min:10',
+            'res_cellphone' => 'required|numeric|min:10',
+            'res_email' => 'required|email',
+            'res_status' => 'required',
+        ]);
+        $resident = new Resident();
+        $resident->res_pccid = $request -> res_pccid;
+        $resident->res_fname = $request -> res_fname;
+        $resident->res_mname = $request -> res_mname;
+        $resident->res_lname = $request -> res_lname;
+        $resident->res_gender = $request -> res_gender;
+        $resident->res_phone = $request -> res_phone;
+        $resident->res_cellphone = $request -> res_cellphone;
+        $resident->res_email = $request -> res_email;
+        $resident->res_pccid = $request -> res_pccid;
+        $resident->res_status = $request -> res_status;
+        $resident->res_comment = $request -> res_comment;
+        $resident -> save();
+        //$resident = Request::all();
+        //Resident::create($resident);
         return redirect('resident');
-        //return view('CreateApt.index');
     }
+
 
     public function edit($id)
     {
@@ -57,23 +77,34 @@ class ResidentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $residentupdate = Request::all();
+        $this -> validate ($request, [
+            'res_pccid' => 'required|integer',
+            'res_fname' => 'required|string',
+            'res_mname' => 'required|string',
+            'res_lname' => 'required|string',
+            'res_gender' => 'required|string',
+            'res_phone' => 'required|numeric|min:10',
+            'res_cellphone' => 'required|numeric|min:10',
+            'res_email' => 'required|email',
+            'res_status' => 'required',
+        ]);
+
+        // $residentupdate = Request::all();
         $resident = Resident::find($id);
-        $resident->id = $residentupdate['id'];
-        $resident->res_pccid = $residentupdate['res_pccid'];
-        $resident->res_fname = $residentupdate['res_fname'];
-        $resident->res_mname = $residentupdate['res_mname'];
-        $resident->res_lname = $residentupdate['res_lname'];
-        $resident->res_gender = $residentupdate['res_gender'];
-        $resident->res_phone = $residentupdate['res_phone'];
-        $resident->res_cellphone = $residentupdate['res_cellphone'];
-        $resident->res_email = $residentupdate['res_email'];
-        $resident->res_status = $residentupdate['res_status'];
-        $resident->res_comment = $residentupdate['res_comment'];
-        //$resident->apt_id = $residentupdate['apt_id'];
-        $resident->update($residentupdate);
+        $resident->res_pccid = $request->res_pccid ;
+        $resident->res_fname = $request->res_fname;
+        $resident->res_mname = $request->res_mname;
+        $resident->res_lname = $request->res_lname;
+        $resident->res_gender = $request->res_gender;
+        $resident->res_phone = $request->res_phone;
+        $resident->res_cellphone = $request->res_cellphone;
+        $resident->res_email = $request->res_email;
+        $resident->res_status = $request->res_status;
+        $resident->res_comment = $request->res_comment;
+        $resident->save();
         return redirect('resident');
     }
+
 
     public function destroy($id)
     {

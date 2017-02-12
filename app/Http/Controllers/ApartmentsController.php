@@ -1,22 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 
 use App\Apartment;
-use App\User;
-//use Illuminate\Http\Request;
-use Request;
 
-use App\Http\Requests;
 
 class ApartmentsController extends Controller
 {
+
     public function index()
     {
-        
         $createapts = Apartment::all();
         return view('CreateApt.index',compact('createapts'));
     }
+
     public function show($id)
     {
         $post = Apartment::find($id);
@@ -28,6 +26,7 @@ class ApartmentsController extends Controller
 
         return view('CreateApt.create');
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -35,13 +34,25 @@ class ApartmentsController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
-        $createapts = Request::all();
-        Apartment::create($createapts);
+        $this->validate($request, [
+            'apt_floornumber' => 'required|integer',
+            'apt_number' => 'required|integer',
+        ]);
+        $apartment = new Apartment();
+        $apartment->apt_floornumber = $request->apt_floornumber;
+        $apartment->apt_number = $request->apt_number;
+        $apartment->apt_comments = $request->apt_comments;
+        $apartment->save();
+
         return redirect('apartment');
-        //return view('CreateApt.index');
     }
 
+    /**
+     * This func
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit($id)
     {
         $createapts=Apartment::find($id);
@@ -57,17 +68,27 @@ class ApartmentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $CreateAptUpdate = Request::all();
+        $this->validate($request, [
+            'apt_floornumber' => 'required|integer',
+            'apt_number' => 'required|integer',
+        ]);
+        //dd($request);
+        //        $CreateAptUpdate = $request;
         $CreateApt = Apartment::find($id);
-        $CreateApt->id = $CreateAptUpdate['id'];
-        $CreateApt->apt_floornumber = $CreateAptUpdate['apt_floornumber'];
-        $CreateApt->apt_number = $CreateAptUpdate['apt_number'];
-        $CreateApt->apt_comments = $CreateAptUpdate['apt_comments'];
-        #$CreateApt->cntr_id = $CreateAptUpdate['cntr_id']; #commented to avoid FK from Center table
-        $CreateApt->update($CreateAptUpdate);
+        $CreateApt->apt_floornumber = $request->apt_floornumber;
+        $CreateApt->apt_number = $request->apt_number;
+        $CreateApt->apt_comments = $request->apt_comments;
+        #$CreateApt->cntr_id = $request->cntr_id; #commented to avoid FK from Center table
+        $CreateApt->save();
         return redirect('apartment');
     }
 
+    /**
+     *
+     *
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function destroy($id)
     {
         Apartment::find($id)->delete();

@@ -2,9 +2,17 @@
 @extends('CreateRes')
 @section('content')
     <h1>Create New Resident</h1>
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     {!! Form::open(['url' => 'resident']) !!}
-
-
     <div class="form-group">
         {!! Form::label('res_pccid', '*PCCID:') !!}
         {!! Form::text('res_pccid',null,['class'=>'form-control']) !!}
@@ -22,19 +30,19 @@
         {!! Form::text('res_lname',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('res_gender', 'Gender:') !!}
+        {!! Form::label('res_gender', '*Gender:') !!}
         {!! Form::text('res_gender',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('res_phone', 'Phone:') !!}
+        {!! Form::label('res_phone', '*Phone:') !!}
         {!! Form::text('res_phone',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('res_cellphone', 'Cellphone:') !!}
+        {!! Form::label('res_cellphone', '*Cellphone:') !!}
         {!! Form::text('res_cellphone',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('res_email', 'Email:') !!}
+        {!! Form::label('res_email', '*Email:') !!}
         {!! Form::text('res_email',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
@@ -42,7 +50,7 @@
         {!! Form::text('res_comment',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('res_status', 'Status:') !!}
+        {!! Form::label('res_status', '*Status:') !!}
         {!! Form::text('res_status',null,['class'=>'form-control']) !!}
     </div>
 
