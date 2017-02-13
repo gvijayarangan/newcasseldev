@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="container">
         <div class="row">
@@ -49,6 +48,8 @@
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-5">
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-btn fa-save"></i>Save</button>
+                                     @include('common.flash')
+                                     @include('common.errors')
                                 </div>
                             </div>
 
@@ -58,4 +59,8 @@
             </div>
         </div>
     </div>
+
+    <script>
+         setTimeout( "$('.alert').hide();", 3000);
+    </script>
 @endsection

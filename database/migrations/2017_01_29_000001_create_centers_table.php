@@ -21,7 +21,7 @@ class CreateCentersTable extends Migration
             $table->string('cntr_city');
             $table->string('cntr_state');
             $table->integer('cntr_zip');
-            $table->integer('cntr_phone');
+            $table->biginteger('cntr_phone');
             $table->integer('cntr_fax');
             $table->String('cntr_comments');
         });

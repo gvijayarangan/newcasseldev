@@ -16,6 +16,16 @@
         </tr>
         </thead>
         <tbody>
+        <script>
+            function ConfirmDelete()
+            {
+                var x = confirm("Are you sure you want to delete? Click OK to continue");
+                if (x)
+                    return true;
+                else
+                    return false;
+            }
+        </script>
         @foreach ($createapts as $createapt)
             <tr>
                 <td>{{ $createapt->id}}</td>
@@ -26,7 +36,7 @@
                 <td><a href="{{url('apartment',$createapt->id)}}" class="btn btn-primary">Read</a></td>
                 <td><a href="{{url('apartment/update', $createapt->id)}}" class="btn btn-warning">Update</a></td>
                 <td>
-                    {!! Form::open(['method' => 'DELETE', 'route'=>['apartment.destroy', $createapt->id]]) !!}
+                    {!! Form::open(['method' => 'DELETE', 'route'=>['apartment.destroy', $createapt->id],'onsubmit' => 'return ConfirmDelete()']) !!}
                     {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
                 </td>

@@ -15,8 +15,10 @@
             <th>CommonArea</th>
             <th>WO Description</th>
             <th>WO Date Created</th>
+            <th>WO Status Changed</th>
             <th>WO Priority</th>
             <th>WO Status</th>
+            <th>WO Status ChangedBy</th>
             <th>Read</th>
             <th>Update</th>
             <th>Delete</th>
@@ -30,8 +32,10 @@
             <td>NA</td>
             <td>Meeting room light not working</td>
             <td>2/10/2017 11:29:18</td>
+            <td>2/10/2017 11:29:18</td>
             <td>Moderate</td>
             <td>In-Progress</td>
+            <td>Admin</td>
             <td><a class="btn btn-primary">Read</a></td>
             <td><a class="btn btn-warning">Update</a></td>
             <td>
@@ -45,8 +49,10 @@
             <td>Pool</td>
             <td>Water not clean</td>
             <td>2/20/2017 15:04:56</td>
+            <td>2/20/2017 15:04:56</td>
             <td>High</td>
             <td>Open</td>
+            <td>Admin</td>
             <td><a class="btn btn-primary">Read</a></td>
             <td><a class="btn btn-warning">Update</a></td>
             <td>
@@ -60,8 +66,10 @@
             <td>NA</td>
             <td>Stains on the carpet</td>
             <td>2/15/2017 07:45:20</td>
+            <td>2/15/2017 07:45:20</td>
             <td>Moderate</td>
             <td>In-Progress</td>
+            <td>Admin</td>
             <td><a class="btn btn-primary">Read</a></td>
             <td><a class="btn btn-warning">Update</a></td>
             <td>
