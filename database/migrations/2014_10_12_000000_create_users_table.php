@@ -19,13 +19,13 @@ class CreateUsersTable extends Migration
             $table->string('l_name');
            // $table->string('name');
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->string('comment')->nullable();
             $table->bigInteger('cell');
             $table->boolean('active')->default(true);
             $table->boolean('rec_email')->default(true);
-            $table->string('created_by')->default('System');
-            $table->string('updated_by')->default('System');
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

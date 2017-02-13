@@ -26,6 +26,7 @@ class Role extends EntrustRole
      *
      * @var array
      */
+    public $timestamps = false;
     protected $dates = ['deleted_at'];
 
     /**
@@ -34,7 +35,7 @@ class Role extends EntrustRole
      * @var array
      */
     protected $fillable = [
-        'name', 'display_name', 'description', 'created_by', 'updated_by'
+        'name', 'display_name', 'description'
     ];
 
     /**
