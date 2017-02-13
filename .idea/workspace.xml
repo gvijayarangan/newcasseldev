@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9af83d6f-9817-4c40-848b-4a4b2bd2f2b0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Listeners/_gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Policies/_gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/_gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/_gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/seeds/_gitkeep" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.env" afterPath="$PROJECT_DIR$/.env" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_01_29_000001_create_centers_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_01_29_000001_create_centers_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_01_29_000002_create_apartments_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_01_29_000002_create_apartments_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/CreateApt/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/CreateApt/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/CreateApt/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/CreateApt/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/CreateApt/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/CreateApt/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/CreateRes/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/CreateRes/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/CreateRes/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/CreateRes/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/passwords/change.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/change.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/passwords/createpassword.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/createpassword.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/common/errors.blade.php" afterPath="$PROJECT_DIR$/resources/views/common/errors.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/common/flash.blade.php" afterPath="$PROJECT_DIR$/resources/views/common/flash.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/emails/welcome.blade.php" afterPath="$PROJECT_DIR$/resources/views/emails/welcome.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/users/partial.blade.php" afterPath="$PROJECT_DIR$/resources/views/users/partial.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/workorderview.blade.php" afterPath="$PROJECT_DIR$/resources/views/workorderview.blade.php" />
     </list>
     <ignored path="basic.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,7 +71,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/PasswordController.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/passwords/createpassword.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/emails/welcome.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/users/create.blade.php" />
         <option value="$PROJECT_DIR$/public/css/all.css" />
         <option value="$PROJECT_DIR$/resources/views/users/partial.blade.php" />
@@ -104,11 +82,12 @@
         <option value="$PROJECT_DIR$/database/migrations/2017_01_29_000014_create_passwords_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_01_29_000013_create_aptress_table.php" />
         <option value="$PROJECT_DIR$/database/seeds/UsersRolesPermissions.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/common/nav.blade.php" />
         <option value="$PROJECT_DIR$/app/Apartment.php" />
         <option value="$PROJECT_DIR$/resources/views/CreateApt/create.blade.php" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/resources/views/emails/welcome.blade.php" />
       </list>
     </option>
   </component>
@@ -294,6 +273,7 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -310,6 +290,9 @@
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
       <method />
     </configuration>
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -355,6 +338,19 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="PHPUnit.New_Cassel" />
     </list>
@@ -396,12 +392,12 @@
       <workItem from="1485548436301" duration="38242000" />
       <workItem from="1486592381921" duration="1547000" />
       <workItem from="1486603033486" duration="652000" />
-      <workItem from="1487015843656" duration="685000" />
+      <workItem from="1487015843656" duration="1623000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73372000" />
+    <option name="totallyTimeSpent" value="74310000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-14" y="0" width="3204" height="1714" extended-state="0" />
@@ -570,13 +566,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/emails/welcome.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/errors/503.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -733,14 +722,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1016">
-          <caret line="56" column="52" selection-start-line="56" selection-start-column="52" selection-end-line="56" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../newcasselbasecode/app/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -769,6 +750,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="825">
           <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/emails/welcome.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="12" column="59" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
           <folding />
         </state>
       </provider>
