@@ -61,19 +61,19 @@ class PasswordController extends Controller
         //Get the user object from database
         $rules = array(
             'password' => 'required|confirmed|min:6',
+            'password_confirmation' => 'required|min:6'
         );
 
         $user_id = $_POST["user_id_from_email"];
         error_log('createNewPassword - Value of User ID receieved from email password url - ' . $user_id);
 
         $validator = Validator::make(Input::all(), $rules);
-        $user = User::find($user_id);
-        Auth::login($user);
-
-
         if ($validator->fails()) {
-            return view('auth.passwords.createpassword')->withErrors($validator);
+            return redirect()->back()->withErrors($validator->errors());
+            //return view('auth.passwords.createpassword')->withErrors($validator);
         } else {
+            $user = User::find($user_id);
+            Auth::login($user);
             $user->password = bcrypt(Input::get('password'));
             $user->save();
 

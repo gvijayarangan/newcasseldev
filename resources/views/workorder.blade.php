@@ -44,7 +44,7 @@
                             </select>
                         </div.panel-heading>
 
-                        </br> </br>{!! Form::label('created date', 'Created Date:', ['class' => 'col-md-3 control-label']) !!}
+                        </br> </br>{!! Form::label('created date', 'Work Order Date:', ['class' => 'col-md-3 control-label']) !!}
                         <div class="row">
                             <div class="col-md-3">
                                 <input type="text" class="form-control" id="datetime"/>
@@ -62,6 +62,17 @@
                         <div.panel-heading class="col-md-2">
                             <input type="text" id="fname" value = "John Mathew" style="width: 100px">
                         </div.panel-heading>
+                        </br> </br>
+
+                        {!! Form::label('status', 'Status:', ['class' => 'col-md-3 control-label']) !!}
+
+                        <div.panel-heading class="col-md-4">
+                            <select name="commonarea"  >
+                                <option value="commonarea">High</option>
+                                <option value="commonarea">Moderate</option>
+                                <option value="commonarea">Low</option>
+                            </select>
+                        </div.panel-heading>
 
                         </br> </br>{!! Form::label('commonarea', 'Common Area:', ['class' => 'col-md-3 control-label']) !!}
 
@@ -77,12 +88,12 @@
                         </br> </br>{!! Form::label('issuetype', 'Issue Type:', ['class' => 'col-md-3 control-label']) !!}
 
                         <div.panel-heading class="col-md-4">
-                        <select name="issuetype">
-                            <option value="issuetype">Water Leakage</option>
-                            <option value="issuetype">Pumbling</option>
-                            <option value="issuetype">Electrical Issue</option>
-                            <option value="issuetype">AC/Heater Problem</option>
-                        </select>
+                            <select name="issuetype">
+                                <option value="issuetype">Water Leakage</option>
+                                <option value="issuetype">Pumbling</option>
+                                <option value="issuetype">Electrical Issue</option>
+                                <option value="issuetype">AC/Heater Problem</option>
+                            </select>
                         </div.panel-heading>
 
                         </br> </br>{!! Form::label('issuedescription', 'Issue Description:', ['class' => 'col-md-3 control-label']) !!}

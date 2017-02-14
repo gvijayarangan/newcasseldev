@@ -27,6 +27,10 @@ class Controller extends BaseController
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
 //    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function populateCreateFields(&$input)
     {
         if (Auth::check() && $input != null)
