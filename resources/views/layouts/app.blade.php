@@ -85,5 +85,10 @@
 
     <!-- Footer -->
     @yield('footer');
+    <footer>
+        <p align="center">-----------------------------------------------------------------------------------------------------------</p>
+        <p align="center">&copy; 2017 - New Cassel Work Order System</p>
+    </footer>
+
 </body>
 </html>
