@@ -11,7 +11,7 @@
             <th>Apt FloorNumber</th>
             <th>Apt Number</th>
             <th>Apt Comments</th>
-            <th>Center Id</th>
+            <th>Center Name</th>
             <th colspan="3">Actions</th>
         </tr>
         </thead>
@@ -32,7 +32,7 @@
                 <td>{{ $createapt->apt_floornumber}}</td>
                 <td>{{ $createapt->apt_number}}</td>
                 <td>{{ $createapt->apt_comments}}</td>
-                <td>{{ $createapt->cntr_id}}</td>
+                <td>{{ $createapt->centerName}}</td>
                 <td><a href="{{url('apartment',$createapt->id)}}" class="btn btn-primary">Read</a></td>
                 <td><a href="{{url('apartment/update', $createapt->id)}}" class="btn btn-warning">Update</a></td>
                 <td>

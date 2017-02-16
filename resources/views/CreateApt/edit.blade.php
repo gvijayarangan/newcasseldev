@@ -26,7 +26,7 @@
     </div>
     <div class="form-group">
         {!!Form::label('cntr_id', 'Center ID:') !!}
-        {{ Form::select('cntr_id', ['Omaha', 'Other']) }}
+        {{ Form::select('cntr_id', $centers) }}
     </div>
     <div class="form-group">
         {!! Form::submit('Update Information', ['class' => 'btn btn-primary']) !!}

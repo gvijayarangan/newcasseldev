@@ -46,6 +46,8 @@
                 <td>{{ $createres-> res_email }}</td>
                 <td>{{ $createres-> res_comment }}</td>
                 <td>{{ $createres-> res_status }}</td>
+                <td>{{ $createres-> cntr_name }}</td>
+                <td>{{ $createres-> apt_id }}</td>
                 <td><a href="{{url('resident',$createres->id)}}" class="btn btn-primary">Read</a></td>
                 <td><a href="{{url('resident/update',$createres->id)}}" class="btn btn-warning">Update</a></td>
                 <td>
