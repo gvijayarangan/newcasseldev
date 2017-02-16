@@ -78,13 +78,7 @@
         .dropdown-submenu.pull-left>.dropdown-menu { left: -100%; margin-left: 10px;
             -webkit-border-radius: 6px 0 6px 6px; -moz-border-radius: 6px 0 6px 6px; border-radius: 6px 0 6px 6px; }
 
-        .footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 60px;
-            line-height: 60px;
-            background-color: #f5f5f5;
+
         }
     </style>
 
