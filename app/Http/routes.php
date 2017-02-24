@@ -35,6 +35,10 @@ Route::get('apartment/update/{id}', 'ApartmentsController@edit');
 Route::get('apartment/update information/{id}', 'ApartmentsController@update');
 Route::resource('/apartment', 'ApartmentsController');
 
+Route::get('rescontact/update/{id}', 'RescontactsController@edit');
+Route::get('rescontact/update information/{id}', 'RescontactsController@update');
+Route::resource('/rescontact', 'RescontactsController');
+
 Route::get('/resident/update/{id}', 'ResidentsController@edit');
 Route::get('/resident/update information/{id}', 'ResidentsController@update');
 Route::resource('/resident','ResidentsController');

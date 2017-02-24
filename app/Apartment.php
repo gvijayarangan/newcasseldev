@@ -17,11 +17,11 @@ class Apartment extends Model
     ];
 
     public function aptres() {
-        return $this->hasMany('App\aptres');
+        return $this->hasMany('App\aptresi');
     }
 
-    public function conres() {
-        return $this->hasMany('App\conres');
+    public function order() {
+        return $this->hasMany('App\order');
     }
 
     public function center() {
