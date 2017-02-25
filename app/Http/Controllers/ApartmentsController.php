@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Apartment;
+use App\Center;
 
-
+//adding comment for demo
 class ApartmentsController extends Controller
 {
 
     public function index()
     {
         $createapts = Apartment::all();
+        foreach ($createapts as $apts) {//dd(Center::findOrFail(7)->cntr_name);
+            $apts->centerName = Center::findOrFail($apts->cntr_id)->cntr_name;
+        }
         return view('CreateApt.index',compact('createapts'));
     }
 
@@ -23,8 +27,8 @@ class ApartmentsController extends Controller
 
     public function create()
     {
-
-        return view('CreateApt.create');
+        $centers = Center::lists('cntr_name', 'id');
+        return view('CreateApt.create', compact('centers'));
     }
 
     /**
@@ -33,7 +37,7 @@ class ApartmentsController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    {
+    {//dd($request);
         $this->validate($request, [
             'apt_floornumber' => 'required|integer',
             'apt_number' => 'required|integer',
@@ -42,6 +46,8 @@ class ApartmentsController extends Controller
         $apartment->apt_floornumber = $request->apt_floornumber;
         $apartment->apt_number = $request->apt_number;
         $apartment->apt_comments = $request->apt_comments;
+        $apartment->cntr_id = $request->cntr_name;
+
         $apartment->save();
 
         return redirect('apartment');
@@ -55,9 +61,9 @@ class ApartmentsController extends Controller
      */
     public function edit($id)
     {
-        $createapts=Apartment::find($id);
-        //dd($createapts);
-        return view('CreateApt.edit',compact('createapts'));
+        $centers = Center::lists('cntr_name', 'id');
+        $createapts = Apartment::find($id);
+        return view('CreateApt.edit',compact('centers', 'createapts'));
     }
 
     /**
@@ -72,13 +78,12 @@ class ApartmentsController extends Controller
             'apt_floornumber' => 'required|integer',
             'apt_number' => 'required|integer',
         ]);
-        //dd($request);
-        //        $CreateAptUpdate = $request;
+
         $CreateApt = Apartment::find($id);
         $CreateApt->apt_floornumber = $request->apt_floornumber;
         $CreateApt->apt_number = $request->apt_number;
         $CreateApt->apt_comments = $request->apt_comments;
-        #$CreateApt->cntr_id = $request->cntr_id; #commented to avoid FK from Center table
+        $CreateApt->cntr_id = $request->cntr_id; //commented to avoid FK from Center table
         $CreateApt->save();
         return redirect('apartment');
     }

@@ -59,6 +59,13 @@
                     'Inactive' => 'Inactive',
                     'Active' => 'Active'], old('res_status'), ['class' => 'form-control']) !!}
     </div>
+    <div class="form-group">
+        {!!Form::label('apt_number', 'Apartment Number:',['class' => 'col-md-4 control-label']) !!}
+        {{ Form::select('apt_number', $apartments) }}
+    </div>
+    </br> </br>
+
+
 
     <div class="form-group">
         {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}

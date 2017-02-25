@@ -1,4 +1,4 @@
-@include('common.nav')
+@include('layouts.app')
 @extends('CreateApt')
 @section('content')
 
@@ -26,8 +26,8 @@
         {!! Form::text('apt_comments',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-        {!!Form::label('cntr_id', 'Center ID:') !!}
-        {{ Form::select('cntr_id', ['Omaha', 'Other']) }}
+        {!!Form::label('cntr_id', 'Center Name:') !!}
+        {{ Form::select('cntr_id', $centers) }}
     </div>
     <div class="form-group">
         {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}

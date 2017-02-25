@@ -117,7 +117,7 @@
     {!! Form::Label('active', '*Status:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-2">
         {!! Form::select('active', [
-                        '0' => 'In Active',
+                        '0' => 'Inactive',
                         '1' => 'Active'], old('active'), ['class' => 'form-control']) !!}
     </div>
 </div>

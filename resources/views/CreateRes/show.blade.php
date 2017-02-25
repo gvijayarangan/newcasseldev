@@ -32,7 +32,7 @@
             </tr>
             <tr>
                 <td>Phone</td>
-                <td><?php echo ($post['res_phone']); ?></td>
+                <td><?php echo ($post['res_Homephone']); ?></td>
             </tr>
             <tr>
                 <td>Cellphone</td>
