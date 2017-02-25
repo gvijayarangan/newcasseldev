@@ -5,7 +5,7 @@ use App\Resident;
 //use App\AppServiceProvider;
 //use App\Illuminate\Support\Facades\Validator;
 
-
+// just a comment
 
 class ResidentsController extends Controller
 {
