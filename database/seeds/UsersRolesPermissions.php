@@ -211,11 +211,11 @@ class RescontactsTableSeeder extends Seeder
 
         DB::table('rescontacts')->insert([
             'con_fname' => 'Walter', 'con_mname' => ' ', 'con_lname' => 'Jr', 'con_relationship' => 'Son', 'con_cellphone' => '7898765435', 'con_email' => 'walter@gmail.com',
-            'con_comment' => 'Primary Contact', 'con_gender' => 'M', 'user_id' => ($user = User::where('f_name', '=', 'Walter')->first()->id) ,
+            'con_comment' => 'Primary Contact', 'con_gender' => 'M', 'con_res_name' => ' ', 'user_id' => ($user = User::where('f_name', '=', 'Walter')->first()->id) ,
         ]);
         DB::table('rescontacts')->insert([
             'con_fname' => 'Flynn', 'con_mname' => 'Mc', 'con_lname' => 'Mann', 'con_relationship' => 'Son', 'con_cellphone' => '9876545678', 'con_email' => 'flynn@gmail.com',
-            'con_comment' => 'Primary Contact', 'con_gender' => 'M', 'user_id' => ($user = User::where('f_name', '=', 'Flynn')->first()->id) ,
+            'con_comment' => 'Primary Contact', 'con_gender' => 'M', 'con_res_name' => ' ', 'user_id' => ($user = User::where('f_name', '=', 'Flynn')->first()->id) ,
         ]);
 
     }

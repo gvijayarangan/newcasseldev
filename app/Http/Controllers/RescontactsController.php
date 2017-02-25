@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Rescontact;
-use App\Conres;
+use App\Conresi;
+use App\Resident;
 
 
 class RescontactsController extends Controller
@@ -14,7 +15,7 @@ class RescontactsController extends Controller
     {
         $createrescons = Rescontact::all();
         foreach ($createrescons as $rescons) {//dd(Center::findOrFail(7)->cntr_name);
-            $rescons->ContactID = Conres::findOrFail($rescons->id)->res_id; //how to concatenate m name and last name with f name?
+            $rescons->ContactName = Resident::findOrFail($rescons->id)->res_fname; //how to concatenate m name and last name with f name?
         }
         return view('CreateRescon.index',compact('createrescons'));
     }
@@ -27,8 +28,8 @@ class RescontactsController extends Controller
 
     public function create()
     {
-        $conress = Conres::lists('id', 'res_id');
-        return view('CreateRescon.create', compact('conress'));
+        $residents = Resident::lists('res_fname', 'id');
+        return view('CreateRescon.create', compact('residents'));
     }
 
     /**
@@ -57,7 +58,7 @@ class RescontactsController extends Controller
         $rescontact->con_email = $request->con_email;
         $rescontact->con_comment = $request->con_comment;
         $rescontact->con_gender = $request->con_gender;
-        $rescontact->id = $request->id;
+        $rescontact->con_res_name = $request->con_res_name;
         $rescontact->save();
 
         return redirect('rescontact');
@@ -71,9 +72,9 @@ class RescontactsController extends Controller
      */
     public function edit($id)
     {
-        $conress = Conres::lists('id', 'res_id');
+        $residents = Resident::lists('res_fname', 'id');
         $createrescontacts = Rescontact::find($id);
-        return view('CreateRescontact.edit',compact('conress', 'createrescontacts'));
+        return view('CreateRescon.edit',compact('residents', 'createrescontacts'));
     }
 
     /**
@@ -103,7 +104,7 @@ class RescontactsController extends Controller
         $CreateRescon->con_email = $request->con_email;
         $CreateRescon->con_comment = $request->con_comment;
         $CreateRescon->con_gender = $request->con_gender;
-        $CreateRescon->id = $request->id;
+        $CreateRescon->con_res_name = $request->con_res_name;
         $CreateRescon->save();
 
         return redirect('rescontact');
