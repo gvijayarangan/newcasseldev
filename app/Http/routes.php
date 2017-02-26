@@ -59,6 +59,9 @@ Route::get('/tool/update/{id}', 'ToolsController@edit');
 Route::get('/tool/update information/{id}', 'ToolsController@update');
 Route::resource('/tool','ToolsController');
 
+Route::get('/issuetype/update/{id}', 'IssuetypesController@edit');
+Route::get('/issuetype/update information/{id}', 'IssuetypesController@update');
+Route::resource('/issuetype','IssuetypesController');
 
 
 Route::resource('users', 'UsersController');
