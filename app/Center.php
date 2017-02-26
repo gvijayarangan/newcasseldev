@@ -8,15 +8,15 @@ class Center extends Model
 {
     //
     protected $fillable=[
-        'res_pccid',
-        'res_fname',
-        'res_mname',
-        'res_lname',
-        'res_gender',
-        'res_phone',
-        'res_cellphone',
-        'res_email',
-        'res_comment',
-        'res_status',
+        'cntr_name',
+        'cntr_add1',
+        'cntr_add2',
+        'cntr_city',
+        'cntr_state',
+        'cntr_zip',
+        'cntr_phone',
+        'cntr_fax',
+        'cntr_comments',
     ];
+    public $timestamps = false;
 }

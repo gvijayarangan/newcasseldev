@@ -28,8 +28,9 @@ class RescontactsController extends Controller
 
     public function create()
     {
+
         $residents = Resident::lists('res_fname', 'id');
-        return view('CreateRescon.create', compact('residents'));
+         return view('CreateRescon.create', compact('residents'));
     }
 
     /**

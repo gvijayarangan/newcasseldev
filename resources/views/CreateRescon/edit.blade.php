@@ -41,12 +41,14 @@
         {!! Form::text('con_comment',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('con_gender', 'Gender:') !!}
-        {!! Form::text('con_gender',null,['class'=>'form-control']) !!}
+        {!! Form::Label('con_gender', 'Gender*') !!}
+        {{ Form::select('con_gender', [
+            'Female' => 'Female',
+            'Male' => 'Male'], old('con_gender'), ['class' => 'form-control']) }}
     </div>
     <div class="form-group">
         {!!Form::label('con_res_name', 'Resident Name:') !!}
-        {{ Form::select('id', $residents) }}
+        {{ Form::select('con_res_name', $residents) }}
     </div>
     <div class="form-group">
         {!! Form::submit('Update Information', ['class' => 'btn btn-primary']) !!}
