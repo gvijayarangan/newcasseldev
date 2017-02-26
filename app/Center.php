@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Center extends Model
 {
     //
+    public $timestamps = false;
     protected $fillable=[
         'cntr_name',
         'cntr_add1',
@@ -17,6 +18,8 @@ class Center extends Model
         'cntr_phone',
         'cntr_fax',
         'cntr_comments',
+
     ];
-    public $timestamps = false;
+
+  
 }

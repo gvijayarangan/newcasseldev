@@ -26,7 +26,7 @@ class CreateResidentsTable extends Migration
             $table->string('res_comment');
             $table->string('res_status');
             $table->integer('res_apt_id');
-            $table->string('res_cntr_name');
+            $table->integer('res_cntr_id');
         });
     }
 

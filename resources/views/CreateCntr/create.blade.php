@@ -1,57 +1,97 @@
-@include('common.nav')
+@include('layouts.app')
 @extends('CreateCntr')
 @section('content')
-    <h1>Create New Center</h1>
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors-> all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    {!! Form::open(['url' => 'center']) !!}
-    <div class="form-group">
-        {!! Form::label('cntr_name', '*Center Name:') !!}
-        {!! Form::text('cntr_name',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('cntr_add1', '*Address Line 1:') !!}
-        {!! Form::text('cntr_add1',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('cntr_add2', 'Address Line 2:') !!}
-        {!! Form::text('cntr_add2',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('cntr_city', '*City:') !!}
-        {!! Form::text('cntr_city',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::Label('cntr_state', '*State:') !!}
-        {!!Form::text('cntr_state',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::Label('cntr_zip', '*Zip:') !!}
-        {!!Form::text('cntr_zip',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('cntr_phone', '*Phone Number:') !!}
-        {!! Form::text('cntr_phone',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('cntr_fax', 'Fax Number:') !!}
-        {!! Form::text('cntr_fax',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('cntr_comments', 'Comments:') !!}
-        {!! Form::text('cntr_comments',null,['class'=>'form-control']) !!}
-    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center" > Create New Center</div>
+                    <div class="panel-body">
 
-    <div class="form-group">
-        {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        {!! Form::open(['url' => 'center']) !!}
+                        <div class="form-group">
+                            {!! Form::label('cntr_name', '*Center Name:',['class' => 'col-md-4 control-label']) !!}
+                            <div class="col-md-4">
+                                {!! Form::text('cntr_name',null,['class' => 'col-md-4 form-control','required' => 'required']) !!}
+                            </div>
+                        </div>
+                        </br> </br>
+                        <div class="form-group">
+                            {!! Form::label('cntr_add1', '*Center Address1:',['class' => 'col-md-4 control-label']) !!}
+                            <div class="col-md-4">
+                                {!! Form::text('cntr_add1',null,['class' => 'col-md-4 form-control','required' => 'required']) !!}
+                            </div>
+                        </div>
+                        </br> </br>
+                        <div class="form-group">
+                            {!! Form::label('cntr_add2', 'Center Address2:',['class' => 'col-md-4 control-label']) !!}
+                            <div class="col-md-4">
+                                {!! Form::text('cntr_add2',null,['class'=>'col-md-4 form-control']) !!}
+                            </div>
+                        </div>
+                        </br> </br>
+                        <div class="form-group">
+                            {!!Form::label('cntr_city', '*Center City:',['class' => 'col-md-4 control-label']) !!}
+                            <div class="col-md-4">
+                                {!! Form::text('cntr_city',null,['class'=>'col-md-4 form-control','required' => 'required']) !!}
+                            </div>
+                        </div>
+                        </br> </br>
+                            <div class="form-group">
+                                {!!Form::label('cntr_state', '*Center State:',['class' => 'col-md-4 control-label']) !!}
+                                <div class="col-md-4">
+                                    {!! Form::text('cntr_state',null,['class'=>'col-md-4 form-control','required' => 'required']) !!}
+                                </div>
+                            </div>
+                            </br> </br>
+                            <div class="form-group">
+                                {!!Form::label('cntr_zip', '*Center Zip:',['class' => 'col-md-4 control-label']) !!}
+                                <div class="col-md-4">
+                                    {!! Form::text('cntr_zip',null,['class'=>'col-md-4 form-control','required' => 'required']) !!}
+                                </div>
+                            </div>
+                            </br> </br>
+
+                            <div class="form-group">
+                                {!!Form::label('cntr_phone', 'Center Phone:',['class' => 'col-md-4 control-label']) !!}
+                                <div class="col-md-4">
+                                    {!! Form::text('cntr_phone',null,['class'=>'col-md-4 form-control']) !!}
+                                </div>
+                            </div>
+                            </br> </br>
+                        <div class="form-group">
+                            <div class="form-group">
+                                {!!Form::label('cntr_fax', 'Center Fax:',['class' => 'col-md-4 control-label']) !!}
+                                <div class="col-md-4">
+                                    {!! Form::text('cntr_fax',null,['class'=>'col-md-4 form-control']) !!}
+                                </div>
+                            </div>
+                            </br> </br>
+
+                            <div class="form-group">
+                                {!!Form::label('cntr_comments', 'Center Comments:',['class' => 'col-md-4 control-label']) !!}
+                                <div class="col-md-4">
+                                    {!! Form::text('cntr_comments',null,['class'=>'col-md-4 form-control']) !!}
+                                </div>
+                            </div>
+                            </br> </br>
+                            {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     {!! Form::close() !!}
 @stop
-

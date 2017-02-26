@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSupplysTable extends Migration
+class CreateSuppliesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSupplysTable extends Migration
      */
     public function up()
     {
-        Schema::create('supplys', function (Blueprint $table) {
+        Schema::create('Supplies', function (Blueprint $table) {
             $table->increments('id');
             $table->string('sup_name');
             $table->bigInteger('sup_unitprice');
@@ -30,6 +30,6 @@ class CreateSupplysTable extends Migration
      */
     public function down()
     {
-        Schema::drop('supplys');
+        Schema::drop('Supplies');
     }
 }

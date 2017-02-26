@@ -13,7 +13,7 @@ class Supply extends Model
         'sup_comment',
     ];
 
-    public function supplyorder() {
-        return $this->hasMany('App\supplyorder');
+    public function Supplyorder() {
+        return $this->hasMany('App\Supplyorder');
     }
 }

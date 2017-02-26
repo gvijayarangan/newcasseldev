@@ -13,7 +13,7 @@ class Apartment extends Model
         'apt_floornumber',
         'apt_number',
         'apt_comments',
-        'cntr_id',
+        'cntr_name',
     ];
 
     public function aptres() {
