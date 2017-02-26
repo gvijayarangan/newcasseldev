@@ -5,7 +5,6 @@ namespace Illuminate\Foundation\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
-use DB;
 
 trait AuthenticatesUsers
 {
@@ -127,22 +126,11 @@ trait AuthenticatesUsers
      */
     protected function sendFailedLoginResponse(Request $request)
     {
-
-        $user_email = DB::table('users')->where('email', $request->only($this->loginUsername()))->value('email');
-
-         if ($user_email != null) {
-            return redirect()->back()
-                ->withInput($request->only($this->loginUserPassword()))
-                ->withErrors([
-                     $this->loginUserPassword() => $this->getFailedPasswordMessage(),
-                ]);
-        } else {
-            return redirect()->back()
-                ->withInput($request->only($this->loginUsername(), 'remember'))
-                ->withErrors([
-                    $this->loginUsername() => $this->getFailedEmailLoginMessage(),
-                 ]);
-        }
+        return redirect()->back()
+            ->withInput($request->only($this->loginUsername(), 'remember'))
+            ->withErrors([
+                $this->loginUsername() => $this->getFailedLoginMessage(),
+            ]);
     }
 
     /**
@@ -150,25 +138,12 @@ trait AuthenticatesUsers
      *
      * @return string
      */
-    protected function getFailedPasswordMessage()
+    protected function getFailedLoginMessage()
     {
-        return Lang::has('auth.failedpassword')
-                ? Lang::get('auth.failedpassword')
-                : 'Password does not match.';
+        return Lang::has('auth.failed')
+                ? Lang::get('auth.failed')
+                : 'These credentials do not match our records.';
     }
-
-    /**
-     * Get the failed login message.
-     *
-     * @return string
-     */
-    protected function getFailedEmailLoginMessage()
-    {
-        return Lang::has('auth.failedemail')
-            ? Lang::get('auth.failedemail')
-            : 'Email Address not found in our records.';
-    }
-
 
     /**
      * Get the needed authorization credentials from the request.
@@ -221,16 +196,6 @@ trait AuthenticatesUsers
     public function loginUsername()
     {
         return property_exists($this, 'username') ? $this->username : 'email';
-    }
-
-    /**
-     * Get the login password to be used by the controller.
-     *
-     * @return string
-     */
-    public function loginUserPassword()
-    {
-        return property_exists($this, 'password') ? $this->password : 'password';
     }
 
     /**
