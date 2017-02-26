@@ -13,7 +13,7 @@ class CreateSupplyOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('supplyorders', function (Blueprint $table) {
+        Schema::create('Supplyorders', function (Blueprint $table) {
 
             $table->integer('sup_id')->unsigned();
             $table->integer('order_id')->unsigned();
@@ -21,8 +21,8 @@ class CreateSupplyOrdersTable extends Migration
             $table->bigInteger('supord_total')->unsigned();
         });
 
-        Schema::table('supplyorders', function (Blueprint $table) {
-            $table->foreign('sup_id')->references('id')->on('supplys')->onDelete('cascade');
+        Schema::table('Supplyorders', function (Blueprint $table) {
+            $table->foreign('sup_id')->references('id')->on('Supplies')->onDelete('cascade');
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
         });
     }
@@ -34,6 +34,6 @@ class CreateSupplyOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('supplyorders');
+        Schema::drop('Supplyorders');
     }
 }

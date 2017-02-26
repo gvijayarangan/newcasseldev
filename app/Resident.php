@@ -19,7 +19,7 @@ class Resident extends Model
         'res_comment',
         'res_status',
         'res_apt_id',
-        'res_cntr_name'
+        'res_cntr_id'
     ];
 
      public function aptres() {
