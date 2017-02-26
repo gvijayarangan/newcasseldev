@@ -36,6 +36,7 @@
                             <li><a href="{{ url('/tool') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Tool</a></li>
                             <li><a href="{{ url('/Supply') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Supply</a></li>
                             <li><a href="{{ url('/commonarea') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Common Area</a></li>
+                            <li><a href="{{ url('/issuetype') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Issue Type</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
