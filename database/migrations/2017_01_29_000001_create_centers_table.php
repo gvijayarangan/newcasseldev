@@ -20,9 +20,9 @@ class CreateCentersTable extends Migration
             $table->string('cntr_add2');
             $table->string('cntr_city');
             $table->string('cntr_state');
-            $table->integer('cntr_zip');
-            $table->biginteger('cntr_phone');
-            $table->integer('cntr_fax');
+            $table->string('cntr_zip');
+            $table->string('cntr_phone');
+            $table->string('cntr_fax');
             $table->String('cntr_comments');
         });
     }
