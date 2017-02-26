@@ -26,7 +26,7 @@
                                         <tr>
                                             <td class="table-text"><div><a href="{{ url('/users/'.$user->id.'/edit') }}">{{ $user->f_name }} {{  $user->m_name }} {{  $user->l_name }}</a></div></td>
                                             <td class="table-text"><div>{{ $user->email }}</div></td>
-                                            @if ($user->active)<td class="table-text"><div>Active</div></td>@else<td class="table-text"><div>InActive</div></td>@endif
+                                            @if ($user->active)<td class="table-text"><div>Active</div></td>@else<td class="table-text"><div>Inactive</div></td>@endif
                                             {{--<td>--}}
                                             {{--@if($user->id != 1) <!-- Administrator User -->--}}
                                             {{--<div class="pull-right" style="height: 25px;">--}}

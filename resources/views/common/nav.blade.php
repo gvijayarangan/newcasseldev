@@ -12,7 +12,7 @@
 
             <!-- Branding Image -->
             {{--<a class="navbar-brand" href="{{ url('/') }}">Laravel</a>--}}
-      <div class="pull-left"> <img src="/images/New_Cassel.png" style="height: 48px;"></div>
+            <div class="pull-left"> <img src="/images/New_Cassel.png" style="height: 48px;"></div>
             <a class="navbar-brand">
                 &nbsp New Cassel Work Order System
             </a>
@@ -20,44 +20,54 @@
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
-          @if (Auth::check())
-              @role('admin')
-                    <!-- Left Side Of Navbar -->
-            <ul class="nav navbar-nav">
-                <li><a href="{{ url('/home') }}">Home</a></li>
+        @if (Auth::check())
+            @role('admin')
+            <!-- Left Side Of Navbar -->
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <i class="fa fa-btn fa-fw "></i>Admin Actions<span class="caret"></span></a>
+                        <ul class="dropdown-menu multi level" role="menu">
+                            <li><a href="{{ url('/center') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Center</a></li>
+                            <li><a href="{{ url('/apartment') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Apartments</a></li>
+                            <li><a href="{{ url('/resident') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Residents</a></li>
+                            <li><a href="{{ url('/rescontact') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Resident Contact</a></li>
+                            <li><a href="{{ url('/tool') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Tool</a></li>
+                            <li><a href="{{ url('/Supply') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Supply</a></li>
+                            <li><a href="{{ url('/commonarea') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Common Area</a></li>
+                            <li><a href="{{ url('/issuetype') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Issue Type</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <i class="fa fa-btn fa-fw "></i>Work Order<span class="caret"></span></a>
+                        <ul class="dropdown-menu multi level" role="menu">
+                            <li><a href="{{ url('/workorder') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Work Order Form</a></li>
+                            <li><a href="{{ url('/workorderview') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>View Work Order's</a></li>
+                            {{--<li class="divider"></li>--}}
+                            {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn fa-fw fa-file"></i>Files</a></li>--}}
+                        </ul>
+                    </li>
+                    {{--@endrole--}}
 
-                <li><a href="{{ url('/apartment') }}">Apartments</a></li>
-                <li><a href="{{ url('/resident') }}">Residents</a></li>
+                    {{-- Menu for Users with Administration Role Only --}}
+                    {{--@role('admin')--}}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <i class="fa fa-btn fa-fw fa-cogs"></i>Administration<span class="caret"></span></a>
+                        <ul class="dropdown-menu multi level" role="menu">
+                            <li><a href="{{ url('/users') }}"><i class="fa fa-btn fa-fw fa-user"></i>Users</a></li>
+                            <li><a href="{{ url('/roles') }}"><i class="fa fa-btn fa-fw fa-users"></i>Roles</a></li>
+                            {{--<li class="divider"></li>--}}
+                            {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn fa-fw fa-file"></i>Files</a></li>--}}
+                        </ul>
+                    </li>
+                    @endrole
+                </ul>
+        @endif
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <i class="fa fa-btn fa-fw "></i>Work Order<span class="caret"></span></a>
-                    <ul class="dropdown-menu multi level" role="menu">
-                        <li><a href="{{ url('/workorder') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Work Order Form</a></li>
-                        <li><a href="{{ url('/workorderview') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>View Work Order's</a></li>
-                        {{--<li class="divider"></li>--}}
-                        {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn fa-fw fa-file"></i>Files</a></li>--}}
-                    </ul>
-                </li>
-                {{--@endrole--}}
-
-                {{-- Menu for Users with Administration Role Only --}}
-                {{--@role('admin')--}}
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <i class="fa fa-btn fa-fw fa-cogs"></i>Administration<span class="caret"></span></a>
-                    <ul class="dropdown-menu multi level" role="menu">
-                        <li><a href="{{ url('/users') }}"><i class="fa fa-btn fa-fw fa-user"></i>Users</a></li>
-                        <li><a href="{{ url('/roles') }}"><i class="fa fa-btn fa-fw fa-users"></i>Roles</a></li>
-                        {{--<li class="divider"></li>--}}
-                        {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn fa-fw fa-file"></i>Files</a></li>--}}
-                    </ul>
-                </li>
-                @endrole
-            </ul>
-            @endif
-
-            <!-- Right Side Of Navbar -->
+        <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
