@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Apartment;
 use App\Center;
 
-//adding comment for demo
+
 class ApartmentsController extends Controller
 {
 

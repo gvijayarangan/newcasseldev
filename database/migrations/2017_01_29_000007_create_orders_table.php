@@ -21,6 +21,7 @@ class CreateOrdersTable extends Migration
             $table->string('order_date_created');
             $table->string('order_priority');
             $table->string('order_status');
+            $table->bigInteger('order_total_cost');
             $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users')

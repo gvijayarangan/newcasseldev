@@ -43,6 +43,10 @@ Route::get('/resident/update/{id}', 'ResidentsController@edit');
 Route::get('/resident/update information/{id}', 'ResidentsController@update');
 Route::resource('/resident','ResidentsController');
 
+Route::get('/center/update/{id}', 'CenterController@edit');
+Route::get('/center/update information/{id}', 'CenterController@update');
+Route::resource('/center','CenterController');
+
 
 Route::resource('users', 'UsersController');
 Route::resource('roles', 'RolesController');

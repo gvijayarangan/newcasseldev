@@ -49,7 +49,9 @@
     </div>
     <div class="form-group">
         {!!Form::label('con_res_name', 'Resident Name:') !!}
-        {{ Form::select('id', $residents) }}
+        {{ Form::select('con_res_name', $residents) }}
+
+
     </div>
     <div class="form-group">
         {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}
