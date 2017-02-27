@@ -53,8 +53,6 @@
         src="http://code.jquery.com/ui/1.12.0/jquery-ui.js"
         integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="
         crossorigin="anonymous"></script>
-
-
 <script src="{{ elixir('js/all.js') }}"></script>
 
 <!-- Navigation Bar -->
@@ -64,6 +62,16 @@
 @yield('content')
 
 <style>
+    html {
+        position: relative;
+        min-height: 100%;
+    }
+
+    body {
+        /* Margin bottom by footer height */
+        margin-bottom: 60px;
+    }
+
     form {
         margin: 0px;
     }
@@ -145,17 +153,96 @@
         border-radius: 6px 0 6px 6px;
     }
 
-    .footer,
-    .push {
-        position: absolute;
-        bottom:-150px;
-        width: 100%;
-        height: 30px;
-        line-height: 30px;
-        background-color: #f5f5f5;
+    /*Styling for the Nav bar*/
+    .navbar-default .navbar-nav > li > a {
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        background-color: darkgreen;
     }
 
+    .navbar {
+        background-color: darkgreen;
+        text-align: center;
+        padding-top: 0px;
+        margin-bottom: 5px;
+        color: #FFFFFF;
+        height: 100px;
+    }
 
+    .navbar-default .navbar-brand {
+        color: #fff;
+        font-size: 40px;
+    }
+
+    nav.navbar.navbar-default.navbar-static-top {
+        background-color: darkgreen;
+    }
+
+    .dropdown-menu > li > a {
+        display: block;
+        padding: 3px 20px;
+        clear: both;
+        font-weight: 400;
+        line-height: 1.42857143;
+        color: #fff;
+        white-space: nowrap;
+        background-color: darkgreen;
+    }
+
+    /*Styling for the footer*/
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        height: 60px;
+        text-align: center;
+        background-color: darkgreen;
+    }
+
+    body > .container {
+        padding: 15px 15px 15px;
+    }
+    .container .text-muted {
+        margin: 20px 0;
+    }
+
+    .footer > .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    /*Font color for the footer*/
+    .text-muted {
+        color: #FFFFFF;
+        font-size: 15px;
+    }
+
+    /* Styling for the forms   */
+    .panel-heading {
+        font-size: 40px;
+        text-shadow: 2px 2px 0px #cccccc;
+    }
+
+    .panel-default > .panel-heading {
+        color: #333;
+        background-color: #f5f5f5;
+        border-color: #ddd;
+        text-align: center;
+    }
+
+    /*Styling for appartments*/
+    .h4 {
+        font-size: 50px;
+    }
+
+    /*Styling the appartment table*/
+    .table-responsive {
+        min-height: .01%;
+        overflow-x: auto;
+    }
 
 </style>
 
@@ -170,7 +257,12 @@
 <footer class="footer ">
 
     <div class="container">
-        <span class="text-muted">&copy; 2017 - New Cassel Work Order System.</span>
+        <span class="text-muted">
+            &copy; 2017 - New Cassel Work Order System.<br>
+            The content on the page is own by us and our lincensor.
+            Do not copy any content (including images) without our consent
+        </span>
+
     </div>
 
 </footer>

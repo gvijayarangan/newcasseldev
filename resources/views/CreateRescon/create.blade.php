@@ -1,4 +1,4 @@
-@include('common.nav')
+@include('layouts.app')
 @extends('CreateRescon')
 @section('content')
 

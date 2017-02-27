@@ -1,4 +1,4 @@
-@include('common.nav')
+@include('layouts.app')
 @extends('CreateRes')
 @section('content')
     <h1>NCRC Resident Information </h1>
