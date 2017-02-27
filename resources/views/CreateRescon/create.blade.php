@@ -48,8 +48,8 @@
             'Male' => 'Male'], old('con_gender'), ['class' => 'form-control']) }}
     </div>
     <div class="form-group">
-        {!!Form::label('res_fullname', 'Resident Name:') !!}
-        {{ Form::select('res_fullname', $residents) }}
+        {!!Form::label('con_res_fullname', 'Resident Name:') !!}
+        {{ Form::select('con_res_fullname', $residents) }}
 
 
     </div>

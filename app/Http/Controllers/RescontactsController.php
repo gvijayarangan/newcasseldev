@@ -17,8 +17,8 @@ class RescontactsController extends Controller
         $createrescons = Rescontact::all();
         foreach ($createrescons as $rescons) {
 
-            $rescons->con_res_id = Resident::findOrFail($rescons->con_res_id)->res_fname . " " .
-                Resident::findOrFail($rescons->con_res_id)->res_lname;
+            $rescons->con_res_fullname = Resident::findOrFail($rescons->con_res_fullname)->res_fname . " " .
+                Resident::findOrFail($rescons->con_res_fullname)->res_lname;
           }
         return view('CreateRescon.index',compact('createrescons'));
     }
@@ -64,7 +64,7 @@ class RescontactsController extends Controller
         $rescontact->con_email = $request->con_email;
         $rescontact->con_comment = $request->con_comment;
         $rescontact->con_gender = $request->con_gender;
-        $rescontact->con_res_id = $request->res_fullname;
+        $rescontact->con_res_fullname = $request->con_res_fullname;
       
         $rescontact->save();
 
@@ -112,7 +112,7 @@ class RescontactsController extends Controller
         $CreateRescon->con_email = $request->con_email;
         $CreateRescon->con_comment = $request->con_comment;
         $CreateRescon->con_gender = $request->con_gender;
-        $CreateRescon->con_res_id = $request->con_res_id;
+        $CreateRescon->con_res_fullname = $request->con_res_fullname;
         $CreateRescon->save();
 
         return redirect('rescontact');

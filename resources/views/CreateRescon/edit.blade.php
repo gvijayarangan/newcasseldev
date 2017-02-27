@@ -47,8 +47,8 @@
             'Male' => 'Male'], old('con_gender'), ['class' => 'form-control']) }}
     </div>
     <div class="form-group">
-        {!!Form::label('con_res_id', 'Resident Name:') !!}
-        {{ Form::select('con_res_id', $residentscon) }}
+        {!!Form::label('res_fullname', 'Resident Name:') !!}
+        {{ Form::select('res_fullname', $residentscon) }}
     </div>
     <div class="form-group">
         {!! Form::submit('Update Information', ['class' => 'btn btn-primary']) !!}

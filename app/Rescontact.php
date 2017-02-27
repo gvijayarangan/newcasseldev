@@ -17,7 +17,7 @@ class Rescontact extends Model
         'con_email',
         'con_comment',
         'con_gender',
-        'con_res_id'
+        'con_res_fullname'
     ];
 
    // public function user() {
