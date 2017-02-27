@@ -6,13 +6,14 @@ use Illuminate\Http\Request;
 use App\Apartment;
 use App\Center;
 
+//adding comment for demo1
 class ApartmentsController extends Controller
 {
 
     public function index()
     {
         $createapts = Apartment::all();
-        foreach ($createapts as $apts) {
+        foreach ($createapts as $apts) {//dd(Center::findOrFail(7)->cntr_name);
             $apts->centerName = Center::findOrFail($apts->cntr_id)->cntr_name;
         }
         return view('CreateApt.index',compact('createapts'));
@@ -82,7 +83,7 @@ class ApartmentsController extends Controller
         $CreateApt->apt_floornumber = $request->apt_floornumber;
         $CreateApt->apt_number = $request->apt_number;
         $CreateApt->apt_comments = $request->apt_comments;
-        $CreateApt->cntr_id = $request->cntr_id; 
+        $CreateApt->cntr_id = $request->cntr_id; //commented to avoid FK from Center table
         $CreateApt->save();
         return redirect('apartment');
     }

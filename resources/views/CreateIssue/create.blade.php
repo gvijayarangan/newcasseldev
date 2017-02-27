@@ -1,4 +1,4 @@
-@include('layouts.app')
+@include('common.nav')
 @extends('CreateIssue')
 @section('content')
 
@@ -18,7 +18,7 @@
         {!! Form::text('issue_typename',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('issue_comment', 'Issue Comment :') !!}
+        {!! Form::label('issue_comment', 'Issue Comments :') !!}
         {!! Form::text('issue_comment',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">

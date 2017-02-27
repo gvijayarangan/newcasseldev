@@ -1,4 +1,4 @@
-@include('layouts.app')
+@include('common.nav')
 @extends('CreateIssue')
 @section('content')
     <h1>New Cassel Issue Information </h1>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Rescontact;
 use App\Conresi;
 use App\Resident;
+use Illuminate\Support\Facades\DB;
 
 
 class RescontactsController extends Controller
@@ -14,9 +15,11 @@ class RescontactsController extends Controller
      public function index()
     {
         $createrescons = Rescontact::all();
-        foreach ($createrescons as $rescons) {//dd(Center::findOrFail(7)->cntr_name);
-            $rescons->ContactName = Resident::findOrFail($rescons->id)->res_fname; //how to concatenate m name and last name with f name?
-        }
+        foreach ($createrescons as $rescons) {
+
+            $rescons->con_res_id = Resident::findOrFail($rescons->con_res_id)->res_fname . " " .
+                Resident::findOrFail($rescons->con_res_id)->res_lname;
+          }
         return view('CreateRescon.index',compact('createrescons'));
     }
 
@@ -29,7 +32,8 @@ class RescontactsController extends Controller
     public function create()
     {
 
-        $residents = Resident::lists('res_fname', 'id');
+        $residents = Resident::select(DB::raw("CONCAT(`res_fname`, ' ',`res_lname`) as res_fname, id"))->lists('res_fname', 'id');
+
          return view('CreateRescon.create', compact('residents'));
     }
 
@@ -51,6 +55,7 @@ class RescontactsController extends Controller
             'con_gender' => 'required|string',
         ]);
         $rescontact = new Rescontact();
+ 
         $rescontact->con_fname = $request->con_fname;
         $rescontact->con_mname = $request->con_mname;
         $rescontact->con_lname = $request->con_lname;
@@ -59,7 +64,8 @@ class RescontactsController extends Controller
         $rescontact->con_email = $request->con_email;
         $rescontact->con_comment = $request->con_comment;
         $rescontact->con_gender = $request->con_gender;
-        $rescontact->con_res_name = $request->con_res_name;
+        $rescontact->con_res_id = $request->res_fullname;
+      
         $rescontact->save();
 
         return redirect('rescontact');
@@ -73,11 +79,10 @@ class RescontactsController extends Controller
      */
     public function edit($id)
     {
+        $residentscon = Resident::select(DB::raw("CONCAT(`res_fname`, ' ',`res_lname`) as res_fname, id"))->lists('res_fname', 'id');
 
-        $residents = Resident::lists('res_fname', 'id');
-        $createrescons = Rescontact::find($id);
-        //dd($createrescons);
-        return view('CreateRescon.edit',compact('residents', 'createrescons'));
+         $createrescontacts = Rescontact::find($id);
+        return view('CreateRescon.edit',compact('residentscon', 'createrescontacts'));
     }
 
     /**
@@ -88,7 +93,6 @@ class RescontactsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //dd();
         $this->validate($request, [
             'con_fname' => 'required|string',
             //  'con_mname' => 'required|string',
@@ -108,7 +112,7 @@ class RescontactsController extends Controller
         $CreateRescon->con_email = $request->con_email;
         $CreateRescon->con_comment = $request->con_comment;
         $CreateRescon->con_gender = $request->con_gender;
-        $CreateRescon->con_res_name = $request->con_res_name;
+        $CreateRescon->con_res_id = $request->con_res_id;
         $CreateRescon->save();
 
         return redirect('rescontact');
