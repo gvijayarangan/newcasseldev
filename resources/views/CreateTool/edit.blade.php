@@ -17,7 +17,7 @@
         {!! Form::text('tool_name',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('tool_comment', 'Tool Comment:') !!}
+        {!! Form::label('tool_comment', 'Tool Comments:') !!}
         {!! Form::text('tool_comment',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
