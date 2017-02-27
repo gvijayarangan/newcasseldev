@@ -1,4 +1,4 @@
-@include('common.nav')
+@include('layouts.app')
 @extends('CreateSupply')
 @section('content')
     @if (count($errors) > 0)

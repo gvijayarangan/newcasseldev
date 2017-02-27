@@ -1,4 +1,4 @@
-@include('common.nav')
+@include('layouts.app')
 @extends('CreateRes')
 @section('content')
     <h1>Create New Resident</h1>

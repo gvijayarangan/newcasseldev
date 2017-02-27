@@ -1,4 +1,4 @@
-@include('common.nav')
+@include('layouts.app')
 @extends('CreateRescon')
 @section('content')
     <h3>New Cassel Retirement Center Resident Contact Information </h3>
