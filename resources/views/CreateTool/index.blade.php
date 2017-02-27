@@ -1,4 +1,4 @@
-@include('layouts.app')
+@include('common.nav')
 @extends('CreateTool')
 @section('content')
     <h1>New Cassel Tool Information </h1>

@@ -1,4 +1,4 @@
-@include('layouts.app')
+@include('common.nav')
 @extends('CreateComarea')
 @section('content')
     <h1>Create Common Area/System</h1>

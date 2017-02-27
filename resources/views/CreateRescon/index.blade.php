@@ -1,4 +1,4 @@
-@include('layouts.app')
+@include('common.nav')
 @extends('CreateRescon')
 @section('content')
     <h1>New Cassel Resident Contact Information </h1>
@@ -42,7 +42,7 @@
                 <td>{{ $createrescon->con_email}}</td>
                 <td>{{ $createrescon->con_comment}}</td>
                 <td>{{ $createrescon->con_gender}}</td>
-                <td>{{ $createrescon->ContactName}}</td>
+                <td>{{ $createrescon->con_res_id}}</td>
                 <td><a href="{{url('rescontact',$createrescon->id)}}" class="btn btn-primary">Read</a></td>
                 <td><a href="{{url('rescontact/update', $createrescon->id)}}" class="btn btn-warning">Update</a></td>
                 <td>

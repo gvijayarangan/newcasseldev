@@ -1,4 +1,4 @@
-@include('layouts.app')
+@include('common.nav')
 @extends('CreateApt')
 @section('content')
     <h3>New Cassel Supply Information </h3>

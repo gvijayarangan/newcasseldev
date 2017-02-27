@@ -1,4 +1,4 @@
-@include('layouts.app')
+@include('common.nav')
 @extends('CreateIssue')
 @section('content')
     <h3>New Cassel Retirement Center Issue Information </h3>

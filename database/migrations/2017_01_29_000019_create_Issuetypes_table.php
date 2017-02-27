@@ -12,7 +12,7 @@ class CreateIssuetypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('issuetypes', function (Blueprint $table) {
+        Schema::create('Issuetypes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('issue_typename');
             $table->string('issue_comment');
@@ -26,6 +26,6 @@ class CreateIssuetypesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('issuetypes');
+        Schema::drop('Issuetypes');
     }
 }

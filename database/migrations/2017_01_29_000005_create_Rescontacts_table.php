@@ -24,12 +24,12 @@ class CreateResContactsTable extends Migration
             $table->string('con_comment');
             $table->string('con_gender');
             $table->string('con_res_name');
-           //$table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned();
         });
 
-//        Schema::table('rescontacts', function (Blueprint $table) {
-//            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-//        });
+        Schema::table('rescontacts', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
     }
 
     /**

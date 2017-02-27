@@ -1,4 +1,4 @@
-@include('layouts.app')
+@include('common.nav')
 @extends('CreateIssue')
 @section('content')
     @if (count($errors) > 0)
