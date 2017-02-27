@@ -1,4 +1,4 @@
-@include('common.nav')
+@include('layouts.app')
 @extends('CreateComarea')
 @section('content')
     <h1>NCRC Edit Common Area/System</h1>

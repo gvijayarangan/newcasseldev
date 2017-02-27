@@ -1,4 +1,4 @@
-@include('common.nav')
+@include('layouts.app')
 @extends('CreateTool')
 @section('content')
     @if (count($errors) > 0)
