@@ -11,24 +11,20 @@ class SupplyController extends Controller
     public function index()
     {
         $createsupply = Supply::all();
-        //dd($createsupply);
-//        foreach ($createapts as $apts) {//dd(Center::findOrFail(7)->cntr_name);
-//            $apts->centerName = Center::findOrFail($apts->cntr_id)->cntr_name;
-//
+
         return view('CreateSupply.index',compact('createsupply'));
     }
 
     public function show($id)
     {
         $supply_post = Supply::find($id);
-        //dd($supply_post);
+        
         return view('CreateSupply.show', compact('supply_post'));
     }
 
     public function create()
     {
-        //dd();
-        //$suppl = Center::lists('cntr_name', 'id');
+
         return view('CreateSupply.create');
     }
 
@@ -38,21 +34,21 @@ class SupplyController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    {//dd($request);
+    {
         $this->validate($request, [
-            //'id' => 'required|integer',
+            
             'sup_name' => 'required',
             'sup_unitprice' => 'required|integer',
             'sup_comment' => 'required',
         ]);
-        //dd($request);
+        
         $supplydata = new Supply();
         $supplydata->sup_name = $request->sup_name;
         $supplydata->sup_unitprice = $request->sup_unitprice;
         $supplydata->sup_comment = $request->sup_comment;
 
         $supplydata->save();
-       // dd($supplydata);
+       
         return redirect('Supply');
     }
 
@@ -83,7 +79,7 @@ class SupplyController extends Controller
         $this->validate($request, [
             'sup_name' => 'required',
             'sup_unitprice' => 'required',
-            //'sup_comment' => 'required|integer',
+            
         ]);
 
         $CreateSupply = Supply::find($id);

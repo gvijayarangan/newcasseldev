@@ -73,9 +73,11 @@ class RescontactsController extends Controller
      */
     public function edit($id)
     {
+
         $residents = Resident::lists('res_fname', 'id');
-        $createrescontacts = Rescontact::find($id);
-        return view('CreateRescon.edit',compact('residents', 'createrescontacts'));
+        $createrescons = Rescontact::find($id);
+        //dd($createrescons);
+        return view('CreateRescon.edit',compact('residents', 'createrescons'));
     }
 
     /**
@@ -86,6 +88,7 @@ class RescontactsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //dd();
         $this->validate($request, [
             'con_fname' => 'required|string',
             //  'con_mname' => 'required|string',
