@@ -73,13 +73,19 @@ class UsersController extends Controller
     {
         Log::info('UsersController.store - Start: ');
         $input = $request->all();
+        $this->validate($request, [
+            'f_name' => 'required|max:255',
+            'l_name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'cell' => 'required|phone|size:11',
+        ]);
         $this->populateCreateFields($input);
         $input['password'] = "";
         $input['active'] = $request['active'] == '' ? false : true;
         $input['rec_email'] = $request['rec_email'] == '' ? false : true;
         $object = User::create($input);
         $this->syncRoles($object, $request->input('rolelist'));
-        Session::flash('flash_message', 'User successfully added!');
+        Session::flash('flash_message', 'User successfully added and an email has been sent for activation!');
         Log::info('UsersController.store - End: '.$object->id.'|'.$object->name);
 
         session_start();
@@ -92,11 +98,9 @@ class UsersController extends Controller
             'name' => $request['email'],
         );
 
-
         Mail::send('emails.emailpassword', $data, function ($message) {
             $message->from('newcassel@domain.com', 'New Cassel Work Order System');
             $message->to($_SESSION['user_email'])->subject('New Account Setup');
-
         });
        return redirect()->back();
     }
@@ -115,7 +119,11 @@ class UsersController extends Controller
     {
         $object = $users;
         Log::info('UsersController.update - Start: '.$object->id.'|'.$object->name);
-//        $this->authorize($object);
+        $this->validate($request, [
+            'f_name' => 'required|max:255',
+            'l_name' => 'required|max:255',
+            'cell' => 'required|phone|size:11',
+        ]);
         $this->populateUpdateFields($request);
         //$request['active'] = $request['active'] == '' ? true : false;
 
