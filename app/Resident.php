@@ -20,6 +20,7 @@ class Resident extends Model
         'res_status',
         'res_apt_id',
         'res_cntr_id'
+
     ];
 
      public function aptres() {
@@ -28,5 +29,5 @@ class Resident extends Model
     public function conres() {
         return $this->hasMany('App\conresi');
     }
-
+   
 }

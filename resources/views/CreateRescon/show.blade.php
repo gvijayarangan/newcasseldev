@@ -1,4 +1,4 @@
-@include('layouts.app')
+@include('common.nav')
 @extends('CreateRescon')
 @section('content')
     <h3>New Cassel Retirement Center Resident Contact Information </h3>
@@ -45,7 +45,7 @@
             </tr>
             <tr>
                 <td>Resident ID:</td>
-                <td><?php echo ($post['con_res_name']); ?></td>
+                <td><?php echo ($post['res_fullname']); ?></td>
             </tr>
             </tbody>
         </table>
