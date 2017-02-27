@@ -23,7 +23,7 @@ class CreateResContactsTable extends Migration
             $table->string('con_email');
             $table->string('con_comment');
             $table->string('con_gender');
-            $table->string('con_res_id’);
+            $table->integer('con_res_id');
           
         });
 
