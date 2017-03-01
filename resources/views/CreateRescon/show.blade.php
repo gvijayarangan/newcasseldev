@@ -46,7 +46,7 @@
             </tr>
             <tr>
                 <td>Resident ID:</td>
-                <td><?php echo ($post['con_res_fullname']); ?></td>
+                <td><?php echo ($post['res_fullname']); ?></td>
             </tr>
             </tbody>
         </table>
