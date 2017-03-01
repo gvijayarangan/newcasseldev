@@ -1,6 +1,7 @@
-@include('common.nav')
+@include('layouts.app')
 @extends('CreateIssue')
 @section('content')
+    <link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
     @if (count($errors) > 0)
         <div class="alert alert-danger">
             <ul>
@@ -17,8 +18,12 @@
         {!! Form::text('issue_typename',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('issue_comment', 'Issue Comment:') !!}
-        {!! Form::text('issue_comment',null,['class'=>'form-control']) !!}
+<<<<<<< HEAD
+        {!! Form::label('issue_description', 'Issue Comments:') !!}
+=======
+        {!! Form::label('issue_description', 'Issue Description:') !!}
+>>>>>>> origin/master
+        {!! Form::text('issue_description',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
         {!! Form::submit('Update Information', ['class' => 'btn btn-primary']) !!}

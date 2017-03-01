@@ -38,15 +38,20 @@ class ResidentsController extends Controller
      * Store a newly created resource in storage.
      *
      * @return Response
+     * 
+     *
      */
     public function store(Request $request)
     {
         $this -> validate($request, [
-            'res_pccid' => 'required|integer',
+            'res_pccid' => 'required|numeric|max:4’,
             'res_fname' => 'required|string',
             'res_lname' => 'required|string',
             'res_gender' => 'required|string',
             'res_status' => 'required',
+            'res_cellphone' => 'phone|size:11',
+            'res_phone' => 'phone|size:11',
+            'res_email' => 'email|max:255'
         ]);
         $resident = new Resident();
         $resident->res_pccid = $request -> res_pccid;
@@ -60,6 +65,8 @@ class ResidentsController extends Controller
         $resident->res_pccid = $request -> res_pccid;
         $resident->res_status = $request -> res_status;
         $resident->res_comment = $request -> res_comment;
+    
+
         //Storing value using select element
         error_log('Value of apartment number - ' . $request -> apt_number);
 
@@ -71,12 +78,10 @@ class ResidentsController extends Controller
 
 
         $resident->res_cntr_id = $center_id;
-
-
         $resident -> save();
         return redirect('resident');
     }
-
+   
 
     public function edit($id)
     {
