@@ -44,7 +44,7 @@ class ResidentsController extends Controller
     public function store(Request $request)
     {
         $this -> validate($request, [
-            'res_pccid' => 'required|numeric|size:4',
+            'res_pccid' => 'required|numeric|max:4’,
             'res_fname' => 'required|string',
             'res_lname' => 'required|string',
             'res_gender' => 'required|string',
