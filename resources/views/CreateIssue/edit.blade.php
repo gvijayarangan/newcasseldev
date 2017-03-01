@@ -18,8 +18,8 @@
         {!! Form::text('issue_typename',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('issue_comment', 'Issue Comments:') !!}
-        {!! Form::text('issue_comment',null,['class'=>'form-control']) !!}
+        {!! Form::label('issue_description', 'Issue Description:') !!}
+        {!! Form::text('issue_description',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
         {!! Form::submit('Update Information', ['class' => 'btn btn-primary']) !!}
