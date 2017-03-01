@@ -17,8 +17,8 @@
                 <td><?php echo ($post['issue_typename']); ?></td>
             </tr>
             <tr>
-                <td>Issue Comments:</td>
-                <td><?php echo ($post['issue_comment']); ?></td>
+                <td>Issue Description:</td>
+                <td><?php echo ($post['issue_description']); ?></td>
             </tr>
             </tbody>
         </table>

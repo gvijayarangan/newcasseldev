@@ -38,7 +38,7 @@ class IssuetypesController extends Controller
     {
         $this -> validate($request, [
             'issue_typename' => 'required|string',
-            'issue_description' => 'required|string',
+          // 'issue_description' => 'required|string',
         ]);
         $issuetype = new Issuetype();
         $issuetype->issue_typename = $request -> issue_typename;
@@ -64,7 +64,7 @@ class IssuetypesController extends Controller
     {
         $this -> validate ($request, [
             'issue_typename' => 'required|string',
-            'issue_comment' => 'required|string',
+            'issue_description' => 'required|string',
         ]);
 
 

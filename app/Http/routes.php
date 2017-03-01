@@ -67,7 +67,6 @@ Route::resource('/issuetype','IssuetypesController');
 Route::resource('users', 'UsersController');
 Route::resource('roles', 'RolesController');
 
-
 Route::resource('/workorder', 'WorkOrderController@index');
 Route::resource('/workorderview', 'WorkOrderController@view');
 
@@ -87,7 +86,6 @@ Route::get('/getResidentName', 'WorkOrderController@getResidentName');
 Route::get('/getIssueDesc', 'WorkOrderController@getIssueDesc');
 Route::get('/getUnitPrice', 'WorkOrderController@getUnitPrice');
 Route::post('/workorder/storeData', 'WorkOrderController@storeData');
-
 
 
 Route::post('/sendemail', function () {
