@@ -1,6 +1,7 @@
-@include('common.nav')
+@include('layouts.app')
 @extends('CreateComarea')
 @section('content')
+    <link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
     <h1>Create Common Area/System</h1>
     <a href="{{url('/commonarea/create')}}" class="btn btn-success">Create Common Area/System</a>
     <hr>

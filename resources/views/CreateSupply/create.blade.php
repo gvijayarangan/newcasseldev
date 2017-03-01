@@ -1,7 +1,7 @@
-@include('common.nav')
+@include('layouts.app')
 @extends('CreateSupply')
 @section('content')
-
+    <link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
     <h1>Create Supplies </h1>
 
        @if (count($errors) > 0)

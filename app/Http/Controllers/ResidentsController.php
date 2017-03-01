@@ -44,11 +44,14 @@ class ResidentsController extends Controller
     public function store(Request $request)
     {
         $this -> validate($request, [
-            'res_pccid' => 'required|integer',
+            'res_pccid' => 'required|numeric|size:4',
             'res_fname' => 'required|string',
             'res_lname' => 'required|string',
             'res_gender' => 'required|string',
             'res_status' => 'required',
+            'res_cellphone' => 'phone|size:11',
+            'res_phone' => 'phone|size:11',
+            'res_email' => 'email|max:255'
         ]);
         $resident = new Resident();
         $resident->res_pccid = $request -> res_pccid;
