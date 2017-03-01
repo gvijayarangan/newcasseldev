@@ -29,7 +29,7 @@
             <tr>
                 <td>{{ $createissue->id}}</td>
                 <td>{{ $createissue->issue_typename}}</td>
-                <td>{{ $createissue->issue_comment}}</td>
+                <td>{{ $createissue->issue_description}}</td>
                 <td><a href="{{url('issuetype',$createissue->id)}}" class="btn btn-primary">Read</a></td>
                 <td><a href="{{url('issuetype/update', $createissue->id)}}" class="btn btn-warning">Update</a></td>
                 <td>

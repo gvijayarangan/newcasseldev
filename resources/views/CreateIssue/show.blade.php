@@ -18,7 +18,7 @@
             </tr>
             <tr>
                 <td>Issue Comments:</td>
-                <td><?php echo ($post['issue_comment']); ?></td>
+                <td><?php echo ($post['issue_description']); ?></td>
             </tr>
             </tbody>
         </table>
