@@ -17,7 +17,11 @@
                 <td><?php echo ($post['issue_typename']); ?></td>
             </tr>
             <tr>
+<<<<<<< HEAD
                 <td>Issue Comments:</td>
+=======
+                <td>Issue Description:</td>
+>>>>>>> origin/master
                 <td><?php echo ($post['issue_description']); ?></td>
             </tr>
             </tbody>

@@ -10,7 +10,7 @@
         <tr class="bg-info">
             <th>Issue ID</th>
             <th>Issue Type Name</th>
-            <th>Issue Comments</th>
+            <th>Issue Description</th>
             <th colspan="3">Actions</th>
         </tr>
         </thead>
