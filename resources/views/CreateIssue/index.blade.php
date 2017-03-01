@@ -1,6 +1,7 @@
-@include('common.nav')
+@include('layouts.app')
 @extends('CreateIssue')
 @section('content')
+    <link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
     <h1>New Cassel Issue Information </h1>
     <a href="{{url('/issuetype/create')}}" class="btn btn-success">Create Issue</a>
     <hr>

@@ -1,6 +1,7 @@
-@include('common.nav')
+@include('layouts.app')
 @extends('CreateRes')
 @section('content')
+    <link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
     <h1>Create New Resident</h1>
     @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -15,11 +16,11 @@
     {!! Form::open(['url' => 'resident']) !!}
     <div class="form-group">
         {!! Form::label('res_pccid', '*PCCID:') !!}
-        {!! Form::text('res_pccid',null,['class'=>'form-control']) !!}
+        {!! Form::number('res_pccid',null,['class'=>'form-control','required' => 'required']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('res_fname', '*First Name:') !!}
-        {!! Form::text('res_fname',null,['class'=>'form-control']) !!}
+        {!! Form::text('res_fname',null,['class'=>'form-control','required' => 'required']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('res_mname', 'Middle Name:') !!}
@@ -27,7 +28,7 @@
     </div>
     <div class="form-group">
         {!! Form::label('res_lname', '*Last Name:') !!}
-        {!! Form::text('res_lname',null,['class'=>'form-control']) !!}
+        {!! Form::text('res_lname',null,['class'=>'form-control','required' => 'required']) !!}
     </div>
 
     <div class="form-group">
@@ -56,12 +57,12 @@
     <div class="form-group">
         {!! Form::Label('res_status', '*Status') !!}
         {!! Form::select('res_status', [
-                    'Inactive' => 'Inactive',
-                    'Active' => 'Active'], old('res_status'), ['class' => 'form-control']) !!}
+                    'Active' => 'Active',
+                    'Inactive' => 'Inactive'], old('res_status'), ['class' => 'form-control']) !!}
     </div>
     <div class="form-group">
         {!!Form::label('apt_number', 'Apartment Number:',['class' => 'col-md-4 control-label']) !!}
-        {{ Form::select('apt_number', $apartments) }}
+        {{ Form::select('apt_number', $apartments), ['required' => 'required'] }}
     </div>
     </br> </br>
 

@@ -1,6 +1,7 @@
 @include('layouts.app')
 @extends('CreateCntr')
 @section('content')
+    <link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
     <h3>New Cassel Retirement Center Information </h3>
 
     <div class="container">

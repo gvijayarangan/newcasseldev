@@ -1,6 +1,7 @@
-@include('common.nav')
+@include('layouts.app')
 @extends('CreateRescon')
 @section('content')
+    <link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
     <h1>New Cassel Resident Contact Information </h1>
     <a href="{{url('/rescontact/create')}}" class="btn btn-success">Create Rescontact</a>
     <hr>
