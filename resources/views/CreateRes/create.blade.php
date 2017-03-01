@@ -1,6 +1,7 @@
-@include('common.nav')
+@include('layouts.app')
 @extends('CreateRes')
 @section('content')
+    <link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
     <h1>Create New Resident</h1>
     @if (count($errors) > 0)
         <div class="alert alert-danger">

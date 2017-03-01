@@ -1,6 +1,7 @@
-@include('common.nav')
+@include('layouts.app')
 @extends('CreateTool')
 @section('content')
+    <link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
     <h1>New Cassel Tool Information </h1>
     <a href="{{url('/tool/create')}}" class="btn btn-success">Create Tool</a>
     <hr>

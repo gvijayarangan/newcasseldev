@@ -1,6 +1,7 @@
-@include('common.nav')
+@include('layouts.app')
 @extends('CreateTool')
 @section('content')
+    <link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
     <h3>New Cassel Retirement Center Tool Information </h3>
 
     <div class="container">
