@@ -38,11 +38,11 @@ class IssuetypesController extends Controller
     {
         $this -> validate($request, [
             'issue_typename' => 'required|string',
-            'issue_comment' => 'required|string',
+            'issue_description' => 'required|string',
         ]);
         $issuetype = new Issuetype();
         $issuetype->issue_typename = $request -> issue_typename;
-        $issuetype->issue_comment = $request -> issue_comment;
+        $issuetype->issue_description = $request -> issue_description;
         $issuetype -> save();
 
         return redirect('issuetype');
@@ -70,7 +70,7 @@ class IssuetypesController extends Controller
 
         $issue = Issuetype::find($id);
         $issue->issue_typename = $request -> issue_typename;
-        $issue->issue_comment = $request -> issue_comment;
+        $issue->issue_description = $request -> issue_description;
         $issue -> save();
         return redirect('issuetype');
     }

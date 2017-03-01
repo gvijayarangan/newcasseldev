@@ -64,7 +64,7 @@ class RescontactsController extends Controller
         $rescontact->con_email = $request->con_email;
         $rescontact->con_comment = $request->con_comment;
         $rescontact->con_gender = $request->con_gender;
-        $rescontact->con_res_fullname = $request->con_res_fullname;
+        $rescontact->con_res_id = $request->con_res_fullname;
       
         $rescontact->save();
 

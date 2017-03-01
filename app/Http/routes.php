@@ -67,6 +67,7 @@ Route::resource('/issuetype','IssuetypesController');
 Route::resource('users', 'UsersController');
 Route::resource('roles', 'RolesController');
 
+
 Route::resource('/workorder', 'WorkOrderController@index');
 Route::resource('/workorderview', 'WorkOrderController@view');
 
@@ -79,6 +80,14 @@ Route::get('/reset', 'Auth\AuthController@showPasswordEmailPage');
 Route::get('/createPassword/{id}', 'Auth\PasswordController@showUserPasswordChange');
 
 Route::post('/createNewPassword', 'Auth\PasswordController@createNewPassword');
+
+Route::get('/getAptDetails', 'WorkOrderController@getAptDetails');
+Route::get('/getComAreaDetails', 'WorkOrderController@getComAreaDetails');
+Route::get('/getResidentName', 'WorkOrderController@getResidentName');
+Route::get('/getIssueDesc', 'WorkOrderController@getIssueDesc');
+Route::get('/getUnitPrice', 'WorkOrderController@getUnitPrice');
+Route::post('/workorder/storeData', 'WorkOrderController@storeData');
+
 
 
 Route::post('/sendemail', function () {
