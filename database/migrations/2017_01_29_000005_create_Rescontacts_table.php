@@ -39,4 +39,5 @@ class CreateResContactsTable extends Migration
     {
         Schema::drop('rescontacts');
     }
+
 }

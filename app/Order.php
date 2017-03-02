@@ -41,4 +41,8 @@ class Order extends Model
     public function apartment() {
         return $this->belongsTo('App\apartment');
     }
+ public function getOrderId()
+    {
+        return $this->id;
+    }
 }
