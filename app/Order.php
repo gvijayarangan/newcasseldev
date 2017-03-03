@@ -15,7 +15,10 @@ class Order extends Model
         'order_date_created',
         'order_priority',
         'order_status',
-        'order_total_cost'
+        'issue_type',
+        'order_total_cost',
+        'resident_comment',
+        'last_status_modified'
     ];
 
     public function orcomment() {
@@ -41,7 +44,8 @@ class Order extends Model
     public function apartment() {
         return $this->belongsTo('App\apartment');
     }
- public function getOrderId()
+
+    public function getOrderId()
     {
         return $this->id;
     }
