@@ -56,15 +56,15 @@
 
                         <li><a href="{{ url('/apartment') }}"><i class="fa fa-building" aria-hidden="true"></i>&nbsp; Apartment</a></li>
 
-                        <li><a href="{{ url('/resident') }}"><i class="fa fa-building" aria-hidden="true"></i>&nbsp; Resident</a></li>
+                        <li><a href="{{ url('/resident') }}"><i class="fa fa-street-view" aria-hidden="true"></i>&nbsp; Resident</a></li>
 
                         <li><a href="{{ url('/rescontact') }}"><i class="fa fa-phone-square" aria-hidden="true"></i>&nbsp; Resident Contact</a></li>
 
                         <li><a href="{{ url('/tool') }}"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp; Tool</a></li>
 
-                        <li><a href="{{ url('/Supply') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp; Supply</a></li>
+                        <li><a href="{{ url('/Supply') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp; Supply</a></li>
 
-                        <li><a href="{{ url('/commonarea') }}"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp; Common Area</a></li>
+                        <li><a href="{{ url('/commonarea') }}"><span><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp; Common Area/<br>&nbsp;&nbsp;&nbsp;&nbsp; System Name</span></a></li>
 
                         <li><a href="{{ url('/issuetype') }}"><i class="fa fa-sliders" aria-hidden="true"></i>&nbsp; Issue Type</a></li>
                     </ul>
