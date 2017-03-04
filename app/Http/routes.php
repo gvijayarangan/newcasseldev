@@ -80,6 +80,13 @@ Route::get('/createPassword/{id}', 'Auth\PasswordController@showUserPasswordChan
 
 Route::post('/createNewPassword', 'Auth\PasswordController@createNewPassword');
 
+Route::get('/getAptDetails', 'WorkOrderController@getAptDetails');
+Route::get('/getComAreaDetails', 'WorkOrderController@getComAreaDetails');
+Route::get('/getResidentName', 'WorkOrderController@getResidentName');
+Route::get('/getIssueDesc', 'WorkOrderController@getIssueDesc');
+Route::get('/getUnitPrice', 'WorkOrderController@getUnitPrice');
+Route::post('/workorder/storeData', 'WorkOrderController@storeData');
+
 
 Route::post('/sendemail', function () {
 

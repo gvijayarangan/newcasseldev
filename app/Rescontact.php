@@ -20,9 +20,9 @@ class Rescontact extends Model
         'con_res_id'
     ];
 
-   // public function user() {
+    // public function user() {
     //    return $this->belongsTo('App\user');
-   // }
+    // }
 
     public function conres() {
         return $this->hasMany('App\conresi');

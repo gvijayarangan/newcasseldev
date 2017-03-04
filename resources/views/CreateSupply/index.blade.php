@@ -1,7 +1,7 @@
-@include('common.nav')
+@include('layouts.app')
 @extends('CreateSupply')
 @section('content')
-
+    <link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
     <h1>New Cassel Supplies information page </h1>
     <a href="{{url('/Supply/create')}}" class="btn btn-success">Create Supply</a>
     <hr>

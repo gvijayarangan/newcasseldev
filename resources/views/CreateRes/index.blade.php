@@ -1,6 +1,7 @@
 @include('layouts.app')
 @extends('CreateRes')
 @section('content')
+    <link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
     <h1>Resident</h1>
     <a href="{{url('/resident/create')}}" class="btn btn-success">Create Resident</a>
     <hr>

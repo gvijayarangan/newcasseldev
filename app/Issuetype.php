@@ -9,7 +9,7 @@ class Issuetype extends Model
     public $timestamps = false;
     protected $fillable=[
         'issue_typename',
-        'issue_comment',
+        'issue_description',
     ];
 
     public function Issuetype() {
