@@ -108,6 +108,15 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => array(
+        'f_name' => 'First Name',
+        'l_name' => 'Last Name',
+        'email' => 'Email id',
+        'cell' => 'Mobile phone number',
+        'requester' => 'Requestor name',
+        'resident_comments' => 'Comments',
+        'status' => 'Status',
+
+    )
 
 ];

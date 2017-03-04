@@ -135,9 +135,8 @@ class WorkOrderController extends Controller
 
     public function storeData(Request $request)
     {
-        // Validation depends on type of the user
 
-        /*       //Admin validation
+        // Validation depends on type of the user
                $this -> validate($request, [
                    'requester' => 'required|string',
                    'cntr_name' => 'required|string',
@@ -146,9 +145,7 @@ class WorkOrderController extends Controller
                    'resident_comments' => 'required|string',
                    'status' => 'required|string',
 
-               ]);*/
-
-
+               ]);
         error_log("Request is " . $request);
 
         //Save all orders
