@@ -1,6 +1,8 @@
 @include('layouts.app')
 @extends('WorkOrder')
+<link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
 @section('content')
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
