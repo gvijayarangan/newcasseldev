@@ -25,7 +25,6 @@
           integrity="sha256-e2JbBawr7mQaQ8GkrYHPfjB0RKyqiP8A0s8R54VnU0A=" crossorigin="anonymous"/>
     <link rel="stylesheet" href="../../../resources/assets/css/app.css">
 
-
     <!-- Styles -->
     @yield('styles')
 

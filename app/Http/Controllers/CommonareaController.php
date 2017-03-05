@@ -13,6 +13,10 @@ class CommonareaController extends Controller
     public function index()
     {
         $createcomarea = Comarea::all();
+        foreach ($createcomarea as $ca) {
+            $ca -> cntr_id = Center::findOrFail($ca -> cntr_id)->cntr_name;
+        }
+
         return view('CreateComarea.index',compact('createcomarea'));
     }
     public function show($id)
@@ -23,8 +27,9 @@ class CommonareaController extends Controller
 
     public function create()
     {
+        $centers = Center::lists('cntr_name', 'id')->all();
 
-        return view('CreateComarea.create');
+        return view('CreateComarea.create', compact('centers'));
     }
     /**
      * Store a newly created resource in storage.
@@ -34,7 +39,8 @@ class CommonareaController extends Controller
     public function store(Request $request)
     {
         $this -> validate($request, [
-            'ca_name' => 'required|string',
+            'ca_name' => 'required|string|Max:50',
+            'ca_comments' => 'required|string:Max:255',
 
         ]);
         $comareas = new Comarea();
@@ -50,9 +56,10 @@ class CommonareaController extends Controller
 
     public function edit($id)
     {
+        $centers = Center::lists('cntr_name', 'id')->all();
         $comareas=Comarea::find($id);
 
-        return view('CreateComarea.edit',compact('comareas'));
+        return view('CreateComarea.edit',compact('comareas','centers'));
     }
 
     /**
@@ -64,7 +71,7 @@ class CommonareaController extends Controller
     public function update(Request $request, $id)
     {
         $this -> validate($request, [
-            'ca_name' => 'required|string',
+            'ca_name' => 'required|string|Max:50',
         ]);
 
 

@@ -10,12 +10,17 @@ class Order extends Model
     protected $fillable=[
         'user_id',
         'apt_id',
+        'cntr_id',
         'ca_id',
         'order_description',
         'order_date_created',
         'order_priority',
         'order_status',
-        'order_total_cost'
+        'issue_type',
+        'order_total_cost',
+        'resident_comment',
+        'last_status_modified',
+        'requestor_name'
     ];
 
     public function orcomment() {
@@ -41,7 +46,8 @@ class Order extends Model
     public function apartment() {
         return $this->belongsTo('App\apartment');
     }
- public function getOrderId()
+
+    public function getOrderId()
     {
         return $this->id;
     }

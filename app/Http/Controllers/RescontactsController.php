@@ -32,7 +32,7 @@ class RescontactsController extends Controller
     public function create()
     {
 
-        $residents = Resident::select(DB::raw("CONCAT(`res_fname`, ' ',`res_lname`) as res_fname, id"))->lists('res_fname', 'id');
+        $residents = Resident::select(DB::raw("CONCAT(res_fname, ' ',res_lname) as res_fname, id"))->lists('res_fname', 'id');
 
          return view('CreateRescon.create', compact('residents'));
     }
@@ -45,13 +45,11 @@ class RescontactsController extends Controller
     public function store(Request $request)
     {//dd($request);
         $this->validate($request, [
-            'con_fname' => 'required|string',
-          //  'con_mname' => 'required|string',
-            'con_lname' => 'required|string',
-            'con_relationship' => 'required|string',
-            'con_cellphone' => 'required|integer',
-            'con_email' => 'required|string',
-          //  'con_comment' => 'required|string',
+            'con_fname' => 'required|alpha|Max:50',
+            'con_lname' => 'required|alpha|Max:50',
+            'con_relationship' => 'required|string|Max:50',
+            'con_cellphone' => 'required|integer|digits:10',
+            'con_email' => 'required|string|Max:30',
             'con_gender' => 'required|string',
         ]);
         $rescontact = new Rescontact();
@@ -62,7 +60,7 @@ class RescontactsController extends Controller
         $rescontact->con_relationship = $request->con_relationship;
         $rescontact->con_cellphone = $request->con_cellphone;
         $rescontact->con_email = $request->con_email;
-        $rescontact->con_comment = $request->con_comment;
+       $rescontact->con_comment = $request->con_comment;
         $rescontact->con_gender = $request->con_gender;
         $rescontact->con_res_id = $request->res_fullname;
       
@@ -79,7 +77,7 @@ class RescontactsController extends Controller
      */
     public function edit($id)
     {
-        $residentscon = Resident::select(DB::raw("CONCAT(`res_fname`, ' ',`res_lname`) as res_fname, id"))->lists('res_fname', 'id');
+        $residentscon = Resident::select(DB::raw("CONCAT(res_fname, ' ',res_lname) as res_fname, id"))->lists('res_fname', 'id');
 
          $createrescontacts = Rescontact::find($id);
         return view('CreateRescon.edit',compact('residentscon', 'createrescontacts'));
@@ -94,13 +92,11 @@ class RescontactsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'con_fname' => 'required|string',
-            //  'con_mname' => 'required|string',
-            'con_lname' => 'required|string',
-            'con_relationship' => 'required|string',
-            'con_cellphone' => 'required|integer',
-            'con_email' => 'required|string',
-            //'con_comment' => 'required|string',
+            'con_fname' => 'required|alpha|Max:50',
+            'con_lname' => 'required|alpha|Max:50',
+            'con_relationship' => 'required|string|Max:50',
+            'con_cellphone' => 'required|integer|digits:10',
+            'con_email' => 'required|string|Max:30',
             'con_gender' => 'required|string',
         ]);
         $CreateRescon = Rescontact::find($id);
