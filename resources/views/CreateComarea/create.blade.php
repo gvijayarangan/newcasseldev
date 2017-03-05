@@ -38,17 +38,16 @@
                                 <div class="form-group">
                                     {!! Form::label('ca_comments', '*Comments:',['class' => 'col-md-4 control-label']) !!}
                                     <div class="col-md-4">
-                                        {!! Form::textarea('ca_comments',null,['class' => 'col-md-4 form-control','required' => 'required','rows' => 4, 'cols' => 60]) !!}
+                                        {!! Form::textarea('ca_comments',null,['class' => 'col-md-4 form-control','required' => 'required']) !!}
                                     </div>
                                     </br> </br>
 
-                                    <div class="form-group" style="text-align: center; padding-top: 100px">
-                                        {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}
-
-                                    </div>
-
-                                         {!! Form::close() !!}
-
+                                {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    {!! Form::close() !!}
             </div>
         </div>
     </div>

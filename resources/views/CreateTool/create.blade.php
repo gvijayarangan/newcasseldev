@@ -30,14 +30,11 @@
                         <div class="form-group">
                             {!! Form::label('tool_comment', 'Tool Description:',['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-4">
-                                {!! Form::textarea('tool_comment',null,['class'=>'col-md-4 form-control','rows' => 4, 'cols' => 60]) !!}
+                                {!! Form::textarea('tool_comment',null,['class'=>'col-md-4 form-control']) !!}
                             </div>
                         </div>
-                            <div class="form-group" style="text-align: center; padding-top: 100px">
-                                {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}
-
-                            </div>
-                                 {!! Form::close() !!}
+                        </br> </br>
+                        {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}
                     </div>
 
                 </div>
@@ -45,5 +42,5 @@
         </div>
     </div>
     </div>
-
+    {!! Form::close() !!}
 @stop

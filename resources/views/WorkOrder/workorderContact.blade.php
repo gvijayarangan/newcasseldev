@@ -89,18 +89,18 @@
                         </div.panel-heading>
 
                         </br> </br>
+                     </div>
+
+
+                    </div>
+                    <div class="form-group" style="text-align: center">
+                        {{ Form::submit('Save', array('class' => 'btn btn-success')) }}
+                        {!! Form::button('Reset', ['type' => 'reset', 'class' => 'btn btn-default']) !!}
                     </div>
 
-
                 </div>
-                <div class="form-group" style="text-align: center">
-                    {{ Form::submit('Save', array('class' => 'btn btn-success')) }}
-                    {!! Form::button('Reset', ['type' => 'reset', 'class' => 'btn btn-default']) !!}
-                </div>
-
             </div>
         </div>
-    </div>
 
     </div>
 
@@ -207,7 +207,7 @@
                                 .attr("value", 0)
                                 .text("Resident not occupied"));
                         $('#residentname_dropdown').val(0).change();
-                    }
+                      }
                 });
             } else {
                 //Empty resident information

@@ -84,7 +84,7 @@
                                 <div class="form-group">
                                 {!!Form::label('cntr_comments', 'Center Comments:',['class' => 'col-md-4 control-label']) !!}
                                 <div class="col-md-4">
-                                    {!! Form::textarea('cntr_comments',null,['class'=>'col-md-4 form-control', 'rows' => 4, 'cols' => 60]) !!}
+                                    {!! Form::textarea('cntr_comments',null,['class'=>'col-md-4 form-control','rows' => 4, 'cols' => 60]) !!}
                                 </div>
                             </div>
                             </div>

@@ -17,7 +17,6 @@
             </ul>
         </div>
     @endif
-
     {!! Form::model($issue, ['method' => 'PATCH','route'=>['issuetype.update', $issue->id]]) !!}
     <div class="form-group">
         {!! Form::label('issue_typename', 'Issue Type Name:') !!}

@@ -47,28 +47,27 @@
                         </div>
                         </br> </br>
                         <div class="form-group">
-                            {!!Form::label('con_cellphone', 'Cellphone:',['class' => 'col-md-4 control-label']) !!}
+                            {!!Form::label('con_cellphone', '*Cellphone:',['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-4">
-                                {!! Form::text('con_cellphone',null,['class'=>'col-md-4 form-control']) !!}
+                                {!! Form::text('con_cellphone',null,['class'=>'col-md-4 form-control','required' => 'required']) !!}
                             </div>
                         </div>
                         </br> </br>
                         <div class="form-group">
-                            {!!Form::label('con_email', 'Email:',['class' => 'col-md-4 control-label']) !!}
+                            {!!Form::label('con_email', '*Email:',['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-4">
-                                {!! Form::text('con_email',null,['class'=>'col-md-4 form-control']) !!}
+                                {!! Form::text('con_email',null,['class'=>'col-md-4 form-control','required' => 'required']) !!}
                             </div>
                         </div>
+                        </br> </br>
 
-<<<<<<< HEAD
-=======
+
                         <div class="form-group">
                             {!!Form::label('con_comment', 'Comment:',['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-4">
                                 {!! Form::textarea('con_comment',null,['class'=>'col-md-4 form-control', 'rows'=>'1']) !!}
                             </div>
                         </div>
->>>>>>> master
                         </br> </br>
 
 
@@ -88,24 +87,10 @@
                                     {{ Form::select('res_fullname', $residents) }}
                                 </div>
                             </div>
-                            </br> </br>
-
-
-                            <div class="form-group">
-                                {!!Form::label('con_comment', 'Comment:',['class' => 'col-md-4 control-label']) !!}
-                                <div class="col-md-4">
-                                    {!! Form::textarea('con_comment',null,['class'=>'col-md-4 form-control','rows' => 4, 'cols' => 60]) !!}
-                                </div>
-                            </div>
 
                             </br> </br>
-                            <div class="form-group" style="text-align: center; padding-top: 100px">
-                                {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}
+                            {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}
 
-<<<<<<< HEAD
-                            </div>
-=======
->>>>>>> master
                             {!! Form::close() !!}
                     </div>
                 </div>
