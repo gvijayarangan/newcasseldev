@@ -1,14 +1,7 @@
 @extends('layouts.app')
 
-<head xmlns="http://www.w3.org/1999/html">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-</head>
   @section('content') 
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -34,28 +27,52 @@
                             {!! Form::text('res_pccid',null,['class'=>'form-control','required' => 'required']) !!}
                         </div>
                     </div>
+<<<<<<< HEAD
                     </br> </br>
+=======
+
+                    </br> </br>
+
+>>>>>>> master
                     <div class="form-group">
                         {!! Form::label('res_fname', '*First Name:',['class' => 'col-md-4 control-label']) !!}
                         <div class="col-md-4">
                             {!! Form::text('res_fname',null,['class'=>'form-control','required' => 'required']) !!}
                         </div>
                     </div>
+<<<<<<< HEAD
                     </br> </br>
+=======
+
+                    </br> </br>
+
+>>>>>>> master
                     <div class="form-group">
                         {!! Form::label('res_mname', 'Middle Name:',['class' => 'col-md-4 control-label']) !!}
                         <div class="col-md-4">
                             {!! Form::text('res_mname',null,['class'=>'form-control']) !!}
                         </div>
                     </div>
+<<<<<<< HEAD
                     </br> </br>
+=======
+
+                    </br> </br>
+
+>>>>>>> master
                     <div class="form-group">
                         {!! Form::label('res_lname', '*Last Name:',['class' => 'col-md-4 control-label']) !!}
                         <div class="col-md-4">
                             {!! Form::text('res_lname',null,['class'=>'form-control','required' => 'required']) !!}
                         </div>
                     </div>
+<<<<<<< HEAD
                     </br> </br>
+=======
+
+                    </br> </br>
+
+>>>>>>> master
                     <div class="form-group">
                         {!! Form::Label('res_gender', '*Gender:',['class' => 'col-md-4 control-label']) !!}
                         <div class="col-md-4">
@@ -64,6 +81,10 @@
                                 'Male' => 'Male'], old('res_gender'), ['class' => 'form-control']) }}
                         </div>
                     </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
                     </br> </br>
                     <div class="form-group">
                         {!! Form::label('res_Homephone', 'Home Phone:',['class' => 'col-md-4 control-label']) !!}
@@ -71,14 +92,26 @@
                             {!! Form::text('res_Homephone',null,['class'=>'form-control']) !!}
                         </div>
                     </div>
+<<<<<<< HEAD
                     </br> </br>
+=======
+
+                    </br> </br>
+
+>>>>>>> master
                     <div class="form-group">
                         {!! Form::label('res_cellphone', 'Cellphone:',['class' => 'col-md-4 control-label']) !!}
                         <div class="col-md-4">
                             {!! Form::text('res_cellphone',null,['class'=>'form-control']) !!}
                         </div>
                     </div>
+<<<<<<< HEAD
                     </br> </br>
+=======
+
+                    </br> </br>
+
+>>>>>>> master
                     <div class="form-group">
                         {!! Form::label('res_email', 'Email:',['class' => 'col-md-4 control-label']) !!}
                         <div class="col-md-4">
@@ -87,6 +120,19 @@
                     </div>
 
                     </br> </br>
+<<<<<<< HEAD
+=======
+
+                    <div class="form-group">
+                        {!! Form::label('res_comment', 'Comment:',['class' => 'col-md-4 control-label']) !!}
+                        <div class="col-md-4">
+                            {!! Form::textarea('res_comment',null,['class'=>'col-md-4 form-control', 'rows'=>'1']) !!}
+                        </div>
+                    </div>
+
+                    </br> </br>
+
+>>>>>>> master
                     <div class="form-group">
                         {!! Form::Label('res_status', '*Status:',['class' => 'col-md-4 control-label']) !!}
                         <div class="col-md-4">
@@ -95,15 +141,34 @@
                                         'Active' => 'Active'], old('res_status'), ['class' => 'form-control']) !!}
                         </div>
                     </div>
+<<<<<<< HEAD
                     </br></br>
                     <div class="form-group">
                           {!! Form::label('cntr_name', 'Center Name:', ['class' => 'col-md-4 control-label']) !!} 
 
                         <div class="col-md-6">
                              
+=======
+
+                    <br><br>
+
+                    <div class="form-group">
+                          {!! Form::label('cntr_name', 'Center Name:', ['class' => 'col-md-4 control-label']) !!} 
+                        <div class="col-md-6"> 
+>>>>>>> master
                             {{ Form::select('cntr_name', array_merge([0 => 'Please Select']) + $centers, 'default',
                                array('id' => 'center_drop', 'class' => 'col-md-4')) }}
+                        </div> 
+                    </div>
+                     
+
+                    <div class="form-group">
+                           {!! Form::label('apt_number', 'Apartment Number:', ['class' => 'col-md-4 control-label']) !!}
+                        <div class="col-md-6">
+                            {{ Form::select('apt_number', array_merge([0 => 'Please Select']), 'default',
+                                array('id' => 'apartment_drop', 'class' => 'col-md-4')) }} 
                         </div>
+<<<<<<< HEAD
                          
                     </div>
                       
@@ -125,63 +190,71 @@
                         </div>
 
                     <div class="form-group" style="text-align: center; padding-top: 100px">
-                        {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}
-
+=======
                     </div>
+
+                    <div class="form-group" style="text-align: center">
+>>>>>>> master
+                        {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}
+                    </div>
+<<<<<<< HEAD
                          {!! Form::close() !!}
+=======
+
+                      {!! Form::close() !!}
+>>>>>>> master
                 </div>
-                 
             </div>
-             
         </div>
-          
     </div>
 </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 @endsection
 
-@section('footer')
 
-    <script>
+<script>
 
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
-        $(document).ready(function ($) {
+    $(document).ready(function ($) {
 
-        });
+    });
 
-        $('#center_drop').change(function () {
+    $('#center_drop').change(function () {
 
-            // var selectedCenterIndex;
-            data = {option: $(this).val()};
+        // var selectedCenterIndex;
+        data = {option: $(this).val()};
 
-            console.log("Data drop down is !!" + data);
+        console.log("Data drop down is !!" + data);
 
-            selectedCenterIndex = data;
-            //Apartment fetch
-            $.get("/getAptDetailRes", data, function (data) {
+        selectedCenterIndex = data;
+        //Apartment fetch
+        $.get("/getAptDetailRes", data, function (data) {
 
-                console.log(data);
-                var apartment_data = $('#apartment_drop');
-                $("#apartment_drop").empty();
+            console.log(data);
+            var apartment_data = $('#apartment_drop');
+            $("#apartment_drop").empty();
 
+            apartment_data.append($("<option></option>")
+                .attr("value", 0)
+                .text("Please Select"));
+
+            $.each(data, function (key, value) {
                 apartment_data.append($("<option></option>")
-                        .attr("value", 0)
-                        .text("Please Select"));
-
-                $.each(data, function (key, value) {
-                    apartment_data.append($("<option></option>")
-                            .attr("value", key)
-                            .text(value));
-                });
-                $('#apartment_drop').val(0).change();
+                    .attr("value", key)
+                    .text(value));
             });
+            $('#apartment_drop').val(0).change();
         });
-    </script>
+    });
+</script>
 
-@endsection
+
 

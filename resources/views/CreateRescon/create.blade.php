@@ -60,6 +60,15 @@
                             </div>
                         </div>
 
+<<<<<<< HEAD
+=======
+                        <div class="form-group">
+                            {!!Form::label('con_comment', 'Comment:',['class' => 'col-md-4 control-label']) !!}
+                            <div class="col-md-4">
+                                {!! Form::textarea('con_comment',null,['class'=>'col-md-4 form-control', 'rows'=>'1']) !!}
+                            </div>
+                        </div>
+>>>>>>> master
                         </br> </br>
 
 
@@ -93,7 +102,10 @@
                             <div class="form-group" style="text-align: center; padding-top: 100px">
                                 {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}
 
+<<<<<<< HEAD
                             </div>
+=======
+>>>>>>> master
                             {!! Form::close() !!}
                     </div>
                 </div>

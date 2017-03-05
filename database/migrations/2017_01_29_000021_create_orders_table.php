@@ -16,14 +16,18 @@ class CreateOrdersTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->increments('id');
             $table->integer('resident_id');
-            $table->integer('apt_id')->nullable();
+            $table->integer('apt_id')->unsigned()->nullable();
             $table->integer('cntr_id');
-            $table->integer('ca_id')->nullable();
+            $table->integer('ca_id')->unsigned()->nullable();
             $table->string('order_description')->nullable();
             $table->string('order_date_created')->default('2017-03-01');
             $table->string('order_priority')->nullable();
             $table->string('order_status')->nullable();
+<<<<<<< HEAD:database/migrations/2017_01_29_000007_create_orders_table.php
             $table->bigInteger('order_total_cost')->nullable();
+=======
+            $table->float('order_total_cost', 6,2)->default(0.00);
+>>>>>>> master:database/migrations/2017_01_29_000021_create_orders_table.php
             $table->timestamps('deleted_at');
             $table->string('resident_comment')->nullable();
             $table->string('last_status_modified')->default('2017-03-01');
