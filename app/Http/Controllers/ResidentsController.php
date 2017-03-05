@@ -4,6 +4,7 @@ use App\Apartment;
 use Illuminate\Http\Request;
 use App\Resident;
 use App\Center;
+use DB;
 
 //use App\AppServiceProvider;
 //use App\Illuminate\Support\Facades\Validator;
@@ -24,15 +25,17 @@ class ResidentsController extends Controller
     }
     public function show($id)
     {
+        $centers = Center::lists('cntr_name', 'id')->all();
         $post = Resident::find($id);
-        return view('CreateRes.show', compact('post'));
+        return view('CreateRes.show', compact('post','centers'));
     }
 
     public function create()
     {
-        $apartments = Apartment::lists('apt_number', 'id');
+        $centers = Center::lists('cntr_name', 'id')->all();
+        //$apartments = Apartment::lists('apt_number', 'id')->all();
 
-        return view('CreateRes.create', compact('apartments'));
+        return view('CreateRes.create', compact('centers'));
     }
     /**
      * Store a newly created resource in storage.
@@ -44,13 +47,13 @@ class ResidentsController extends Controller
     public function store(Request $request)
     {
         $this -> validate($request, [
-            'res_pccid' => 'required|numeric|digits:4',
-            'res_fname' => 'required|string',
-            'res_lname' => 'required|string',
-            'res_gender' => 'required|string',
+            'res_pccid' => 'required|integer|digits:4',
+            'res_fname' => 'required|alpha',
+            'res_lname' => 'required|alpha',
+            'res_gender' => 'required',
             'res_status' => 'required',
-            'res_cellphone' => 'phone|size:11',
-            'res_phone' => 'phone|size:11',
+            'res_cellphone' =>'integer|digits:10',
+            'res_Homephone' =>'integer|digits:10',
             'res_email' => 'email|max:255'
         ]);
         $resident = new Resident();
@@ -73,11 +76,12 @@ class ResidentsController extends Controller
         $resident->res_apt_id = $request -> apt_number;
 
         //Fetch center id using apartment id
-        $center_id = Apartment::findOrFail($resident->res_apt_id)->cntr_id;
-        error_log('Value of center ID for apartment - ' . $resident->res_apt_id . ' is -  ' . $center_id);
+       /* $center_id = Apartment::findOrFail($resident->res_apt_id)->cntr_id;
+        error_log('Value of center ID for apartment - ' . $resident->res_apt_id . ' is -  ' . $center_id);*/
 
-
-        $resident->res_cntr_id = $center_id;
+//
+//        $resident->res_cntr_id = $center_id;
+        $resident->res_cntr_id = $request -> cntr_name;
         $resident -> save();
         return redirect('resident');
     }
@@ -85,10 +89,18 @@ class ResidentsController extends Controller
 
     public function edit($id)
     {
+        error_log("Id passed edit - " . $id);
+
         $resident=Resident::find($id);
-        $apartments = Apartment::lists('apt_number', 'id');
-        //dd($resident);
-        return view('CreateRes.edit',compact('resident','apartments'));
+        $centers = Center::lists('cntr_name', 'id')->all();
+        $apartments_id = DB::table('residents')->where('id', $id )->value('res_apt_id');
+        $centers_id = DB::table('apartments')->where('id', $apartments_id)->value('cntr_id');
+        $apartments = Apartment::select(DB::raw("apt_number, id"))->where('cntr_id', '=' , $centers_id )
+            ->lists('apt_number', 'id')->all();
+
+        //print_r("apartment number - " .$apartments);
+        //print_r("center number - " .$centers);
+        return view('CreateRes.edit',compact('resident','centers','apartments_id','centers_id','apartments'));
     }
 
     /**
@@ -99,11 +111,15 @@ class ResidentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this -> validate ($request, [
-            'res_pccid' => 'required|integer',
-            'res_fname' => 'required|string',
-            'res_lname' => 'required|string',
+                $this -> validate ($request, [
+            'res_pccid' => 'required|integer|digits:4',
+            'res_fname' => 'required|alpha',
+            'res_lname' => 'required|alpha',
+            'res_gender' => 'required',
             'res_status' => 'required',
+            'res_cellphone' =>'integer|digits:10',
+            'res_Homephone' =>'integer|digits:10',
+            'res_email' => 'email|max:255',
         ]);
 
         $resident = Resident::find($id);
@@ -118,14 +134,12 @@ class ResidentsController extends Controller
         $resident->res_status = $request->res_status;
         $resident->res_comment = $request->res_comment;
 
-        $resident->res_apt_id = $request -> res_apt_id;
-
-        //Fetch center id using apartment id
-        $center_id = Apartment::findOrFail($resident->res_apt_id)->cntr_id;
-        error_log('Value of center ID for apartment - ' . $resident->res_apt_id . ' is -  ' . $center_id);
+        $resident->res_apt_id = $request -> apt_number;
 
 
-        $resident->res_cntr_id = $center_id;
+//
+//        $resident->res_cntr_id = $center_id;
+        $resident->cntr_name = $request -> cntr_name;
         $resident->save();
         return redirect('resident');
     }
@@ -135,6 +149,15 @@ class ResidentsController extends Controller
     {
         Resident::find($id)->delete();
         return redirect('resident');
+    }
+
+    public function getAptDet(Request $request) {
+        $input = $request -> input('option');
+        $apartment_data = Apartment::
+        select(DB::raw("apt_number, id"))->where('cntr_id', '=' , $input )
+            ->lists('apt_number', 'id')->all();
+
+        return $apartment_data;
     }
 
 }
