@@ -39,7 +39,8 @@ class CommonareaController extends Controller
     public function store(Request $request)
     {
         $this -> validate($request, [
-            'ca_name' => 'required|string',
+            'ca_name' => 'required|string|Max:50',
+            'ca_comments' => 'required|string:Max:255',
 
         ]);
         $comareas = new Comarea();
@@ -70,7 +71,7 @@ class CommonareaController extends Controller
     public function update(Request $request, $id)
     {
         $this -> validate($request, [
-            'ca_name' => 'required|string',
+            'ca_name' => 'required|string|Max:50',
         ]);
 
 
