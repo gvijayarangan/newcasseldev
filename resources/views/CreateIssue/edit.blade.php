@@ -18,11 +18,15 @@
         {!! Form::text('issue_typename',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
+<<<<<<< HEAD
 
         {!! Form::label('issue_description', 'Issue Comments:') !!}
 
         {!! Form::label('issue_description', 'Issue Description:') !!}
 
+=======
+        {!! Form::label('issue_description', 'Issue Description:') !!}
+>>>>>>> master
         {!! Form::text('issue_description',null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">

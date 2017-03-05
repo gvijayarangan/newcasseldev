@@ -30,8 +30,11 @@
 
                         <div class="form-group">
 
+<<<<<<< HEAD
                             {!! Form::label('issue_description', 'Issue Comments:',['class' => 'col-md-4 control-label']) !!}
 
+=======
+>>>>>>> master
                             {!! Form::label('issue_description', 'Issue Description:',['class' => 'col-md-4 control-label']) !!}
 
                             <div class="col-md-4">
