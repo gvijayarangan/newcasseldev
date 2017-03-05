@@ -112,14 +112,15 @@
                         </div>
                     </div>
 
-                        <br><br>
+                    <br><br>
 
                     <div class="form-group">
                           {!! Form::label('cntr_name', 'Center Name:', ['class' => 'col-md-4 control-label']) !!} 
                         <div class="col-md-6"> 
                             {{ Form::select('cntr_name', array_merge([0 => 'Please Select']) + $centers, 'default',
                                array('id' => 'center_drop', 'class' => 'col-md-4')) }}
-                        </div> 
+                        </div>
+                         
                     </div>
                      
 
@@ -144,46 +145,46 @@
 @endsection
 
 
-    <script>
+<script>
 
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
-        $(document).ready(function ($) {
+    $(document).ready(function ($) {
 
-        });
+    });
 
-        $('#center_drop').change(function () {
+    $('#center_drop').change(function () {
 
-            // var selectedCenterIndex;
-            data = {option: $(this).val()};
+        // var selectedCenterIndex;
+        data = {option: $(this).val()};
 
-            console.log("Data drop down is !!" + data);
+        console.log("Data drop down is !!" + data);
 
-            selectedCenterIndex = data;
-            //Apartment fetch
-            $.get("/getAptDetailRes", data, function (data) {
+        selectedCenterIndex = data;
+        //Apartment fetch
+        $.get("/getAptDetailRes", data, function (data) {
 
-                console.log(data);
-                var apartment_data = $('#apartment_drop');
-                $("#apartment_drop").empty();
+            console.log(data);
+            var apartment_data = $('#apartment_drop');
+            $("#apartment_drop").empty();
 
+            apartment_data.append($("<option></option>")
+                .attr("value", 0)
+                .text("Please Select"));
+
+            $.each(data, function (key, value) {
                 apartment_data.append($("<option></option>")
-                    .attr("value", 0)
-                    .text("Please Select"));
-
-                $.each(data, function (key, value) {
-                    apartment_data.append($("<option></option>")
-                        .attr("value", key)
-                        .text(value));
-                });
-                $('#apartment_drop').val(0).change();
+                    .attr("value", key)
+                    .text(value));
             });
+            $('#apartment_drop').val(0).change();
         });
-    </script>
+    });
+</script>
 
 
 
