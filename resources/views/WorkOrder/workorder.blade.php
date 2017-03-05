@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<<<<<<< HEAD
 <head xmlns="http://www.w3.org/1999/html">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,14 +9,17 @@
     <link rel="stylesheet" href="/resources/demos/style.css">
 </head>
 
+=======
+>>>>>>> master
 @section('content')
-    {!! Form::open(['url' => '/workorder/storeData']) !!}
 
     <div class="container">
         <div class="row">
             <div class="col-md-10">
                 <br> <br>
                 <div class="panel panel-default">
+
+                    {!! Form::open(['url' => '/workorder/storeData']) !!}
                     <div class="panel-heading"> Work Order Form</div>
 
                     <div class="panel-body" style="padding-left: 15%">
