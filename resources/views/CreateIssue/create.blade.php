@@ -29,11 +29,11 @@
                         </br> </br>
 
                         <div class="form-group">
-<<<<<<< HEAD
+
                             {!! Form::label('issue_description', 'Issue Comments:',['class' => 'col-md-4 control-label']) !!}
-=======
+
                             {!! Form::label('issue_description', 'Issue Description:',['class' => 'col-md-4 control-label']) !!}
->>>>>>> origin/master
+
                             <div class="col-md-4">
                                 {!! Form::text('issue_description',null,['class'=>'col-md-4 form-control']) !!}
                             </div>
