@@ -88,7 +88,8 @@ class WorkOrderController extends Controller
         $input = $request -> input('option');
 
         $resident_data = Resident::
-        select(DB::raw("CONCAT(`res_fname`, ' ',`res_lname`) as res_fname, id"))->where('res_apt_id', '=' , $input )
+
+        select(DB::raw("CONCAT(res_fname, ' ',res_lname) as res_fname, id"))->where('res_apt_id', '=' , $input )
             ->lists('res_fname', 'id')->all();
 
         $apartment_floor_data = Apartment::
@@ -192,7 +193,7 @@ class WorkOrderController extends Controller
                 $so = new Supplyorder();
                 $supplyName = explode('=', $sd_f_a[$i]);
                 //Fetch supply id using supplyname
-                $array_supply_id = DB::table('Supplies')->where('sup_name', $supplyName[1])->pluck('id');
+                $array_supply_id = DB::table('supplies')->where('sup_name', $supplyName[1])->pluck('id');
                 foreach ($array_supply_id as $key => $value) {
                     if ($key == 'id') {
                         $so->sup_id = $value;
