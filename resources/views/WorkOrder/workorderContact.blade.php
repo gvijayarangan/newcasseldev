@@ -69,27 +69,6 @@
 
                         </br> </br>
 
-                        {!! Form::label('status', 'Status:', ['class' => 'col-md-3 control-label']) !!}
-                        <div.panel-heading class="col-md-6">
-                            {!! Form::select('order_status', ['Please Select' => 'Please Select','Open' => 'Open','In Progress' => 'In Progress',
-                               'Wait for third party vendor' => 'Wait for third party vendor','Complete' => 'Complete', 'Close' => 'Close'],
-                              'default', array('class' => 'col-md-6')) !!}
-                        </div.panel-heading>
-
-                        </br> </br>
-
-                        {!! Form::label('priority', 'Priority:', ['class' => 'col-md-3 control-label']) !!}
-                        <div.panel-heading class="col-md-8">
-                            {!! Form::select('order_priority', ['Please Select' => 'Please Select', 'Low' => 'Low', 'Moderate' => 'Moderate', 'High' => 'High'],
-                            'default', array('class' => 'col-md-4')) !!}
-                        </div.panel-heading>
-
-
-                        </br> </br>
-
-
-
-
                         {!! Form::label('issuetype', 'Issue Type:', ['class' => 'col-md-3 control-label']) !!}
                         <div.panel-heading class="col-md-4">
                             {{ Form::select('issuetype', array_merge([0 => 'Please Select']) + $issuetypes, 'default', array('id' => 'issuetype_dropdown')) }}
@@ -110,102 +89,9 @@
                         </div.panel-heading>
 
                         </br> </br>
-
-                        {!! Form::label('assigntype', 'Assign To:', ['class' => 'col-md-3 control-label']) !!}
-                        <div.panel-heading class="col-md-6">
-                            {{ Form::select('assign_user_id', array_merge([0 => 'Please Select']) + $workers, 'default',
-                             array('id' => 'assigntype_dropdown','class' => 'col-md-4')) }}
-                        </div.panel-heading>
-
-                        </br> </br>
+                     </div>
 
 
-                        {!! Form::label('toolsused', 'Tools used:', ['class' => 'col-md-3 control-label']) !!}
-                        <div.panel-heading style="padding-left: 15px">
-                            {{ Form::select('toolsused_id[]', $toolsdata,
-                              'default', array('id' => 'tools_data', 'multiple'=>'multiple', 'style' =>'width:75%')) }}
-                        </div.panel-heading>
-
-                        </br> </br>
-
-                        {!! Form::label('supervisor_comments', 'Comments:' ,['class' => 'col-md-3 control-label']) !!}
-                        <div.panel-heading class="col-md-6">
-                            {!! Form::text('supervisor_comments',null,['class'=>'form-control'], array('id' => 'supervisor_comments','class' => 'col-md-6')) !!}
-                        </div.panel-heading>
-                        </br> </br>
-                    </div>
-
-                    <div class="row">
-                        <!-- panel preview -->
-                        <div class="col-sm-4" style="padding-left: 100px">
-                            <h4 class="text-info" style="padding-left: 25px">Supply Information:</h4>
-                            <div class="panel panel-default">
-                                <div class="panel-body form-horizontal payment-form">
-                                    <div class="form-group">
-                                        <label for="concept" class="col-sm-3 control-label">Supply Name</label>
-                                        <div class="col-sm-8">
-                                            {{ Form::select('supply', array_merge([0 => 'Please Select']) + $suppliesdata,
-                                           'default', array('id' => 'supply_dropdown')) }}
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="amount" class="col-sm-3 control-label">Unit Price</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="unitprice" name="unitprice"
-                                                   readonly>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="description" class="col-sm-3 control-label">Unit</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="unit" name="unit" disabled>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="status" class="col-sm-3 control-label">Total</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="total" name="total" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-12 text-left">
-                                            <button id="addDetails" type="button"
-                                                    class="btn btn-default preview-add-button">
-                                                <span class="glyphicon glyphicon-plus"></span> Add
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-7">
-                            <h4 class="text-info">Supply Summary:</h4>
-                            <div class="row">
-                                <div class="col-xs-12 panel panel-default">
-                                    <div class="table-responsive">
-                                        <table id="dataSupplyTable" class="table preview-table">
-                                            <thead>
-                                            <tr>
-                                                <th>Supply Name</th>
-                                                <th>Unit</th>
-                                                <th>Unit Price</th>
-                                                <th>Total</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody></tbody>
-                                        </table>
-                                    </div>
-                                    <br><br><br><br>
-                                    {!! Form::label('totalOrderAmountLabel', 'Work Order Total Cost:' ,['class' => 'col-md-4 control-label']) !!}
-                                    <div class="col-sm-4">
-                                        {!! Form::text('order_total_cost',null, array('id' => 'totalOrderAmount', 'readonly' =>true)) !!}
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
                     </div>
                     <div class="form-group" style="text-align: center">
                         {{ Form::submit('Save', array('class' => 'btn btn-success')) }}
@@ -344,20 +230,6 @@
             });
         });
 
-        $('#supply_dropdown').change(function () {
-            data = {option: $(this).val()};
-
-
-            $.get("/getUnitPrice", data, function (data) {
-                $("#unitprice").val(data);
-            });
-            var selectedIndex = $('#supply_dropdown option:selected').val();
-            if (selectedIndex == 0) {
-                $("#unit").attr("disabled", true);
-            } else {
-                $("#unit").attr("disabled", false);
-            }
-        });
 
 
         //Commonarea condition
@@ -379,71 +251,5 @@
         });
 
 
-        $('#addDetails').click(function () {
-            if ($("#supply_dropdown option:selected").val() != 0) {
-
-                var order_data = {};
-                order_data["SupplyName"] = $("#supply_dropdown option:selected").text();
-                order_data["unit"] = $("#unit").val();
-                order_data["unitPrice"] = $("#unitprice").val();
-                order_data["total"] = $("#total").val();
-                order_data["remove-row"] = '<span class="glyphicon glyphicon-remove"></span>';
-
-                var row = $('<tr></tr>');
-                $.each(order_data, function (type, value) {
-                    $('<td name =' + type + ' class="input-' + type + '"></td>').html(value).appendTo(row);
-                });
-                $('.preview-table > tbody:last').append(row);
-
-                calculateTotalAmount();
-
-                //Clear the supply information
-                $('#total').val("");
-                $('#unit').val("");
-                $('#unitprice').val("");
-                $("#unit").attr("disabled", true);
-                $("#supply_dropdown option:eq(0)").prop("selected", true).change();
-
-
-                var tableData = $.param($('#dataSupplyTable td').map(function() {
-                    return {
-                        name: $(this).attr('name'),
-                        value: $(this).text().trim()
-                    };
-                }));
-
-                $("#supplyData").val(""+tableData+"");
-                console.log(tableData);
-            }
-        });
-
-        $('#unit').change(function () {
-            var totalAmount = $('#unit').val() * $('#unitprice').val();
-            $('#total').val(totalAmount);
-
-        });
-
-        $(document).on('click', '.input-remove-row', function () {
-            var tr = $(this).closest('tr');
-            tr.remove();
-            calculateTotalAmount();
-            var tableData = $.param($('#dataSupplyTable td').map(function() {
-                return {
-                    name: $(this).attr('name'),
-                    value: $(this).text().trim()
-                };
-            }));
-
-            $("#supplyData").val(""+tableData+"");
-            console.log(tableData);
-        });
-
-        function calculateTotalAmount() {
-            var totalSum = 0;
-            $('.input-total').each(function () {
-                totalSum += parseFloat($(this).text());
-            });
-            $("#totalOrderAmount").val(totalSum);
-        }
     </script>
 @endsection
