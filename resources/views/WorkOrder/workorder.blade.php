@@ -1,30 +1,33 @@
 @extends('layouts.app')
+<head xmlns="http://www.w3.org/1999/html">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+</head>
+
 @section('content')
+    {!! Form::open(['url' => '/workorder/storeData']) !!}
 
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
 
-                    {!! Form::open(['url' => '/workorder/storeData']) !!}
+            
+            <div class="col-md-10">
+                <br> <br>
+                <div class="panel panel-default">
                     <div class="panel-heading"> Work Order Form</div>
 
                     <div class="panel-body" style="padding-left: 15%">
                         <input type="hidden" name="_token" value="{{ Session::token() }}">
                         <input type="hidden" name="supplyData" id="supplyData" value="">
 
-                        <div class="form-group{{ $errors->has('requester') ? ' has-error' : '' }}">
-                            {!! Form::label('requester', 'Requester:', ['class' => 'col-md-3 control-label']) !!}
-                            <div.panel-heading class="col-sm-4">
-                                {!! Form::text('requester',null,['class'=>'form-control input-sm'], array('id' => 'requestername')) !!}
-                                @if ($errors->has('requester'))
-                                    <span class="help-block">
-                <strong>{{ $errors->first('requester') }}</strong>
-            </span>
-                                @endif
-                            </div.panel-heading>
-                        </div>
-
+                        {!! Form::label('requester', 'Requestor:', ['class' => 'col-md-3 control-label']) !!}
+                        <div.panel-heading class="col-sm-4">
+                            {!! Form::text('requester',null,['class'=>'form-control input-sm'], array('id' => 'requestername')) !!}
+                        </div.panel-heading>
                         </br> </br>
 
                         <div class="form-group{{ $errors->has('centername') ? ' has-error' : '' }}">
@@ -73,6 +76,14 @@
                         </div>
 
                         </br> </br>
+                        {!! Form::label('commonarea', 'Common Area/System:', ['class' => 'col-md-3 control-label']) !!}
+                        <div.panel-heading class="col-md-8">
+                            {{ Form::select('ca_id', array_merge([0 => 'Please Select']), 'default',
+                            array('id' => 'commonarea_dropdown', 'class' => 'col-md-4')) }}
+                        </div.panel-heading>
+
+
+                        </br> </br>
 
                         <div class="form-group{{ $errors->has('resident_comments') ? ' has-error' : '' }}">
                             {!! Form::label('res_comments', 'Resident Comments:' ,['class' => 'col-md-3 control-label']) !!}
@@ -88,19 +99,13 @@
 
                         </br> </br>
 
-                        <div class="form-group{{ $errors->has('order_status') ? ' has-error' : '' }}">
-                            {!! Form::label('status', 'Status:', ['class' => 'col-md-3 control-label']) !!}
-                            <div.panel-heading class="col-md-6">
-                                {!! Form::select('order_status', ['Please Select' => 'Please Select','Open' => 'Open','In Progress' => 'In Progress',
-                                   'Wait for third party vendor' => 'Wait for third party vendor','Complete' => 'Complete', 'Close' => 'Close'],
-                                  'default', array('class' => 'col-md-6')) !!}
-                                @if ($errors->has('order_status'))
-                                    <span class="help-block">
-                <strong>{{ $errors->first('order_status') }}</strong>
-            </span>
-                                @endif
-                            </div.panel-heading>
-                        </div>
+
+                        {!! Form::label('status', 'Status:', ['class' => 'col-md-3 control-label']) !!}
+                        <div.panel-heading class="col-md-6">
+                            {!! Form::select('order_status', ['Please Select' => 'Please Select','Open' => 'Open','In Progress' => 'In Progress',
+                               'Wait for third party vendor' => 'Wait for third party vendor','Complete' => 'Complete', 'Close' => 'Close'],
+                              'default', array('class' => 'col-md-6')) !!}
+                        </div.panel-heading>
 
                         </br> </br>
 
@@ -112,22 +117,6 @@
                                 @if ($errors->has('priority'))
                                     <span class="help-block">
                 <strong>{{ $errors->first('priority') }}</strong>
-            </span>
-                                @endif
-                            </div.panel-heading>
-                        </div>
-
-
-                        </br> </br>
-
-                        <div class="form-group{{ $errors->has('commonarea') ? ' has-error' : '' }}">
-                            {!! Form::label('commonarea', 'Common Area:', ['class' => 'col-md-3 control-label']) !!}
-                            <div.panel-heading class="col-md-8">
-                                {{ Form::select('ca_id', array_merge([0 => 'Please Select']), 'default',
-                                array('id' => 'commonarea_dropdown', 'class' => 'col-md-4')) }}
-                                @if ($errors->has('commonarea'))
-                                    <span class="help-block">
-                <strong>{{ $errors->first('commonarea') }}</strong>
             </span>
                                 @endif
                             </div.panel-heading>
@@ -150,17 +139,11 @@
 
                         </br> </br>
 
-                        <div class="form-group{{ $errors->has('issuedescription') ? ' has-error' : '' }}">
-                            {!! Form::label('issuedescription', 'Issue Description:', ['class' => 'col-md-3 control-label']) !!}
-                            <div.panel-heading class="col-md-2">
-                                {!! Form::text('issuedescription',null, array('id' => 'issuedescription', 'readonly' => true)) !!}
-                                @if ($errors->has('issuedescription'))
-                                    <span class="help-block">
-                <strong>{{ $errors->first('issuedescription') }}</strong>
-            </span>
-                                @endif
-                            </div.panel-heading>
-                        </div>
+
+                        {!! Form::label('issuedescription', 'Issue Description:', ['class' => 'col-md-3 control-label']) !!}
+                        <div.panel-heading class="col-md-2">
+                            {!! Form::text('issuedescription',null, array('id' => 'issuedescription', 'readonly' => true)) !!}
+                        </div.panel-heading>
 
                         </br> </br>
 
@@ -178,17 +161,12 @@
 
                         </br> </br>
 
-                        <div class="form-group{{ $errors->has('assigntype') ? ' has-error' : '' }}">
-                            {!! Form::label('assigntype', 'Assign To:', ['class' => 'col-md-3 control-label']) !!}
-                            <div.panel-heading class="col-md-6">
-                                {{ Form::select('assign_user_id', array_merge([0 => 'Please Select']) + $workers, 'default', array('id' => 'assigntype_dropdown')) }}
-                                @if ($errors->has('assigntype'))
-                                    <span class="help-block">
-                <strong>{{ $errors->first('assigntype') }}</strong>
-            </span>
-                                @endif
-                            </div.panel-heading>
-                        </div>
+
+                        {!! Form::label('assigntype', 'Assign To:', ['class' => 'col-md-3 control-label']) !!}
+                        <div.panel-heading class="col-md-6">
+                            {{ Form::select('assign_user_id', array_merge([0 => 'Please Select']) + $workers, 'default',
+                             array('id' => 'assigntype_dropdown','class' => 'col-md-4')) }}
+                        </div.panel-heading>
 
                         </br> </br>
 
@@ -207,17 +185,10 @@
 
                         </br> </br>
 
-                        <div class="form-group{{ $errors->has('supervisor_comments') ? ' has-error' : '' }}">
-                            {!! Form::label('supervisor_comments', 'Comments:' ,['class' => 'col-md-3 control-label']) !!}
-                            <div.panel-heading class="col-md-6">
-                                {!! Form::text('supervisor_comments',null,['class'=>'form-control'], array('id' => 'supervisor_comments','class' => 'col-md-6')) !!}
-                                @if ($errors->has('supervisor_comments'))
-                                    <span class="help-block">
-                <strong>{{ $errors->first('supervisor_comments') }}</strong>
-            </span>
-                                @endif
-                            </div.panel-heading>
-                        </div>
+                        {!! Form::label('supervisor_comments', 'Comments:' ,['class' => 'col-md-3 control-label']) !!}
+                        <div.panel-heading class="col-md-6">
+                            {!! Form::text('supervisor_comments',null,['class'=>'form-control'], array('id' => 'supervisor_comments','class' => 'col-md-6')) !!}
+                        </div.panel-heading>
                         </br> </br>
                     </div>
 
@@ -228,18 +199,11 @@
                             <div class="panel panel-default">
                                 <div class="panel-body form-horizontal payment-form">
 
-                                    <div class="form-group{{ $errors->has('supply') ? ' has-error' : '' }}">
-                                        <div class="form-group">
-                                            <label for="concept" class="col-sm-3 control-label">Supply Name</label>
-                                            <div class="col-sm-8">
-                                                {{ Form::select('supply', array_merge([0 => 'Please Select']) + $suppliesdata,
-                                               'default', array('id' => 'supply_dropdown')) }}
-                                                @if ($errors->has('supply'))
-                                                    <span class="help-block">
-                <strong>{{ $errors->first('supply') }}</strong>
-            </span>
-                                                @endif
-                                            </div>
+                                    <div class="form-group">
+                                        <label for="concept" class="col-sm-3 control-label">Supply Name</label>
+                                        <div class="col-sm-8">
+                                            {{ Form::select('supply', array_merge([0 => 'Please Select']) + $suppliesdata,
+                                           'default', array('id' => 'supply_dropdown')) }}
                                         </div>
                                     </div>
 
@@ -358,9 +322,7 @@
                 placeholder: "Please Select",
                 tags: true
             })
-            $("#commonarea_dropdown").attr('disabled', true);
-
-        })
+        });
 
         function validateOnSave() {
             var rc = true;
@@ -380,6 +342,8 @@
             selectedCenterIndex = data;
             //Apartment fetch
             $.get("/getAptDetails", data, function (data) {
+                console.log(data);
+
                 var apartment_data = $('#apartment_dropdown');
                 $("#apartment_dropdown").empty();
 
@@ -420,6 +384,9 @@
 
         $('#apartment_dropdown').change(function () {
             if ($("#apartment_dropdown").val() != 0) {
+                //Disable commonarea dropdown
+                $("#commonarea_dropdown").attr('disabled', true);
+
                 data = {option: $(this).val()};
                 $.get("/getResidentName", data, function (data) {
                     //Check if data is empty, then no need to store/display users, also clear any old values
@@ -435,13 +402,22 @@
                         $('#residentname_dropdown').val(Object.entries(data)[0][0]).change();
                     } else {
                         resident_data.append($("<option></option>")
-                            .attr("value", 0)
-                            .text("Resident not occupied"));
 
+                                .attr("value", 0)
+                                .text("Resident not occupied"));
                         $('#residentname_dropdown').val(0).change();
-                    }
-
+                      }
                 });
+            } else {
+                //Empty resident information
+                $("#residentname_dropdown").empty();
+                $("#residentname_dropdown").append($("<option></option>")
+                        .attr("value", 0)
+                        .text("Please Select"));
+                $('#residentname_dropdown').val(0).change();
+
+                //Disable commonarea dropdown
+                $("#commonarea_dropdown").attr('disabled', false);
             }
         });
 
@@ -536,7 +512,7 @@
             var tr = $(this).closest('tr');
             tr.remove();
             calculateTotalAmount();
-            var tableData = $.param($('#dataSupplyTable td').map(function () {
+            var tableData = $.param($('#dataSupplyTable td').map(function() {
                 return {
                     name: $(this).attr('name'),
                     value: $(this).text().trim()
