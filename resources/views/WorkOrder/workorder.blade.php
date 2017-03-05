@@ -14,13 +14,24 @@
     <div class="container">
         <div class="row">
 
-            
+
             <div class="col-md-10">
                 <br> <br>
                 <div class="panel panel-default">
                     <div class="panel-heading"> Work Order Form</div>
 
                     <div class="panel-body" style="padding-left: 15%">
+
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors-> all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <input type="hidden" name="_token" value="{{ Session::token() }}">
                         <input type="hidden" name="supplyData" id="supplyData" value="">
 
@@ -403,17 +414,17 @@
                     } else {
                         resident_data.append($("<option></option>")
 
-                                .attr("value", 0)
-                                .text("Resident not occupied"));
+                            .attr("value", 0)
+                            .text("Resident not occupied"));
                         $('#residentname_dropdown').val(0).change();
-                      }
+                    }
                 });
             } else {
                 //Empty resident information
                 $("#residentname_dropdown").empty();
                 $("#residentname_dropdown").append($("<option></option>")
-                        .attr("value", 0)
-                        .text("Please Select"));
+                    .attr("value", 0)
+                    .text("Please Select"));
                 $('#residentname_dropdown').val(0).change();
 
                 //Disable commonarea dropdown
@@ -532,3 +543,4 @@
         }
     </script>
 @endsection
+
