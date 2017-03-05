@@ -37,7 +37,7 @@
                 'Male' => 'Male'], old('res_gender'), ['class' => 'form-control']) }}
         </div>
         <div class="form-group">
-            {!! Form::label('res_Homephone', 'Home Phone:') !!}
+            {!! Form::label('res_Homephone', 'Homephone:') !!}
             {!! Form::text('res_Homephone',null,['class'=>'form-control']) !!}
         </div>
         <div class="form-group">
