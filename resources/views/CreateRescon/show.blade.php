@@ -2,16 +2,16 @@
 @extends('CreateRescon')
 @section('content')
     <link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
-    <h3>New Cassel Retirement Center Resident Contact Information </h3>
-
     <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center" > Resident Contact Information</div>
+                    <div class="panel-body">
         <table class="table table-striped table-bordered table-hover">
             <tbody>
             <tr class="bg-info">
-            <tr>
-                <td>Contact ID:</td>
-                <td><?php echo ($post['id']); ?></td>
-            </tr>
+
             <tr>
                 <td>Contact First Name:</td>
                 <td><?php echo ($post['con_fname']); ?></td>
@@ -51,5 +51,9 @@
             </tbody>
         </table>
     </div>
-
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 @stop

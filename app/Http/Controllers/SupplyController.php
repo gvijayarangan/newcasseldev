@@ -49,7 +49,7 @@ class SupplyController extends Controller
         $supplydata = new Supply();
         $supplydata->sup_name = $request->sup_name;
         $supplydata->sup_unitprice = $request->sup_unitprice;
-        $supplydata->sup_comment = $request->sup_comment;
+       $supplydata->sup_comment = $request->sup_comment;
 
         $supplydata->save();
        // dd($supplydata);
@@ -83,7 +83,7 @@ class SupplyController extends Controller
         $this->validate($request, [
             'sup_name' => 'required',
             'sup_unitprice' => 'required',
-            //'sup_comment' => 'required|integer',
+            'sup_comment' => 'required|integer',
         ]);
 
         $CreateSupply = Supply::find($id);

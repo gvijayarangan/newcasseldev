@@ -62,7 +62,7 @@ class RescontactsController extends Controller
         $rescontact->con_relationship = $request->con_relationship;
         $rescontact->con_cellphone = $request->con_cellphone;
         $rescontact->con_email = $request->con_email;
-        $rescontact->con_comment = $request->con_comment;
+       $rescontact->con_comment = $request->con_comment;
         $rescontact->con_gender = $request->con_gender;
         $rescontact->con_res_id = $request->res_fullname;
       
@@ -100,7 +100,7 @@ class RescontactsController extends Controller
             'con_relationship' => 'required|string',
             'con_cellphone' => 'required|integer',
             'con_email' => 'required|string',
-            //'con_comment' => 'required|string',
+           'con_comment' => 'required|string',
             'con_gender' => 'required|string',
         ]);
         $CreateRescon = Rescontact::find($id);
