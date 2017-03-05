@@ -143,7 +143,7 @@
 </div>
 @endsection
 
-
+@section('footer')
 <script>
 
     $.ajaxSetup({
@@ -161,13 +161,13 @@
         // var selectedCenterIndex;
         data = {option: $(this).val()};
 
-        console.log("Data drop down is !!" + data);
+//        console.log("Data drop down is !!" + data);
 
         selectedCenterIndex = data;
         //Apartment fetch
         $.get("/getAptDetailRes", data, function (data) {
 
-            console.log(data);
+      //      console.log(data);
             var apartment_data = $('#apartment_drop');
             $("#apartment_drop").empty();
 
@@ -184,6 +184,6 @@
         });
     });
 </script>
-
+@endsection
 
 
