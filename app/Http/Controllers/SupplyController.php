@@ -49,8 +49,7 @@ class SupplyController extends Controller
         $supplydata = new Supply();
         $supplydata->sup_name = $request->sup_name;
         $supplydata->sup_unitprice = $request->sup_unitprice;
-        $supplydata->sup_comment = $request->sup_comment;
-
+       $supplydata->sup_comment = $request->sup_comment;
         $supplydata->save();
        // dd($supplydata);
         return redirect('Supply');
@@ -81,6 +80,7 @@ class SupplyController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+
             'sup_name' => 'required|alpha',
             'sup_unitprice' => 'required|numeric',
             'sup_comment' => 'string',

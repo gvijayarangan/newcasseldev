@@ -55,9 +55,10 @@ class CommonareaController extends Controller
 
     public function edit($id)
     {
+        $centers = Center::lists('cntr_name', 'id')->all();
         $comareas=Comarea::find($id);
 
-        return view('CreateComarea.edit',compact('comareas'));
+        return view('CreateComarea.edit',compact('comareas','centers'));
     }
 
     /**

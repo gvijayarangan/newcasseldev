@@ -36,8 +36,8 @@
                         <li><a href="{{ url('/workorder') }}"><i class="fa fa-file-text"></i> Work
                                 Order Form</a></li>
 
-                        <li><a href="{{ url('/workorderview') }}"><i class="fa fa-files-o"></i> View
-                                Work Order's</a></li>
+                        <li><a href="{{ url('/workorderview') }}"><i class="fa fa-files-o"></i>
+                                Work Order List</a></li>
 
                     </ul>
                 </li>
