@@ -48,6 +48,14 @@
                 <td><?php echo ($post['res_email']); ?></td>
             </tr>
             <tr>
+                <td>Apartment Number:</td>
+                <td><?php echo ($aprtment_name); ?></td>
+            </tr>
+            <tr>
+                <td>Center Name:</td>
+                <td><?php echo ($cntr_name); ?></td>
+            </tr>
+            <tr>
                 <td>Comment</td>
                 <td><?php echo ($post['res_comment']); ?></td>
             </tr>
