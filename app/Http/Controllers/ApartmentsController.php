@@ -82,7 +82,7 @@ class ApartmentsController extends Controller
         $CreateApt = Apartment::find($id);
         $CreateApt->apt_floornumber = $request->apt_floornumber;
         $CreateApt->apt_number = $request->apt_number;
-        $CreateApt->apt_comments = $request->apt_comments;
+       $CreateApt->apt_comments = $request->apt_comments;
         $CreateApt->cntr_id = $request->cntr_id; //commented to avoid FK from Center table
         $CreateApt->save();
         return redirect('apartment');

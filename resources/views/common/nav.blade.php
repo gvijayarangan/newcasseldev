@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <!--<nav class="navbar navbar-default navbar-2">
+            <nav class="navbar navbar-default navbar-2">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="#">
@@ -18,31 +18,27 @@
                         <a class="navbar-brand navtext" href="#">New Cassel Center's <br>Work Order System</a>
                     </div>
                 </div>
-            </nav>-->
-                        <span class="brand-combo">
-                        <a class="navbar-brand" href="#">
-                            <img alt="Brand" src="images/New_Cassel.png" class="img-responsive img-brand">
-                        </a>
-                        <a class="navbar-brand navtext" href="#">New Cassel Center's <br>Work Order System</a>
-						</span>
-
+            </nav>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav nav-list">
+            <ul class="nav navbar-nav">
 
                 @if (Auth::check())
 
-                <li class="home"><a href="{{ url('/home') }}"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="{{ url('/home') }}"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home <span class="sr-only">(current)</span></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                       aria-expanded="false">&nbsp;&nbsp;&nbsp;
-                        <i class="fa fa-wrench"></i>&nbsp;&nbsp; Work Order&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></a>
+                       aria-expanded="false">
+                        <i class="fa fa-wrench"></i>&nbsp; Work Order<span class="caret"></span></a>
                     <ul class="dropdown-menu multi level" role="menu">
-                        <li><a href="{{ url('/workorder') }}"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp; Work Order Form</a></li>
+                        <li><a href="{{ url('/workorder') }}"><i class="fa fa-file-text"></i> Work
+                                Order Form</a></li>
 
-                        <li><a href="{{ url('/workorderview') }}"><i class="fa fa-files-o"></i>&nbsp; View Work Order</a></li>
+                        <li><a href="{{ url('/workorderview') }}"><i class="fa fa-files-o"></i>
+                                Work Order List</a></li>
+
                     </ul>
                 </li>
 
@@ -52,21 +48,29 @@
                        aria-expanded="false">
                         <i class="fa fa-pencil fa-fw"></i>&nbsp; Manage Application<span class="caret"></span></a>
                     <ul class="dropdown-menu multi level" role="menu">
-                        <li><a href="{{ url('/center') }}"><i class="fa fa-university" aria-hidden="true"></i>&nbsp; Center</a></li>
+                        <li><a href="{{ url('/center') }}"><i
+                                        class="fa fa-btn fa-fw fa-file-o"></i>Center</a></li>
 
-                        <li><a href="{{ url('/apartment') }}"><i class="fa fa-building" aria-hidden="true"></i>&nbsp; Apartment</a></li>
+                        <li><a href="{{ url('/apartment') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Apartments</a>
+                        </li>
 
-                        <li><a href="{{ url('/resident') }}"><i class="fa fa-building" aria-hidden="true"></i>&nbsp; Resident</a></li>
+                        <li><a href="{{ url('/resident') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Residents</a>
+                        </li>
 
-                        <li><a href="{{ url('/rescontact') }}"><i class="fa fa-phone-square" aria-hidden="true"></i>&nbsp; Resident Contact</a></li>
+                        <li><a href="{{ url('/rescontact') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Resident
+                                Contact</a></li>
 
-                        <li><a href="{{ url('/tool') }}"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp; Tool</a></li>
+                        <li><a href="{{ url('/tool') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Tool</a>
+                        </li>
 
-                        <li><a href="{{ url('/Supply') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp; Supply</a></li>
+                        <li><a href="{{ url('/Supply') }}"><i
+                                        class="fa fa-btn fa-fw fa-file-o"></i>Supply</a></li>
 
-                        <li><a href="{{ url('/commonarea') }}"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp; Common Area</a></li>
+                        <li><a href="{{ url('/commonarea') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Common
+                                Area</a></li>
 
-                        <li><a href="{{ url('/issuetype') }}"><i class="fa fa-sliders" aria-hidden="true"></i>&nbsp; Issue Type</a></li>
+                        <li><a href="{{ url('/issuetype') }}"><i class="fa fa-btn fa-fw fa-file-o"></i>Issue
+                                Type</a></li>
                     </ul>
                 </li>
 
@@ -83,6 +87,7 @@
                         {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn fa-fw fa-file"></i>Files</a></li>--}}
                     </ul>
                 </li>
+
                     @endrole
             </ul>
             @endif
@@ -98,7 +103,7 @@
                 @if (Auth::guest())
 
                 @else
-                    <li class="dropdown drop-log">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-expanded="false">{{ Auth::user()->getFullName() }} <span
                                     class="caret"></span></a>
