@@ -14,11 +14,11 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->integer('user_id')->unsigned();
-            $table->increments('id')->unsigned();
+            $table->increments('id');
             $table->integer('resident_id');
-            $table->integer('apt_id')->unsigned()->nullable();
+            $table->integer('apt_id')->nullable();
             $table->integer('cntr_id');
-            $table->integer('ca_id')->unsigned()->nullable();
+            $table->integer('ca_id')->nullable();
             $table->string('order_description')->nullable();
             $table->string('order_date_created')->default('2017-03-01');
             $table->string('order_priority')->nullable();
