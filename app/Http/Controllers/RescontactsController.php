@@ -26,7 +26,9 @@ class RescontactsController extends Controller
     public function show($id)
     {
         $post = Rescontact::find($id);
-        return view('CreateRescon.show', compact('post'));
+        $resident_name = Resident::findOrFail($post->con_res_id)->res_fname . " " .
+            Resident::findOrFail($post->con_res_id)->res_lname;
+         return view('CreateRescon.show', compact('post', 'resident_name'));
     }
 
     public function create()
@@ -62,7 +64,7 @@ class RescontactsController extends Controller
         $rescontact->con_relationship = $request->con_relationship;
         $rescontact->con_cellphone = $request->con_cellphone;
         $rescontact->con_email = $request->con_email;
-       $rescontact->con_comment = $request->con_comment;
+        $rescontact->con_comment = $request->con_comment;
         $rescontact->con_gender = $request->con_gender;
         $rescontact->con_res_id = $request->res_fullname;
       

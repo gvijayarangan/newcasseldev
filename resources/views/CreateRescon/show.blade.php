@@ -45,8 +45,8 @@
                 <td><?php echo ($post['con_gender']); ?></td>
             </tr>
             <tr>
-                <td>Resident ID:</td>
-                <td><?php echo ($post['res_fullname']); ?></td>
+                <td>Resident Name:</td>
+                <td><?php echo ($resident_name); ?></td>
             </tr>
             </tbody>
         </table>

@@ -23,18 +23,29 @@ class ResidentsController extends Controller
         }
         return view('CreateRes.index',compact('createres'));
     }
+
     public function show($id)
     {
+        error_log("ID value for resident " .$id);
+
+        $aprtment_name = DB::table('apartments')
+                        ->join('residents','apartments.id','=','residents.res_apt_id')
+                        ->where('residents.id', '=', $id)
+                        ->value('apt_number');
+        $cntr_name = DB::table('centers')
+                    ->join('residents','centers.id','=','residents.res_cntr_id')
+                    ->where('residents.id', '=', $id)
+                    ->value('cntr_name');
+
         $centers = Center::lists('cntr_name', 'id')->all();
         $post = Resident::find($id);
-        return view('CreateRes.show', compact('post','centers'));
+
+        return view('CreateRes.show', compact('post','centers','aprtment_name','cntr_name'));
     }
 
     public function create()
     {
         $centers = Center::lists('cntr_name', 'id')->all();
-        //$apartments = Apartment::lists('apt_number', 'id')->all();
-
         return view('CreateRes.create', compact('centers'));
     }
     /**
