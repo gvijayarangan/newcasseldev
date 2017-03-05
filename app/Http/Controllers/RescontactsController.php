@@ -26,7 +26,9 @@ class RescontactsController extends Controller
     public function show($id)
     {
         $post = Rescontact::find($id);
-        return view('CreateRescon.show', compact('post'));
+        $resident_name = Resident::findOrFail($post->con_res_id)->res_fname . " " .
+            Resident::findOrFail($post->con_res_id)->res_lname;
+         return view('CreateRescon.show', compact('post', 'resident_name'));
     }
 
     public function create()
@@ -49,7 +51,7 @@ class RescontactsController extends Controller
             'con_lname' => 'required|alpha|Max:50',
             'con_relationship' => 'required|string|Max:50',
             'con_cellphone' => 'required|integer|digits:10',
-            'con_email' => 'required|string|Max:30',
+            'con_email' => 'required|email|max:255',
             'con_gender' => 'required|string',
         ]);
         $rescontact = new Rescontact();
@@ -60,7 +62,7 @@ class RescontactsController extends Controller
         $rescontact->con_relationship = $request->con_relationship;
         $rescontact->con_cellphone = $request->con_cellphone;
         $rescontact->con_email = $request->con_email;
-       $rescontact->con_comment = $request->con_comment;
+        $rescontact->con_comment = $request->con_comment;
         $rescontact->con_gender = $request->con_gender;
         $rescontact->con_res_id = $request->res_fullname;
       
@@ -96,7 +98,7 @@ class RescontactsController extends Controller
             'con_lname' => 'required|alpha|Max:50',
             'con_relationship' => 'required|string|Max:50',
             'con_cellphone' => 'required|integer|digits:10',
-            'con_email' => 'required|string|Max:30',
+            'con_email' => 'required|email|max:255',
             'con_gender' => 'required|string',
         ]);
         $CreateRescon = Rescontact::find($id);
