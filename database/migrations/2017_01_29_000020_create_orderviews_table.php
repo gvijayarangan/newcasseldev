@@ -16,7 +16,7 @@ class CreateOrderviewsTable extends Migration
         CREATE VIEW get_order_details AS
             select orders.id AS wo_id,concat(users.f_name,' ',users.l_name) 
             AS created_by, orders.order_date_created 
-            AS created_date_time,orders.orders.requestor_name,centers.cntr_name 
+            AS created_date_time,orders.requestor_name,centers.cntr_name 
             AS center_name, apartments.apt_number 
             AS apartment_number,comareas.ca_name 
             AS common_area_name,concat(residents.res_fname,' ',residents.res_lname) 

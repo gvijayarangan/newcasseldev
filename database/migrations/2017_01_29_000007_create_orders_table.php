@@ -24,10 +24,10 @@ class CreateOrdersTable extends Migration
             $table->string('order_priority')->nullable();
             $table->string('order_status')->nullable();
             $table->bigInteger('order_total_cost')->nullable();
-            $table->timestamps('deleted_at')->nullable();
+            $table->timestamps('deleted_at');
             $table->string('resident_comment')->nullable();
-            $table->string('last_status_modified')->default('2017-03-01');;
-            $table->dateTime('last_status_modified_time')->default('2017-03-01');;
+            $table->string('last_status_modified')->default('2017-03-01');
+            $table->dateTime('last_status_modified_time')->default('2017-03-01');
             $table->integer('issue_type');
             $table->string('requestor_name')->nullable();
             $table->softDeletes();

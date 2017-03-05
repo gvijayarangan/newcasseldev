@@ -29,13 +29,13 @@ class ResidentsController extends Controller
         error_log("ID value for resident " .$id);
 
         $aprtment_name = DB::table('apartments')
-                        ->join('residents','apartments.id','=','residents.res_apt_id')
-                        ->where('residents.id', '=', $id)
-                        ->value('apt_number');
+            ->join('residents','apartments.id','=','residents.res_apt_id')
+            ->where('residents.id', '=', $id)
+            ->value('apt_number');
         $cntr_name = DB::table('centers')
-                    ->join('residents','centers.id','=','residents.res_cntr_id')
-                    ->where('residents.id', '=', $id)
-                    ->value('cntr_name');
+            ->join('residents','centers.id','=','residents.res_cntr_id')
+            ->where('residents.id', '=', $id)
+            ->value('cntr_name');
 
         $centers = Center::lists('cntr_name', 'id')->all();
         $post = Resident::find($id);
@@ -52,19 +52,19 @@ class ResidentsController extends Controller
      * Store a newly created resource in storage.
      *
      * @return Response
-     * 
+     *
      *
      */
     public function store(Request $request)
     {
         $this -> validate($request, [
-            'res_pccid' => 'required|integer|digits:4',
-            'res_fname' => 'required|alpha',
-            'res_lname' => 'required|alpha',
-            'res_gender' => 'required',
+            'res_pccid' => 'required|numeric|digits:4',
+            'res_fname' => 'required|string',
+            'res_lname' => 'required|string',
+            'res_gender' => 'required|string',
             'res_status' => 'required',
-            'res_cellphone' =>'integer|digits:10',
-            'res_Homephone' =>'integer|digits:10',
+            'res_cellphone' => 'phone|size:11',
+            'res_phone' => 'phone|size:11',
             'res_email' => 'email|max:255'
         ]);
         $resident = new Resident();
@@ -79,7 +79,7 @@ class ResidentsController extends Controller
         $resident->res_pccid = $request -> res_pccid;
         $resident->res_status = $request -> res_status;
         $resident->res_comment = $request -> res_comment;
-    
+
 
         //Storing value using select element
         error_log('Value of apartment number - ' . $request -> apt_number);
@@ -87,8 +87,8 @@ class ResidentsController extends Controller
         $resident->res_apt_id = $request -> apt_number;
 
         //Fetch center id using apartment id
-       /* $center_id = Apartment::findOrFail($resident->res_apt_id)->cntr_id;
-        error_log('Value of center ID for apartment - ' . $resident->res_apt_id . ' is -  ' . $center_id);*/
+        /* $center_id = Apartment::findOrFail($resident->res_apt_id)->cntr_id;
+         error_log('Value of center ID for apartment - ' . $resident->res_apt_id . ' is -  ' . $center_id);*/
 
 //
 //        $resident->res_cntr_id = $center_id;
@@ -96,7 +96,7 @@ class ResidentsController extends Controller
         $resident -> save();
         return redirect('resident');
     }
-   
+
 
     public function edit($id)
     {
@@ -122,15 +122,11 @@ class ResidentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-                $this -> validate ($request, [
-            'res_pccid' => 'required|integer|digits:4',
-            'res_fname' => 'required|alpha',
-            'res_lname' => 'required|alpha',
-            'res_gender' => 'required',
+        $this -> validate ($request, [
+            'res_pccid' => 'required|integer',
+            'res_fname' => 'required|string',
+            'res_lname' => 'required|string',
             'res_status' => 'required',
-            'res_cellphone' =>'integer|digits:10',
-            'res_Homephone' =>'integer|digits:10',
-            'res_email' => 'email|max:255',
         ]);
 
         $resident = Resident::find($id);

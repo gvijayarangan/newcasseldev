@@ -12,14 +12,14 @@ use Illuminate\Support\Facades\DB;
 class RescontactsController extends Controller
 {
 
-     public function index()
+    public function index()
     {
         $createrescons = Rescontact::all();
         foreach ($createrescons as $rescons) {
 
             $rescons->con_res_id = Resident::findOrFail($rescons->con_res_id)->res_fname . " " .
                 Resident::findOrFail($rescons->con_res_id)->res_lname;
-          }
+        }
         return view('CreateRescon.index',compact('createrescons'));
     }
 
@@ -28,7 +28,7 @@ class RescontactsController extends Controller
         $post = Rescontact::find($id);
         $resident_name = Resident::findOrFail($post->con_res_id)->res_fname . " " .
             Resident::findOrFail($post->con_res_id)->res_lname;
-         return view('CreateRescon.show', compact('post', 'resident_name'));
+        return view('CreateRescon.show', compact('post', 'resident_name'));
     }
 
     public function create()
@@ -36,7 +36,7 @@ class RescontactsController extends Controller
 
         $residents = Resident::select(DB::raw("CONCAT(res_fname, ' ',res_lname) as res_fname, id"))->lists('res_fname', 'id');
 
-         return view('CreateRescon.create', compact('residents'));
+        return view('CreateRescon.create', compact('residents'));
     }
 
     /**
@@ -47,15 +47,14 @@ class RescontactsController extends Controller
     public function store(Request $request)
     {//dd($request);
         $this->validate($request, [
-            'con_fname' => 'required|alpha|Max:50',
-            'con_lname' => 'required|alpha|Max:50',
-            'con_relationship' => 'required|string|Max:50',
-            'con_cellphone' => 'required|integer|digits:10',
-            'con_email' => 'required|string|Max:30',
+            'con_fname' => 'required|string',
+            'con_lname' => 'required|string',
+            'con_relationship' => 'required|string',
+
             'con_gender' => 'required|string',
         ]);
         $rescontact = new Rescontact();
- 
+
         $rescontact->con_fname = $request->con_fname;
         $rescontact->con_mname = $request->con_mname;
         $rescontact->con_lname = $request->con_lname;
@@ -65,7 +64,7 @@ class RescontactsController extends Controller
         $rescontact->con_comment = $request->con_comment;
         $rescontact->con_gender = $request->con_gender;
         $rescontact->con_res_id = $request->res_fullname;
-      
+
         $rescontact->save();
 
         return redirect('rescontact');
@@ -81,7 +80,7 @@ class RescontactsController extends Controller
     {
         $residentscon = Resident::select(DB::raw("CONCAT(res_fname, ' ',res_lname) as res_fname, id"))->lists('res_fname', 'id');
 
-         $createrescontacts = Rescontact::find($id);
+        $createrescontacts = Rescontact::find($id);
         return view('CreateRescon.edit',compact('residentscon', 'createrescontacts'));
     }
 
@@ -94,11 +93,9 @@ class RescontactsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'con_fname' => 'required|alpha|Max:50',
-            'con_lname' => 'required|alpha|Max:50',
-            'con_relationship' => 'required|string|Max:50',
-            'con_cellphone' => 'required|integer|digits:10',
-            'con_email' => 'required|string|Max:30',
+            'con_fname' => 'required|string',
+            'con_lname' => 'required|string',
+            'con_relationship' => 'required|string',
             'con_gender' => 'required|string',
         ]);
         $CreateRescon = Rescontact::find($id);
