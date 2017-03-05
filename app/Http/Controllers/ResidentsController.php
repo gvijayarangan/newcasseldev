@@ -58,13 +58,13 @@ class ResidentsController extends Controller
     public function store(Request $request)
     {
         $this -> validate($request, [
-            'res_pccid' => 'required|numeric|digits:4',
-            'res_fname' => 'required|string',
-            'res_lname' => 'required|string',
-            'res_gender' => 'required|string',
+            'res_pccid' => 'required|integer|digits:4',
+            'res_fname' => 'required|alpha',
+            'res_lname' => 'required|alpha',
+            'res_gender' => 'required',
             'res_status' => 'required',
-            'res_cellphone' => 'phone|size:11',
-            'res_phone' => 'phone|size:11',
+            'res_cellphone' =>'integer|digits:10',
+            'res_Homephone' =>'integer|digits:10',
             'res_email' => 'email|max:255'
         ]);
         $resident = new Resident();
@@ -122,11 +122,15 @@ class ResidentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this -> validate ($request, [
-            'res_pccid' => 'required|integer',
-            'res_fname' => 'required|string',
-            'res_lname' => 'required|string',
+                $this -> validate ($request, [
+            'res_pccid' => 'required|integer|digits:4',
+            'res_fname' => 'required|alpha',
+            'res_lname' => 'required|alpha',
+            'res_gender' => 'required',
             'res_status' => 'required',
+            'res_cellphone' =>'integer|digits:10',
+            'res_Homephone' =>'integer|digits:10',
+            'res_email' => 'email|max:255',
         ]);
 
         $resident = Resident::find($id);
