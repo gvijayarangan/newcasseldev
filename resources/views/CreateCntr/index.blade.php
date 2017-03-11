@@ -1,6 +1,7 @@
 @include('layouts.app')
 @extends('CreateCntr')
 @section('content')
+    <link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -32,7 +33,7 @@
                                     <th>Center Zip</th>
                                     <th>Center Phone</th>
                                     <th>Center Fax</th>
-                                    <th>Center Comments</th>
+
 
                                     <th colspan="3">Actions</th>
                                 </tr>
@@ -58,9 +59,9 @@
                                         <td>{{ $createcntr->cntr_zip}}</td>
                                         <td>{{ $createcntr->cntr_phone}}</td>
                                         <td>{{ $createcntr->cntr_fax}}</td>
-                                        <td>{{ $createcntr->cntr_comments}}</td>
-                                        <td><a href="{{url('center',$createcntr->id)}}" class="btn btn-primary">Read</a></td>
-                                        <td><a href="{{url('center/update', $createcntr->id)}}" class="btn btn-warning">Update</a></td>
+
+                                        <td><a href="{{url('center',$createcntr->id)}}" class="btn btn-primary">View</a></td>
+                                        <td><a href="{{url('center/update', $createcntr->id)}}" class="btn btn-warning">Modify</a></td>
                                         <td>
                                             {!! Form::open(['method' => 'DELETE', 'route'=>['center.destroy', $createcntr->id],'onsubmit' => 'return ConfirmDelete()']) !!}
                                             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
@@ -78,4 +79,5 @@
                 </div>
             </div>
         </div>
+    </div>
 @endsection

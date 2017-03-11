@@ -5,7 +5,9 @@ use Illuminate\Http\Request;
 
 use App\Apartment;
 use App\Center;
+use DB;
 
+//adding comment for demo1
 class ApartmentsController extends Controller
 {
 
@@ -21,6 +23,7 @@ class ApartmentsController extends Controller
     public function show($id)
     {
         $post = Apartment::find($id);
+        $post->cntr_id = DB::table('centers')->where('id', $post->cntr_id)->value('cntr_name');
         return view('CreateApt.show', compact('post'));
     }
 
@@ -38,8 +41,8 @@ class ApartmentsController extends Controller
     public function store(Request $request)
     {//dd($request);
         $this->validate($request, [
-            'apt_floornumber' => 'required|integer',
-            'apt_number' => 'required|integer',
+            'apt_floornumber' => 'required|string|digits_between:1,3 ',
+            'apt_number' => 'required|string|digits_between:1,4',
         ]);
         $apartment = new Apartment();
         $apartment->apt_floornumber = $request->apt_floornumber;
@@ -74,15 +77,15 @@ class ApartmentsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'apt_floornumber' => 'required|integer',
-            'apt_number' => 'required|integer',
+            'apt_floornumber' => 'required|string|digits:3',
+            'apt_number' => 'required|string|digits:3',
         ]);
 
         $CreateApt = Apartment::find($id);
         $CreateApt->apt_floornumber = $request->apt_floornumber;
         $CreateApt->apt_number = $request->apt_number;
         $CreateApt->apt_comments = $request->apt_comments;
-        $CreateApt->cntr_id = $request->cntr_id; 
+        $CreateApt->cntr_id = $request->cntr_id; //commented to avoid FK from Center table
         $CreateApt->save();
         return redirect('apartment');
     }

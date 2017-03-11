@@ -1,9 +1,15 @@
 @include('layouts.app')
 @extends('CreateCntr')
 @section('content')
-    <h3>New Cassel Retirement Center Information </h3>
-
+    <link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
     <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center" > Center Information</div>
+                    <div class="panel-body">
+
+
         <table class="table table-striped table-bordered table-hover">
             <tbody>
             <tr class="bg-info">
@@ -42,14 +48,20 @@
                 <td>Center Fax:</td>
                 <td><?php echo ($post['cntr_fax']); ?></td>
             </tr>
-
             <tr>
                 <td>Center Comments:</td>
                 <td><?php echo ($post['cntr_comments']); ?></td>
             </tr>
 
+
+
             </tbody>
         </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 @stop

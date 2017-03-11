@@ -13,13 +13,14 @@ class Resident extends Model
         'res_mname',
         'res_lname',
         'res_gender',
-        'res_Homephone',
+        'res_homephone',
         'res_cellphone',
         'res_email',
         'res_comment',
         'res_status',
         'res_apt_id',
         'res_cntr_id'
+
     ];
 
      public function aptres() {
@@ -28,5 +29,5 @@ class Resident extends Model
     public function conres() {
         return $this->hasMany('App\conresi');
     }
-
+   
 }

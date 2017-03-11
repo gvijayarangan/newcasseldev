@@ -1,8 +1,12 @@
-@include('layouts.app')
-@extends('CreateRes')
+@extends('layouts.app')
 @section('content')
-    <h1>NCRC Resident Information </h1>
+    <link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
     <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center" > Resident Information</div>
+                    <div class="panel-body">
         <table class="table table-striped table-bordered table-hover">
             <tbody>
             <tr class="bg-info">
@@ -32,7 +36,7 @@
             </tr>
             <tr>
                 <td>Phone</td>
-                <td><?php echo ($post['res_Homephone']); ?></td>
+                <td><?php echo ($post['res_homephone']); ?></td>
             </tr>
             <tr>
                 <td>Cellphone</td>
@@ -41,6 +45,14 @@
             <tr>
                 <td>Email</td>
                 <td><?php echo ($post['res_email']); ?></td>
+            </tr>
+            <tr>
+                <td>Apartment Number:</td>
+                <td><?php echo ($aprtment_name); ?></td>
+            </tr>
+            <tr>
+                <td>Center Name:</td>
+                <td><?php echo ($cntr_name); ?></td>
             </tr>
             <tr>
                 <td>Comment</td>
@@ -52,5 +64,9 @@
             </tr>
             </tbody>
         </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @stop

@@ -14,15 +14,15 @@ class Rescontact extends Model
         'con_lname',
         'con_relationship',
         'con_cellphone',
-        'con_email',
         'con_comment',
+        'con_email',
         'con_gender',
-        'con_res_name'
+        'con_res_id'
     ];
 
-   // public function user() {
+    // public function user() {
     //    return $this->belongsTo('App\user');
-   // }
+    // }
 
     public function conres() {
         return $this->hasMany('App\conresi');

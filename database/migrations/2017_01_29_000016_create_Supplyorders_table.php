@@ -14,11 +14,11 @@ class CreateSupplyOrdersTable extends Migration
     public function up()
     {
         Schema::create('supplyorders', function (Blueprint $table) {
-
+            $table->increments('id');
             $table->integer('sup_id')->unsigned();
             $table->integer('order_id')->unsigned();
             $table->bigInteger('supord_units')->unsigned();
-            $table->bigInteger('supord_total')->unsigned();
+            $table->float('supord_total', 8, 2)->unsigned();
         });
 
         Schema::table('supplyorders', function (Blueprint $table) {

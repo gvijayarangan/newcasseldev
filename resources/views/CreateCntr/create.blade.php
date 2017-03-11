@@ -1,6 +1,7 @@
-@include('layouts.app')
-@extends('CreateCntr')
+@extends('layouts.app')
+
 @section('content')
+    <link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -76,22 +77,30 @@
                                     {!! Form::text('cntr_fax',null,['class'=>'col-md-4 form-control']) !!}
                                 </div>
                             </div>
-                            </br> </br>
 
+                        </div>
+                            </br> </br>
                             <div class="form-group">
+                                <div class="form-group">
                                 {!!Form::label('cntr_comments', 'Center Comments:',['class' => 'col-md-4 control-label']) !!}
                                 <div class="col-md-4">
-                                    {!! Form::text('cntr_comments',null,['class'=>'col-md-4 form-control']) !!}
+                                    {!! Form::textarea('cntr_comments',null,['class'=>'col-md-4 form-control','rows' => 4, 'cols' => 60]) !!}
                                 </div>
                             </div>
-                            </br> </br>
-                            {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}
-                        </div>
+                            </div>
 
+                            </br> </br>
+
+                            <div class="form-group" style="text-align: center; padding-top: 100px">
+                                {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}
+
+                            </div>
+
+                            {!! Form::close() !!}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    {!! Form::close() !!}
+
 @stop

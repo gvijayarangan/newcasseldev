@@ -1,6 +1,12 @@
-@include('layouts.app')
-@extends('CreateApt')
+@extends('layouts.app')
 @section('content')
+    <link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center" > Update Apartment Information</div>
+                    <div class="panel-body">
     @if (count($errors) > 0)
         <div class="alert alert-danger">
             <ul>
@@ -10,7 +16,7 @@
             </ul>
         </div>
     @endif
-    <h1>Update Apartment Information</h1>
+
     {!! Form::model($createapts, ['method' => 'PATCH','route'=>['apartment.update', $createapts->id]]) !!}
     <div class="form-group">
         {!! Form::label('apt_floornumber', 'Apartment FloorNumber:') !!}
@@ -20,16 +26,21 @@
         {!! Form::label('apt_number', 'Apartment Number:') !!}
         {!! Form::text('apt_number',null,['class'=>'form-control']) !!}
     </div>
+        <div class="form-group">
+            {!! Form::label('apt_comments', 'Apartment Comments:') !!}
+            {!! Form::textarea('apt_comments',null,['class'=>'form-control']) !!}
+        </div>
     <div class="form-group">
-        {!! Form::label('apt_comments', 'Apartment Comments:') !!}
-        {!! Form::text('apt_comments',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!!Form::label('cntr_id', 'Center ID:') !!}
+        {!!Form::label('cntr_id', 'Center Name:') !!}
         {{ Form::select('cntr_id', $centers) }}
     </div>
     <div class="form-group">
         {!! Form::submit('Update Information', ['class' => 'btn btn-primary']) !!}
     </div>
     {!! Form::close() !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @stop

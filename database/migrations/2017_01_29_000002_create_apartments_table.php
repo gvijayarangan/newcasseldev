@@ -16,10 +16,10 @@ class CreateApartmentsTable extends Migration
     {
         Schema::create('apartments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('apt_floornumber');
+            $table->string('apt_floornumber');
             $table->string('apt_number');
-            $table->string('apt_comments');
-           $table->integer('cntr_id');
+            $table->string('apt_comments')->nullable();
+           $table->integer('cntr_id')->nullable();
         });
 
       /*  Schema::table('apartments', function (Blueprint $table) {

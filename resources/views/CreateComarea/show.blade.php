@@ -1,15 +1,18 @@
 @include('layouts.app')
 @extends('CreateComarea')
 @section('content')
-    <h1>NCRC Common Area/System </h1>
+    <link href="{!! asset('css/all.css') !!}" media="all" rel="stylesheet" type="text/css" />
     <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center" > Common Area Information</div>
+                    <div class="panel-body">
+
         <table class="table table-striped table-bordered table-hover">
             <tbody>
             <tr class="bg-info">
-            <tr>
-                <td>Common Area/System ID</td>
-                <td><?php echo ($post['id']); ?></td>
-            </tr>
+
             <tr>
                 <td>Common Area/System Name*</td>
                 <td><?php echo ($post['ca_name']); ?></td>
@@ -19,10 +22,14 @@
                 <td><?php echo ($post['ca_comments']); ?></td>
             </tr>
             <tr>
-                <td>Center ID</td>
+                <td>Center Name</td>
                 <td><?php echo ($post['cntr_id']); ?></td>
             </tr>
             </tbody>
         </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @stop

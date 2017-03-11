@@ -175,10 +175,13 @@
                                                 </div>
 
                                     </div>
+                            </div>
+                </div>
+        </div>
+</div>
                                     <script>
                                         $(document).ready(function($) {
                                             $("#roles-select-id").change(function () {
-
                                                 if ($('#roles-select-id :selected').text() != 'Contact') {
                                                     $("#resident-id").prop("disabled", true);
                                                     $("#resident-relationship").prop("disabled", true);
@@ -188,6 +191,4 @@
                                                 }
                                             });
                                         });
-
-
                                     </script>
